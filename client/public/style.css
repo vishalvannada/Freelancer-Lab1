@@ -1,0 +1,299 @@
+.border-red {
+    border: 1px solid #eb3730;
+}
+
+.error-message {
+    margin-top: 5px;
+    color: #eb3730;
+}
+
+body {
+    background-color: #F0F0F0;
+}
+
+.logo-header {
+    width: 390px;
+    height: 106px;
+    padding: 10px 20px;
+}
+
+.login-container {
+    width: 390px;
+    font-size: 14px;
+    margin-top: 20px !important;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;
+    box-sizing: border-box;
+    line-height: 19.6px;
+    margin-bottom: 0px;
+    margin-left: 229.5px;
+    margin-right: 229.5px;
+    margin-top: 20px;
+    max-width: 390px;
+}
+
+.logo-inside {
+    width: 322px;
+    height: 80px;
+    margin: 3px 14px !important;
+}
+
+.login-logo {
+    width: 196px;
+    height: 72px;
+    /*margin-bottom: 8px;*/
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 8px !important;
+}
+
+hr {
+    margin-top: 0px;
+}
+
+.logo-left {
+    width: 145px;
+}
+
+.logo-body{
+    padding: 20px 36px;
+}
+
+.fb-button{
+    background: linear-gradient(to bottom,#3b5998 0,#344e86 100%);
+    border: 1px solid #344e86;
+    color: #F7F7F7;
+    font-weight: 700 !important;
+    width: 100%;
+    text-shadow: 0 -1px transparent;
+    padding: 13px 22px;
+    font-size: 20px !important;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    line-height: 18px;
+    text-align: center;
+    font: inherit;
+}
+
+.hr-divider{
+    margin: 25px 0px;
+    padding: auto;
+    max-height: 19px;
+
+}
+
+.hr-text{
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+.hr-text:before{
+    content: '';
+    position: absolute;
+    background: lightgray;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+.hr-text:after{
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 .5em;
+    line-height: 1.5em;
+    background-color: white;
+}
+
+.input-login{
+    height: 46px;
+    padding: 0px 16px;
+    margin-bottom: 20px;
+}
+
+.login-button{
+    background: linear-gradient(to bottom,#139ff0 0,#0087e0 100%);
+    border: 1px solid #0087e0;
+    color: #F7F7F7;
+    font-weight: 700 !important;
+    width: 100%;
+    text-shadow: 0 -1px transparent;
+    padding: 13px 22px;
+    font-size: 20px !important;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    line-height: 18px;
+    text-align: center;
+    font: inherit;
+    margin-bottom: 20px ;
+}
+
+/*login customization done*/
+
+
+.hire-work{
+    width: 100%;
+    height: 33px;
+    margin-bottom: 20px;
+}
+
+.hire, .work{
+    width: 50%;
+    vertical-align: center;
+    display: inline-block;
+}
+
+.hire50, .work50{
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    width : 100%;
+    display: inline-block;
+    height: 33px;
+}
+
+.font-size-13{
+    font-size: 13px;
+}
+
+/*sign up customizations done*/
+
+
+.custom {
+    height: 64px;
+    background-color: #ffffff !important;
+    padding: 0px;
+}
+
+.custom-below {
+    height: 64px;
+    background-color: #161E2B !important;
+    padding: 0px;
+    max-height: 51px;
+    font-size: 14px !important;
+}
+
+.custom-below a {
+    color: white !important;
+    padding: 16px;
+    margin: 10px;
+}
+
+.custom-below button {
+    margin-left: 10px;
+    background-color: #F27F0C;
+    color: white;
+    font-size: 14px !important;
+    font-weight: bold;
+    padding: 6px 18px !important;
+}
+
+.brand {
+    margin-right: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    max-height: 64px;
+    padding: 0 12px;
+    min-height: 64px;
+    margin: 0 71.50px;
+}
+
+.search-top {
+    width: 283.42px;
+    margin-left: 12px;
+    margin-right: 12px;;
+}
+
+body {
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+#navbarSupportedContent li {
+    padding-right: 4px;
+}
+
+.dashboard {
+    padding-top: 24px !important;
+}
+
+.dashboard-profilepic {
+    width: 96px;
+    height: 96px;
+    background-image: url("https://www.buira.org/assets/images/shared/default-profile.png");
+    margin: 0px;
+}
+
+.profile-section {
+    padding-left: 12px;
+    font-size: 14px;
+}
+
+.name-section {
+    padding-left: 10px;
+    padding-top: 0px;
+}
+
+.small-font {
+    font-size: .8125rem;
+}
+
+.name-section .butt {
+    margin: 8px 0px;
+    background-color: #54AE64;
+    font-size: .8325rem;
+    padding: 6px 16px;
+}
+
+.dashboard .left {
+    background-image: url(https://cdn5.f-cdn.com/build/img/membership-bids-upsell-banner/background2.png);
+    max-height: 186px;
+}
+
+.dashboard .left .card-title, .sub {
+    color: white;
+    margin-left: 20px;
+    margin-top: 36px;
+}
+
+.dashboard .left .card-body {
+    width: 526px;
+    float: left;
+}
+
+.dashboard .left .image {
+    float: left;
+    margin-left: 25px;
+}
+
+.card-left-next {
+    margin-top: 24px;
+}
+
+.card-right-next {
+    margin-top: 24px;
+}
+
+.icons {
+    width: 25px;
+    height: 25px;
+    margin-top: 8px;
+}
