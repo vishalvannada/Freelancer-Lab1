@@ -31,6 +31,7 @@ class SignUp extends Component {
     }
 
     render() {
+        // this.props.history.push("/");
         return (
             <div className="total">
                 <div className="m-auto login-container">

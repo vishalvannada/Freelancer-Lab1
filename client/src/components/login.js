@@ -3,6 +3,9 @@ import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {loginSubmit} from "../actions";
+import LinearProgress from 'material-ui/LinearProgress';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Login extends Component {
 
@@ -24,14 +27,25 @@ class Login extends Component {
     }
 
     onSubmit(values) {
-        this.props.loginSubmit(values, () => {
-            this.props.history.push('/dashboard');
-        });
+        this.props.loginSubmit(values)
+
+
+        //     () => {
+        //     this.props.history.push('/dashboard');
+        // });
+
+        // this.props.history.push('/dashboard');
     }
 
     render() {
 
         const {handleSubmit} = this.props;
+
+        if (this.props.loginDetails.isLoggedIn === true) {
+            this.props.history.push('/dashboard');
+        }
+
+        // console.log(this.props);
 
         return (
             <div className="total">
@@ -53,6 +67,24 @@ class Login extends Component {
                         <div className="hr-divider">
                             <hr data-content="OR" className="hr-text"/>
                         </div>
+
+
+                        <div
+                            className={this.props.loginDetails.errorMsg.length > 0 ? 'alert alert-danger' : 'display-none'}
+                            role="alert">
+                            <span>
+                                {this.props.loginDetails.errorMsg}
+                            </span>
+                        </div>
+
+                        <MuiThemeProvider>
+                            {/*<LinearProgress mode="indeterminate"/>*/}
+
+                            <div className={this.props.loginDetails.isLoggingIn == true ? "m-auto loading" : 'display-none'}>
+                                <LinearProgress/>
+                            </div>
+                        </MuiThemeProvider>
+
 
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                             <Field
@@ -108,9 +140,13 @@ function validate(values) {
     return errors;
 }
 
+function mapStateToProps(state) {
+    return {loginDetails: state.login}
+}
+
 export default reduxForm({
     validate,
     form: 'LoginForm'
 })(
-    connect(null, {loginSubmit})(Login)
+    connect(mapStateToProps, {loginSubmit})(Login)
 );

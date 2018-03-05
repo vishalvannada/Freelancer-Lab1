@@ -4,14 +4,14 @@ class BodyDashboard extends Component {
     render() {
         return (
             <div className="container dashboard">
-                <div class="row">
+                <div className="row">
 
-                    <div class="col-8">
+                    <div className="col-8">
 
-                        <div class="card left">
+                        <div className="card left">
                             <div className="row">
-                            <div class="card-body-div col-md-8">
-                                <h4 class="white-text">Claim 300 bids for Free</h4>
+                            <div className="card-body-div col-md-8">
+                                <h4 className="white-text">Claim 300 bids for Free</h4>
                                 <h5 className="white-text">Get started with a FREE TRAIL for 300 bids and more!</h5>
                             </div>
                             <div className="image-card col-md-4">
@@ -22,20 +22,20 @@ class BodyDashboard extends Component {
                             </div>
                         </div>
 
-                        <div class="card card-left-next">
-                            <div class="card-body">
+                        <div className="card card-left-next">
+                            <div className="card-body">
                                 <span className="font-weight-bold">Newsfeed</span>
                                 <hr/>
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                <h5 className="card-title">Special title treatment</h5>
+                                <p className="card-text">With supporting text below as a natural lead-in to additional
                                     content.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-4 profile-section">
-                        <div class="card">
-                            <div class="card-body">
+                    <div className="col-4 profile-section">
+                        <div className="card">
+                            <div className="card-body">
                                 <div className="row">
                                     <div className="col-4">
                                         <img
@@ -49,44 +49,44 @@ class BodyDashboard extends Component {
                                         <span>
                                             <a href="#" className="small-font">Free Member</a>
                                         </span><br/>
-                                        <a href="#" class="butt btn btn-success"><strong>Upgrade now</strong></a>
+                                        <a href="#" className="butt btn btn-success"><strong>Upgrade now</strong></a>
                                     </div>
                                 </div>
 
 
-                                <p class="card-text"><strong>Set up your account</strong></p>
+                                <p className="card-text"><strong>Set up your account</strong></p>
                                 <p></p>
                                 <p></p>
                             </div>
                         </div>
 
-                        <div class="card card-right-next">
-                            <h5 class="card-header">Featured</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                        <div className="card card-right-next">
+                            <h5 className="card-header">Featured</h5>
+                            <div className="card-body">
+                                <h5 className="card-title">Special title treatment</h5>
+                                <p className="card-text">With supporting text below as a natural lead-in to additional
                                     content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
 
-                        <div class="card card-right-next">
-                            <h5 class="card-header">Featured</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                        <div className="card card-right-next">
+                            <h5 className="card-header">Featured</h5>
+                            <div className="card-body">
+                                <h5 className="card-title">Special title treatment</h5>
+                                <p className="card-text">With supporting text below as a natural lead-in to additional
                                     content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
 
-                        <div class="card card-right-next">
-                            <h5 class="card-header">Featured</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                        <div className="card card-right-next">
+                            <h5 className="card-header">Featured</h5>
+                            <div className="card-body">
+                                <h5 className="card-title">Special title treatment</h5>
+                                <p className="card-text">With supporting text below as a natural lead-in to additional
                                     content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
 

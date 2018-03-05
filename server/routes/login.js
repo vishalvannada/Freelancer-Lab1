@@ -21,6 +21,7 @@ router.post('/', function (req, res) {
             if (results.length > 0) {
                 console.log("Valid");
                 console.log(results);
+                res.status(201).send(results);
             }
             else{
                 console.log("Not Valid");

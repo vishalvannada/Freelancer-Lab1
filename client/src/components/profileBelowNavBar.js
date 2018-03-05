@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class BelowTopNavBar extends Component {
+class ProfileBelowNavBar extends Component {
     render() {
 
         return (
@@ -10,25 +10,28 @@ class BelowTopNavBar extends Component {
 
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li>
+                                    <a className="nav-link strong-weight">MY PROFILE</a>
+                                </li>
                                 <li className="nav-item">
                                     <a
-                                        className={this.props.type === "myProjects" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">My Projects</a>
+                                        className={this.props.type === "improve" ? 'nav-link border-down' : 'nav-link'}
+                                        href="#">Improve Profile</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "dashboard" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Dashboard</a>
+                                        href="#">My Services</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "inbox" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Inbox</a>
+                                        href="#">Get Certified</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "feedback" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Feedback</a>
+                                        href="#">Promote Profile</a>
                                 </li>
                             </ul>
                         </div>
@@ -42,4 +45,4 @@ class BelowTopNavBar extends Component {
     }
 }
 
-export default BelowTopNavBar;
+export default ProfileBelowNavBar;
