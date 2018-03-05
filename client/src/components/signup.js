@@ -9,10 +9,10 @@ class SignUp extends Component {
     renderField(field) {
         const className = `form-control input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
         return (
-            <div className="form-group">
+            <div className="form-group form-group-custom">
                 <input
                     className={className}
-                    type="text"
+                    type={field.type}
                     {...field.input}
                     placeholder={field.label}
                 />
@@ -47,9 +47,9 @@ class SignUp extends Component {
                     </div>
 
                     <div className="logo-body">
-                        <button id="fb-login-btn" class="fb-button"
+                        <button id="fb-login-btn" className="fb-button"
                                 data-uitest-target="facebook-login-button">
-                            <span class="fl-icon-facebook"></span>Sign up with Facebook
+                            <span className="fl-icon-facebook"></span>Sign up with Facebook
                         </button>
 
                         <div className="hr-divider">
@@ -61,46 +61,50 @@ class SignUp extends Component {
                                 label="Email Address"
                                 name="email"
                                 component={this.renderField}
+                                type="email"
                             />
 
                             <Field
                                 label="Username"
                                 name="username"
                                 component={this.renderField}
+                                type="text"
                             />
 
                             <Field
                                 label="Password"
                                 name="password"
                                 component={this.renderField}
+                                type="password"
                             />
 
                             <Field
                                 label="Confirm Password"
                                 name="confirmPassword"
                                 component={this.renderField}
+                                type="password"
                             />
 
-                            <div class="input-group hire-work">
-                                <div class="input-group-prepend hire">
-                                    <div class="input-group-text hire50">
+                            <div className="input-group hire-work">
+                                <div className="input-group-prepend hire">
+                                    <div className="input-group-text hire50 font-size-14">
                                         <input type="radio"
                                                name="profession"
                                                aria-label="Radio button for following text input"
                                                id="hire"
                                         />
-                                        <label> Hire</label>
+                                        <span> Hire</span>
                                     </div>
                                 </div>
 
-                                <div class="input-group-append work">
-                                    <div class="input-group-text work50">
+                                <div className="input-group-append work">
+                                    <div className="input-group-text work50 font-size-14">
                                         <input type="radio"
                                                name="profession"
                                                aria-label="Radio button for following text input"
                                                id="work"
                                         />
-                                        <label> Work</label>
+                                        <span> Work</span>
                                     </div>
                                 </div>
                             </div>

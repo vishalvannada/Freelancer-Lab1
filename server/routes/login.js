@@ -3,7 +3,7 @@ var router = express.Router();
 var mysql = require('./mysql');
 
 /* GET home page. */
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
 
     console.log(req.param);
 
@@ -22,9 +22,12 @@ router.post('/', function (req, res, next) {
                 console.log("Valid");
                 console.log(results);
             }
+            else{
+                console.log("Not Valid");
+                res.status(401).json({message : "Login Failed"});
+            }
         }
     }, getUser);
-    res.render('index', {title: 'Express'});
 
 });
 

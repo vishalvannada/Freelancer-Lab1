@@ -123,6 +123,9 @@ hr {
 .input-login{
     height: 46px;
     padding: 0px 16px;
+}
+
+.form-group-custom{
     margin-bottom: 20px;
 }
 
@@ -170,7 +173,12 @@ hr {
 }
 
 .font-size-13{
-    font-size: 13px;
+    font-size: 13px !important;
+}
+
+
+.font-size-14{
+    font-size: 14px !important;
 }
 
 /*sign up customizations done*/
@@ -211,10 +219,11 @@ hr {
 
 .container {
     max-width: 1200px;
-    max-height: 64px;
     padding: 0 12px;
     min-height: 64px;
     margin: 0 71.50px;
+    overflow: hidden;
+    clear: both;
 }
 
 .search-top {
@@ -233,6 +242,7 @@ body {
 
 .dashboard {
     padding-top: 24px !important;
+    clear: both;
 }
 
 .dashboard-profilepic {
@@ -263,25 +273,26 @@ body {
     padding: 6px 16px;
 }
 
-.dashboard .left {
+.left {
     background-image: url(https://cdn5.f-cdn.com/build/img/membership-bids-upsell-banner/background2.png);
     max-height: 186px;
+    max-width: 775px;
 }
 
-.dashboard .left .card-title, .sub {
+.white-text{
     color: white;
-    margin-left: 20px;
-    margin-top: 36px;
 }
 
-.dashboard .left .card-body {
-    width: 526px;
+.card-body-div{
+    height: 186px !important;
+    padding: 36px !important;
+    padding-left: 46px !important;
     float: left;
 }
 
-.dashboard .left .image {
-    float: left;
-    margin-left: 25px;
+.image-card{
+    float: right;
+    max-height: 100%;
 }
 
 .card-left-next {
@@ -292,8 +303,20 @@ body {
     margin-top: 24px;
 }
 
-.icons {
+svg{
     width: 25px;
     height: 25px;
     margin-top: 8px;
+}
+
+.border-down{
+    /*border-bottom: 4px solid deepskyblue;*/
+    /*background: #56c7ff;*/
+    /*display: block;*/
+    /*width: 4px;*/
+    /*height: 100px;*/
+    /*opacity: 1;*/
+
+    box-shadow: inset 0 -4px 0 #56c7ff;
+    /*box-shadow: 0 8px 8px -8px #56c7ff;*/
 }

@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 
-class Dashboard extends Component {
+class BodyDashboard extends Component {
     render() {
         return (
             <div className="container dashboard">
                 <div class="row">
+
                     <div class="col-8">
+
                         <div class="card left">
-                            <div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Claim 300 bids for Free</h4>
-                                    <span className="sub display2">Get Started with a FREE TRIAL for 300 bids and more!</span>
-                                </div>
-                                <div className="image">
-                                    <img
-                                        src="https://cdn5.f-cdn.com/build/img/membership-bids-upsell-banner/membership-badge2.png"/>
-                                </div>
+                            <div className="row">
+                            <div class="card-body-div col-md-8">
+                                <h4 class="white-text">Claim 300 bids for Free</h4>
+                                <h5 className="white-text">Get started with a FREE TRAIL for 300 bids and more!</h5>
+                            </div>
+                            <div className="image-card col-md-4">
+                                <img
+                                    src="https://cdn5.f-cdn.com/build/img/membership-bids-upsell-banner/membership-badge2.png"
+                                    alt="Membership Badge" role="presentation"/>
+                            </div>
                             </div>
                         </div>
 
@@ -24,7 +27,8 @@ class Dashboard extends Component {
                                 <span className="font-weight-bold">Newsfeed</span>
                                 <hr/>
                                 <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
                             </div>
                         </div>
                     </div>
@@ -60,7 +64,8 @@ class Dashboard extends Component {
                             <h5 class="card-header">Featured</h5>
                             <div class="card-body">
                                 <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
@@ -69,7 +74,8 @@ class Dashboard extends Component {
                             <h5 class="card-header">Featured</h5>
                             <div class="card-body">
                                 <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
@@ -78,7 +84,8 @@ class Dashboard extends Component {
                             <h5 class="card-header">Featured</h5>
                             <div class="card-body">
                                 <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
@@ -92,4 +99,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default BodyDashboard;

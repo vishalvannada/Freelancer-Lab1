@@ -7,6 +7,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import Login from './components/login';
 import SignUp from './components/signup'
+import Dashboard from "./components/dashboard";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -24,6 +25,7 @@ ReactDOM.render(
                     {/*<Route path="/posts/:id" component={PostsShow} />*/}
                     <Route path="/login" component={Login}/>
                     <Route path="/signup" component={SignUp}/>
+                    <Route path="/dashboard" component={Dashboard}/>
                 </Switch>
             </div>
         </BrowserRouter>

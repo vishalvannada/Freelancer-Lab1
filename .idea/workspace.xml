@@ -1,821 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/client/src/components/signup.js" description="&lt;p&gt;By registering you confirm that you accept the&#10;..." line="108" />
+    <bookmark url="file://$PROJECT_DIR$/client/src/components/signup.js" description="&lt;p&gt;By registering you confirm that you accept the&#10;..." line="112" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb3a5371-22be-46ca-9d3c-df0c1431498c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-abacus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-adjustment-horizon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-adjustment-vertical.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-air-balloon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-airplane-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-airplane.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-alarm-clock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-alien.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-aligh-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-align-center.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-align-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-align-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ambulance.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-anchor.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-android.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-angle-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-angle-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-antenna-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-apron.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-change.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-circle-rycycle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-four-way.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-fullscreen-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-fullscreen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-move.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-reload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-5.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-resize-6.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-shuffle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-thin-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-thin-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thick-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-left-bottom.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-left-top.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-right-bottom.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-right-top.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-thin-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-three-way-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-three-way-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-triangle-recycle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-way-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-way-right-bottom.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-way-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-two-way.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-up-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-arrow-wave.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-art-board.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-askterisk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-atm-card.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-axe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baby-milk-botl.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baby-stroller.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baby-troller.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baby.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-back-pack.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-backward-page.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-badge-name.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bag-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bag-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-balance.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-balloon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bandage.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bank.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-barcode.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-barrier.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baseball-stick.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-baseball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-basketball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-charging.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-empty.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-full.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-half-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-half.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-battery-low.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bed.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bell.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bicycle-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bicycle-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bicycle-man.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bikini.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-billiard-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-binocular.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-birthday-cake.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-biscuit.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-blender.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-blood-bag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bluetooth.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-board.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-boat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bolt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bomb-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bomb-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-@.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-book-person.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bookcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bookmark.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-botl-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-botl-milk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bow-tie.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-box-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-box-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bread.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-briefcase-person.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-briefcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-brightness.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-brush-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-brush-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-brush-and-pencil.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-chat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-dot-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-dot.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-hi.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-quote.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-talk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message-text.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bubble-message.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bucket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bug.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-building.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bullet-checked-list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bullet-list-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bullet-list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-bus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-buy.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-hd.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-sale.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-sell.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-starburst.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-triangle-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-button-tv.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cabin-cable.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cabinet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-calculator-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-calculator.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-calendar-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-calendar-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-calendar-empty.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-call-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-call-reply.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-call.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-camera-projector.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-camera-security.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-camera.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-can-water.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-candle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-candy-stick.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-candy.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-car-garage.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-car.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-casette.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cashier-machine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-castle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-caterpillar-machine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cente-justify.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chair-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chair-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-champion-cup.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chart-column-decrease.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chart-column-increase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chart-column.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chart-decrease.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-chart-piece.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cheese.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cherry.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-christmas-mistletoe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-christmass-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-christmass-egg.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-christmass-hat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-christmass-tree.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-control-pad.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-drashed.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-help.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-info.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-load-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-load-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-triangle-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-triangle-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle-triangle-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-circle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-city.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clamp.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clapboard-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clapboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clip.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clipboard-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clipboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-close.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-cloud.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-heavy-rain.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-rain-heavy-rain.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-snow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-sun.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-thunder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cloud.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-clover.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cock-pot.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cocktail.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-coconut.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-code.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-coffee-machine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-color-picker.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-column-decrease.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-column-increase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-column-wave.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-comb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-compass.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-congratulation-hat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-connect-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-connect-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-contact-book.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-contacter.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-contrast.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-control-pad-.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-corkscrew.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-corner-flag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cover-flow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cover-food.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cpu.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cran.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-crop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cross-hair-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cross-hair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-crown.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cruise.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cubic.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-cup-cake.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-curtain.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-customer-support.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dashboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-data-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-share.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-database.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-delete.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-delicious-circle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-deny.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-desktop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dial-number-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dial-number.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-diamond.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-5.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-6-.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dice-6.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-add.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-deny.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-pause.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-play-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-stop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disc.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dish.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-disk-antenna.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dna.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-bullet-list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-copy.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-doc.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-edit.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-help.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-music.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-pdf.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-rss.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-search.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document-warning.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-document.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dog.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-door.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-downstair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-downwards-arrow-to-bar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-drill.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-drop-water.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-dropbox.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-drum.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-easal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-edit.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-egg.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-eject.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-electron.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-elevator-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-elevator-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-emoticon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-end-page.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-erase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-euro.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-excavator.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-extinguisher.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-eye-drop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-eye-glass.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-factory.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-faucet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-feather.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-female.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fence-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fence.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-file-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-file-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-file-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-film-35mm.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-film.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-finder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-finger-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fire-alarm.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fire-hydrant.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fire-wood.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fire.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-first-aid-briefcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fish.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-flag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-float.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-floppy-disk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-flower-pot.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-flower.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-contact.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-music.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-rss.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-search.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-share.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder-warning.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-folder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-foot-sign.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-forcus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-forklift.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-forward-page.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fridge.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-fullscreen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-game-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-game-controll.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-gas-station.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-gate.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-gear-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-gear.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ghost.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-gift.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-glass-water.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-global.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-globe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-glove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-golf-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-golf-flag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-guitar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hamburger.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hammer-and-wrench.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hammer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hand-lamp.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hand-switch.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hand.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-handcuff.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hanger.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hardware.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hat-chef.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-head-set.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-head.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-heart-delete.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-heart-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-heart-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-heart-signal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-heart.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-helicopter-pad.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-helicopter.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-helm-wheel.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-helmet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hightheel.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-history.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hockey.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-home-page.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-horse-shoe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-horse.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-hospital.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-house.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ice-cream.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-id-badge.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-image.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-in-columns.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-inbox-download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-inbox-upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-infinity-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-infinity.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-info.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ipod.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-iron.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-jump-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-jump-double-page-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-jump-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-jump-page-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-jump-page-up-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-kette.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-key-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-key.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-keyboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-knife.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ladder-pool.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-lamp-desk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-lamp.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-lavabo.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-law-hammer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-layout-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-layout-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-layout-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-layout-4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-leaf.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-left-justify.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-leftwards-arrow-to-bar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-light-alarm.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-light-bulb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-light-house.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-like-unlike.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-like.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-line-two-angle-point.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-link-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-link-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-link-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-load.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-lock-unlock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-lock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-louder-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-louder-speaker.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-magnet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-magnifier-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-magnifier.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail-empty.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail-has-mail.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail-inbox.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail-send.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mail.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-male.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-man-doctor.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-map-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-map-square.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mark-snorker.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mask-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mask-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-medal-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-microphone-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-microphone-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-microscope.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mobile.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mocule.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-money-$.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-money-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-money-bag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-money-coin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-moon-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-motobike.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mountain.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-movie-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-movie-projector.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-multifunction-knife.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mushrooms.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-music-note.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-music.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-mustache.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-network-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-network.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-newspaper.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-no-dog.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-no-smoke.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-note-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-note.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-old-phone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pallette.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-paper-clip.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-paper-plane.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-paper-roll.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-paper-shredder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pause.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pawn.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-paypal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pen-nib.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pencil.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-percent.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-door-man.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-man.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-people.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-prison.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-public.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-talk.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person-woman.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-person.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pet-carrier.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-phone-fax.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-phone-number.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-piano.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pick.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-picture-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-picture-copy.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-picture.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-piggy-bank.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pill.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-add.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-delete.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-love.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-map.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-location.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pin-map.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ping-pong-racket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pipe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-pizza.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-plugin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-podium.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-poker-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-poker-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-poker-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-poker-4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-print.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-puzzle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-quote-close.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-quote-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-radio.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-radioactive.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-record.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-reduce.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-reel-audio.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-reel-film.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-repeat.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-resize-in-frame.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-resize-out-frame.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-retroeexcavadora.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ribbon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-right-justify.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-rightwards-arrow-to-bar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ring.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-road.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-rocket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-roller.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-rss.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-rugby-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ruler.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-safe-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-safe-pin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-satellite.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-saw.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-scissor-line-cut.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-scissor.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-screen-ful.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-screen-scale.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-screw-driver.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-screw.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sd-card.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-seriff.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sewing-machine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sewing-roll.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-share-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-share-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-share-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-share-5.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sheep.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shield-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shield-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shield-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shield.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shovel.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-shower.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-board.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-foot.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-in.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-out.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-p.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-road-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sign-road-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-signal-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-signal-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-signal-3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-site-map-revert.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-site-map.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-skateboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-skull.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sleep.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-slide-show.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-smartphone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sms.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-snow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-soccer-yard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-socket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-solar-blind.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sos.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sound-mute.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-sound.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-space-ship.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-spanner.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-spoon-fork.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-spray.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-checked.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-dashed-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-dashed-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-delicious.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-eight-angle-point.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-four-angle-point.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-four.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square-star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-square.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stamps.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-star-cross.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-star-stick.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stele.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stelescope.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stereo-jack.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stethoscope.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-store.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-stove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strawberry.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-street-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strolley-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strolley-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strolley-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strolley-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-strolley.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-subway.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-suitcase-person.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-suitcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-syringe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-t-shirt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tablet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tag-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tag-one-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tag-price.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tank.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-targer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tea-cup.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-teeth.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-telephone-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-telescope.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-television.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tennis-racket-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tent-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tent-camp.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-test-tube-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-test-tube-empty.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-test-tube.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-text-search.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-thermometer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-three-ball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tic-tac-toe.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-time-glass.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-time-reload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-timer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-toilet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tool-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-traffic-light.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-train-rail.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-train.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trash.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-tree.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trees.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-double-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-double-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-double-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-double-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-triangle-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-briefcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-error.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-full.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trolley-remove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-truck.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-trumpet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-turn-off.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-two-arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-two-arrow-in-down-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-two-arrow-in-left-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-two-arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-two-arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-typewriter.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-umberlla-chair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-umbrella-close.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-umbrella-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-umbrella-sea.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-upstair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-upwards-arrow-to-bar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-upwards-arrow-with-loop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-usb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-view.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wacom-tablet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wall.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wallet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wash-machine-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wash-machine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-watch.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-webcam.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-weight-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-weight-kilograms.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-weight-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wheel-chair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wheel-steel.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wieght.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wifi-1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wind-turbines.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-window.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wood-stove.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wrench-screwdriver.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-wrench.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-yen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-ying-yang.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-zip.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-zoom-in.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/public/svg/si-glyph-zoom-out.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/actions/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/BelowTopNavBar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/Dashboard.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/TopNavigationBar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/login.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/signup.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/reducers/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/routes/login.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/routes/mysql.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/dashboard.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/client/src/components/popOver.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/server/routes/signup.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" afterPath="$PROJECT_DIR$/client/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" afterPath="$PROJECT_DIR$/client/package.json" />
+      <change beforePath="$PROJECT_DIR$/client/public/style.css" afterPath="$PROJECT_DIR$/client/public/style.css" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" afterPath="$PROJECT_DIR$/client/src/actions/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/BelowTopNavBar.js" afterPath="$PROJECT_DIR$/client/src/components/belowTopNavBar.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard.js" afterPath="$PROJECT_DIR$/client/src/components/bodyDashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/TopNavigationBar.js" afterPath="$PROJECT_DIR$/client/src/components/topNavBar.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/login.js" afterPath="$PROJECT_DIR$/client/src/components/login.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/signup.js" afterPath="$PROJECT_DIR$/client/src/components/signup.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" afterPath="$PROJECT_DIR$/client/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" afterPath="$PROJECT_DIR$/server/app.js" />
+      <change beforePath="$PROJECT_DIR$/server/routes/login.js" afterPath="$PROJECT_DIR$/server/routes/login.js" />
+      <change beforePath="$PROJECT_DIR$/server/routes/mysql.js" afterPath="$PROJECT_DIR$/server/routes/mysql.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -829,21 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mysql.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/mysql.js">
+      <file leaf-file-name="signup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/signup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+            <state relative-caret-position="132">
+              <caret line="39" column="59" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="59" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -851,32 +47,102 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopNavigationBar.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/TopNavigationBar.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/login.js">
+      <file leaf-file-name="bodyDashboard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/bodyDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="-1017">
+              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topNavBar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/topNavBar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="91" column="96" lean-forward="true" selection-start-line="91" selection-start-column="96" selection-end-line="91" selection-end-column="96" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/public/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="belowTopNavBar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/belowTopNavBar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="24" column="77" lean-forward="false" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/dashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popOver.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/popOver.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
+        <entry file="file://$PROJECT_DIR$/client/src/reducers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -894,6 +160,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>class</find>
+      <find>input-lo</find>
+      <find>src</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -911,20 +179,26 @@
         <option value="$PROJECT_DIR$/client/public/sprite.svg" />
         <option value="$PROJECT_DIR$/client/src/components/TopNavigationBar.js" />
         <option value="$PROJECT_DIR$/server/routes/users.js" />
-        <option value="$PROJECT_DIR$/server/routes/mysql.js" />
         <option value="$PROJECT_DIR$/server/routes/index.js" />
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
         <option value="$PROJECT_DIR$/client/src/components/Login.js" />
-        <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/actions/actions.js" />
-        <option value="$PROJECT_DIR$/client/src/components/signup.js" />
-        <option value="$PROJECT_DIR$/client/public/style.css" />
-        <option value="$PROJECT_DIR$/client/src/components/login.js" />
-        <option value="$PROJECT_DIR$/client/src/actions/index.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
+        <option value="$PROJECT_DIR$/server/routes/mysql.js" />
+        <option value="$PROJECT_DIR$/server/routes/signup.js" />
         <option value="$PROJECT_DIR$/server/routes/login.js" />
+        <option value="$PROJECT_DIR$/client/src/actions/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/signup.js" />
+        <option value="$PROJECT_DIR$/client/src/components/bodyDashboard.js" />
+        <option value="$PROJECT_DIR$/client/src/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/belowTopNavBar.js" />
+        <option value="$PROJECT_DIR$/client/src/components/login.js" />
+        <option value="$PROJECT_DIR$/client/src/components/dashboard.js" />
+        <option value="$PROJECT_DIR$/client/src/components/popOver.js" />
+        <option value="$PROJECT_DIR$/client/public/style.css" />
+        <option value="$PROJECT_DIR$/client/src/components/topNavBar.js" />
       </list>
     </option>
   </component>
@@ -983,6 +257,13 @@
               <item name="Freelancer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Freelancer" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="svg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Freelancer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Freelancer" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -998,6 +279,13 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Freelancer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Freelancer" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Freelancer" type="b2602c69:ProjectViewProjectNode" />
@@ -1026,7 +314,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Demos/MySQLConnection/MySQLConnection" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/CMPE273/Lab1/Freelancer/client/src/index.js" />
@@ -1066,12 +354,12 @@
       <workItem from="1519939944267" duration="70000" />
       <workItem from="1519949895730" duration="1166000" />
       <workItem from="1520146495979" duration="1576000" />
-      <workItem from="1520148084810" duration="17114000" />
+      <workItem from="1520148084810" duration="38308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46423000" />
+    <option name="totallyTimeSpent" value="67617000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1086,14 +374,14 @@
     <frame x="-8" y="-8" width="1376" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24495892" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22180732" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40453073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60355985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1208,7 +496,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/bodyDashboard.js" />
     <entry file="file://$PROJECT_DIR$/client/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1218,8 +506,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/BelowTopNavBar.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/TopNavigationBar.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/belowTopNavBar.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/topNavBar.js" />
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1236,7 +524,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/bodyDashboard.js" />
     <entry file="file://$PROJECT_DIR$/client/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1246,17 +534,15 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/BelowTopNavBar.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/TopNavigationBar.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/belowTopNavBar.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/topNavBar.js" />
     <entry file="file://$PROJECT_DIR$/client/public/sprite.svg" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js" />
     <entry file="file://$PROJECT_DIR$/client/public/svg/si-glyph-axe.svg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/components/BelowTopNavBar.js" />
     <entry file="file://$PROJECT_DIR$/client/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1289,24 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/actions/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1331,71 +599,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="110" column="54" lean-forward="false" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="949">
-          <caret line="175" column="19" lean-forward="false" selection-start-line="175" selection-start-column="19" selection-end-line="175" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
+    <entry file="file://$PROJECT_DIR$/server/routes/signup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="13" column="95" lean-forward="false" selection-start-line="13" selection-start-column="95" selection-end-line="13" selection-end-column="95" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/mysql.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="122">
           <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/login.js">
+    <entry file="file://$PROJECT_DIR$/server/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        <state relative-caret-position="238">
+          <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" column="59" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="59" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/TopNavigationBar.js">
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/popOver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/belowTopNavBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="24" column="77" lean-forward="false" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/bodyDashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1017">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/topNavBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="91" column="96" lean-forward="true" selection-start-line="91" selection-start-column="96" selection-end-line="91" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import PopoverExampleAnimation from "./popOver";
+import Person from 'material-ui/svg-icons/social/notifications';
 
 
-class TopNavigationBar extends Component {
+class TopNavBar extends Component {
     render() {
         return (
             <div>
@@ -85,11 +87,11 @@ class TopNavigationBar extends Component {
                                 </li>
 
 
-                                <li><img className="icons" src="svg/si-glyph-bed.svg"/></li>
-                                <li><img className="icons" src="svg/si-glyph-bubble-message-dot-2.svg"/></li>
-                                <li><img className="icons" src="svg/si-glyph-bed.svg"/></li>
 
-                                <svg-icon><src href="sprite.svg#si-glyph-bubble-message-dot-2" /></svg-icon>
+                                <li><Person/></li>
+                                <li className="text-center ml-3"><PopoverExampleAnimation/></li>
+
+                                {/*<svg-icon><src href="sprite.svg#si-glyph-bubble-message-dot-2" /></svg-icon>*/}
 
 
                             </ul>
@@ -102,4 +104,4 @@ class TopNavigationBar extends Component {
     }
 }
 
-export default TopNavigationBar;
+export default TopNavBar;

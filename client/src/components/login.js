@@ -9,12 +9,12 @@ class Login extends Component {
     renderField(field) {
         const className = `form-control input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
         return (
-            <div className="form-group">
+            <div className="form-group form-group-custom">
                 <input
                     className={className}
-                    type="text"
                     {...field.input}
                     placeholder={field.label}
+                    type={field.type}
                 />
                 <div className="error-message">
                     {field.meta.touched ? field.meta.error : ''}
@@ -25,7 +25,7 @@ class Login extends Component {
 
     onSubmit(values) {
         this.props.loginSubmit(values, () => {
-            this.props.history.push('/home');
+            this.props.history.push('/dashboard');
         });
     }
 
@@ -45,9 +45,9 @@ class Login extends Component {
                     </div>
 
                     <div className="logo-body">
-                        <button id="fb-login-btn" class="fb-button"
+                        <button id="fb-login-btn" className="fb-button"
                                 data-uitest-target="facebook-login-button">
-                            <span class="fl-icon-facebook"></span>Login with Facebook
+                            <span>Login with Facebook</span>
                         </button>
 
                         <div className="hr-divider">
@@ -59,11 +59,13 @@ class Login extends Component {
                                 label="Email or Username"
                                 name="username"
                                 component={this.renderField}
+                                type="text"
                             />
 
                             <Field
                                 label="Password"
                                 name="password"
+                                type="password"
                                 component={this.renderField}
                             />
 
@@ -98,10 +100,10 @@ function validate(values) {
 
     //names are associated to fields in the redux form names
     if (!values.username) {
-        errors.username = "Enter a title!";
+        errors.username = "Please enter your username or email";
     }
     if (!values.password) {
-        errors.password = "Enter some cats";
+        errors.password = "Please enter your password";
     }
     return errors;
 }
