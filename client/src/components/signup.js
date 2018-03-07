@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import LinearProgress from 'material-ui/LinearProgress';
+// import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {signupSubmit} from "../actions";
 
 
 class SignUp extends Component {
@@ -24,14 +28,20 @@ class SignUp extends Component {
     }
 
     onSubmit(values) {
-
-        this.props.createPost(values, () => {
-            this.props.history.push('/');
-        });
+        this.props.signupSubmit(values);
     }
 
     render() {
-        // this.props.history.push("/");
+
+        const {handleSubmit} = this.props;
+
+        console.log(this.props.loginDetails);
+
+        if (this.props.loginDetails.isLoggedIn === true) {
+            this.props.history.push('/dashboard');
+        }
+
+
         return (
             <div className="total">
                 <div className="m-auto login-container">
@@ -57,7 +67,24 @@ class SignUp extends Component {
                             <hr data-content="OR" className="hr-text"/>
                         </div>
 
-                        <form>
+
+                        <div
+                            className={this.props.loginDetails.errorMsg.length > 0 ? 'alert alert-danger' : 'display-none'}
+                            role="alert">
+                            <span>
+                                {this.props.loginDetails.errorMsg}
+                            </span>
+                        </div>
+
+                        <MuiThemeProvider>
+                            {/*<LinearProgress mode="indeterminate"/>*/}
+
+                            <div className={this.props.loginDetails.isLoggingIn == true ? "m-auto loading" : 'display-none'}>
+                                <LinearProgress/>
+                            </div>
+                        </MuiThemeProvider>
+
+                        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                             <Field
                                 label="Email Address"
                                 name="email"
@@ -148,20 +175,42 @@ function validate(values) {
     //if errors has any properties, redux from assumes that form is invalid
     const errors = {};
 
-    //names are associated to fields in the redux form names
+    if(!values.email){
+        errors.email = "Please enter an email address";
+    }
+    if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+        errors.email = "Please enter a valid email address";
+    }
     if (!values.username) {
-        errors.username = "Enter a title!";
+        errors.username = "Please enter a username!";
     }
     if (!values.password) {
-        errors.password = "Enter some cats";
+        errors.password = "Please enter a password";
+    }
+    if (values.password) {
+        if (values.password.length < 6) {
+            errors.password = "Password must be 6 characters minimum";
+        }
+    }
+    if (!values.confirmPassword) {
+        errors.confirmPassword = "Please re-enter a password";
+    }
+    if(values.confirmPassword){
+        if(values.password != values.confirmPassword){
+            errors.confirmPassword = "Please re-enter a password";
+        }
     }
     return errors;
+}
+
+function mapStateToProps(state) {
+    return {loginDetails: state.login}
 }
 
 export default reduxForm({
     validate,
     form: 'SignUpForm'
 })(
-    SignUp
-    // connect(null, {createPost})(PostsNew)
+    connect(mapStateToProps, {signupSubmit})(SignUp)
 );
+

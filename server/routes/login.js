@@ -8,8 +8,8 @@ router.post('/', function (req, res) {
     console.log(req.param);
 
     console.log("Here");
-    var getUser = "select * from users where username='" + req.param("username") +
-        "' and password='" + req.param("password") + "'";
+    var getUser = "select * from users where (username='" + req.param("username") +
+        "' or email='"+ req.param("username") + "') and password='" + req.param("password") + "'";
 
     console.log("Query is:" + getUser);
 
@@ -25,8 +25,10 @@ router.post('/', function (req, res) {
             }
             else{
                 console.log("Not Valid");
-                res.status(401).json({message : "Login Failed"});
+                res.status(401).json({message : "The email and password you entered did not match our records." +
+                    " Please double-check and try again."});
             }
+            console.log(results)
         }
     }, getUser);
 

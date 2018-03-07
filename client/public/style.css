@@ -351,3 +351,73 @@ svg{
 .strong-weight{
     font-weight: 500;
 }
+
+
+/*profile*/
+
+.profile-body{
+    margin-top: -250px;
+}
+
+.profile-body-left{
+    width: 75%;
+    max-width: 75%;
+    float: left;
+    height: 485px;
+    max-height: 485px;
+}
+
+.profile-body-right{
+    width : 25%;
+    max-width: 25%;
+    float: left;
+    height: 485px;
+    max-height: 485px;
+}
+
+.background-image{
+    background-image: url('pd.jpg');
+    background-color: #00B7FF;
+    background-position: 0 -100px;
+    height: 400px;
+}
+
+.profile-profilepic{
+    max-height: 268px;
+    max-widows: 268px;
+    border : 10px solid white;
+    outline: 1px solid lightgray;
+    margin-top: -20px;
+}
+
+.inside{
+    margin-left: 1px;
+}
+
+.edit-profile-button{
+    background: linear-gradient(to bottom,#139ff0 0,#0087e0 100%);
+    border: 1px solid #0087e0;
+    color: #F7F7F7;
+    font-weight: 700 !important;
+    width: 100%;
+    text-shadow: 0 -1px transparent;
+    padding: 13px 22px;
+    font-size: 20px !important;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    line-height: 18px;
+    text-align: center;
+    font: inherit;
+    margin-top: 20px;
+}
+
+.profile-body-under{
+    clear: both;
+    border-top: 50px solid transparent;
+}
+
+.profile-body-card{
+    margin-top: 20px;
+}

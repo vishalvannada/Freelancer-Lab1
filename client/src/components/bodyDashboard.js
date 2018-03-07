@@ -45,7 +45,7 @@ class BodyDashboard extends Component {
                                     </div>
                                     <div className="col-8 name-section">
                                         <span className="small-font"><strong>Welcome back,</strong></span>
-                                        <h5>Vishal V.</h5>
+                                        <h5>{this.props.name}</h5>
                                         <span>
                                             <a href="#" className="small-font">Free Member</a>
                                         </span><br/>

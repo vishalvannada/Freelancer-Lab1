@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {loginSubmit} from "../actions";
 import LinearProgress from 'material-ui/LinearProgress';
-import CircularProgress from 'material-ui/CircularProgress';
+// import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Login extends Component {
@@ -26,20 +26,20 @@ class Login extends Component {
         )
     }
 
+    componentWillUnmount(){
+        if(this.props.loginDetails.isLoggedIn === false){
+            this.props.loginDetails.errorMsg = '';
+        }
+    }
+
     onSubmit(values) {
         this.props.loginSubmit(values)
-
-
-        //     () => {
-        //     this.props.history.push('/dashboard');
-        // });
-
-        // this.props.history.push('/dashboard');
     }
 
     render() {
 
         const {handleSubmit} = this.props;
+        console.log(this.props.loginDetails);
 
         if (this.props.loginDetails.isLoggedIn === true) {
             this.props.history.push('/dashboard');

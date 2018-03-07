@@ -22,7 +22,7 @@ function fetchData(callback, sqlQuery) {
             console.log("ERROR: " + err.message);
         }
         else {	// return err or result
-            console.log("DB Results:" + rows);
+            console.log(rows);
             callback(err, rows);
         }
     });

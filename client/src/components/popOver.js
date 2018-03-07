@@ -10,8 +10,12 @@ import Settings from 'material-ui/svg-icons/action/settings';
 import Refer from 'material-ui/svg-icons/places/business-center';
 import Logout from 'material-ui/svg-icons/action/exit-to-app';
 import Divider from 'material-ui/Divider';
+import {reduxForm} from "redux-form";
+import {connect} from "react-redux";
+import {loginSubmit} from "../actions";
+import {logout} from "../actions";
 
-export default class PopoverExampleAnimation extends React.Component {
+class PopoverExampleAnimation extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,15 +43,21 @@ export default class PopoverExampleAnimation extends React.Component {
 
     render() {
 
+        let label = "H";
+
+        if(this.props.name){
+            label = this.props.name.substring(0,1)
+        }
+
 
         return (
             <div>
                 <RaisedButton
                     backgroundColor="#a4c639"
                     onClick={this.handleClick}
-                    label="V"
+                    label={label}
                     fullWidth={true}
-                    labelStyle={{fontSize: '20px'}}
+                    labelStyle={{fontSize: '18px'}}
                     style={{fontSize: '16px'}}
                 />
                 <Popover
@@ -61,17 +71,22 @@ export default class PopoverExampleAnimation extends React.Component {
                     <Menu>
                         <div className="side-bar-image">
                             <img src="https://www.buira.org/assets/images/shared/default-profile.png"
-                            alt="..." className="side-bar-inside-image"/>
+                                 alt="..." className="side-bar-inside-image"/>
                         </div>
                         <Divider/>
-                        <MenuItem primaryText="Profile" leftIcon={<Person/>}/>
+
+                        <Link to="/profile">
+                            <MenuItem primaryText="Profile" leftIcon={<Person/>}/>
+                        </Link>
                         <MenuItem primaryText="Membership" leftIcon={<Membership/>}/>
                         <MenuItem primaryText="Settings" leftIcon={<Settings/>}/>
                         <MenuItem primaryText="Refer a Client" leftIcon={<Refer/>}/>
-                        <Link to="/"><MenuItem primaryText="Logout" leftIcon={<Logout/>}/></Link>
+                        <MenuItem onClick={this.props.logout} primaryText="Logout" leftIcon={<Logout/>}/>
                     </Menu>
                 </Popover>
             </div>
         );
     }
 }
+
+export default connect(null, {logout})(PopoverExampleAnimation);

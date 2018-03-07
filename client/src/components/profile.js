@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopNavBar from "./topNavBar";
 import ProfileBelowNavBar from './profileBelowNavBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import BodyProfile from './bodyProfile';
 
 
 
@@ -14,7 +15,7 @@ class Profile extends Component{
                     <TopNavBar/>
                 </MuiThemeProvider>
                 <ProfileBelowNavBar type="improve"/>
-
+                <BodyProfile/>
             </div>
         )
     }
