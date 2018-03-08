@@ -85,6 +85,7 @@ router.post('/', function (req, res, next) {
                 "Please login with your existing details"})
         }
         else {
+
             console.log(1);
             var getUser = "select * from users where (username='" + req.param("username") + "')";
             mysql.fetchData(function (err, result) {
@@ -104,9 +105,11 @@ router.post('/', function (req, res, next) {
                         }
                         else {
                             console.log(3);
-                            res.status(201).json({
-                                username : req.param("username"),
-                            })
+
+                            req.session.username = req.param('username');
+                            req.session.email = req.param('email');
+
+                            res.status(201).send("YES");
                         }
                     }, insertUser);
                 }

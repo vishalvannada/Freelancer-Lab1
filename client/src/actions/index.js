@@ -1,12 +1,14 @@
 import axios from 'axios';
-
 export const LOGGING_IN = 'loggingin';
 export const LOGIN_SUCCESS = 'loginsuccess';
 export const LOGIN_FAIL = 'loginfail';
 export const LOGOUT = 'logout';
 export const SIGNING_IN = 'signingin';
-export const SIGNIN_SUCCESS='signinsuccess';
+export const SIGNIN_SUCCESS = 'signinsuccess';
 export const SIGNIN_FAIL = 'signinfail';
+export const PROFILE_EDIT = 'profile_edit';
+export const NO_AUTH = 'no_auth';
+export const AUTH = 'auth';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -14,28 +16,20 @@ function loggingIn() {
     return {
         type: LOGGING_IN,
         payload: {
-            isLoggedIn: false,
-            username: null,
-            password: null,
             isLoggingIn: true,
+            isLoggedIn : false,
             errorMsg: ''
         }
     }
 }
 
 function loginSuccess(response) {
-
     const data = response.data[0];
-    console.log(data.username);
-
-    localStorage.setItem('username', data.username);
     return {
         type: LOGIN_SUCCESS,
         payload: {
-            isLoggedIn: true,
-            username: data.username,
-            password: data.password,
             isLoggingIn: false,
+            isLoggedIn : true,
             errorMsg: ''
         }
     }
@@ -47,41 +41,31 @@ function loginError(message) {
     return {
         type: LOGIN_FAIL,
         payload: {
-            isLoggedIn: false,
-            username: null,
-            password: null,
             isLoggingIn: false,
+            isLoggedIn : false,
             errorMsg: message,
         }
     }
 }
 
-
-
-
 function signingIn() {
     return {
         type: SIGNING_IN,
         payload: {
-            isLoggedIn: false,
-            username: null,
-            password: null,
             isLoggingIn: true,
+            isLoggedIn : false,
             errorMsg: ''
         }
     }
 }
 
-function signInSuccess(response) {
+function signInSuccess() {
 
-    localStorage.setItem('username', response.data.username);
     return {
         type: SIGNIN_SUCCESS,
         payload: {
-            isLoggedIn: true,
-            username: response.data.username,
-            password: '',
             isLoggingIn: false,
+            isLoggedIn : true,
             errorMsg: ''
         }
     }
@@ -89,26 +73,56 @@ function signInSuccess(response) {
 
 function signInError(message) {
 
-    // console.log(message.message);
     return {
         type: SIGNIN_FAIL,
         payload: {
-            isLoggedIn: false,
-            username: null,
-            password: null,
             isLoggingIn: false,
+            isLoggedIn : false,
             errorMsg: message,
         }
     }
 }
 
+function logoutDone() {
+    console.log("hee");
+    return {
+        type: LOGOUT,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn : false,
+            errorMsg: '',
+        }
+    }
+}
+
+function authenticate(response) {
+    return {
+        type: AUTH,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn : true,
+            errorMsg: '',
+        },
+        response : response,
+    }
+}
+
+function noAuthenticate() {
+    return {
+        type: NO_AUTH,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn : false,
+            errorMsg: '',
+        }
+    }
+}
 
 
 export function loginSubmit(values) {
-
     return (dispatch) => {
         dispatch(loggingIn());
-        const request = axios.post(`${ROOT_URL}/login`, values).then(response => {
+        const request = axios.post(`${ROOT_URL}/login`, values, {withCredentials: true}).then(response => {
             dispatch(loginSuccess(response))
         }).catch(error => {
             const message = JSON.parse(error.request.response);
@@ -119,15 +133,10 @@ export function loginSubmit(values) {
 
 
 export function logout() {
-    return {
-        type : LOGOUT,
-        payload: {
-            isLoggedIn: false,
-            username: null,
-            password: null,
-            isLoggingIn: false,
-            errorMsg: '',
-        }
+    return (dispatch) => {
+        const request = axios.get(`${ROOT_URL}/login/logout`, {withCredentials : true}).then(response => {
+            dispatch(logoutDone());
+        })
     }
 }
 
@@ -135,11 +144,8 @@ export function logout() {
 export function signupSubmit(values) {
     return (dispatch) => {
         dispatch(signingIn());
-        const request = axios.post(`${ROOT_URL}/signup`, values).then(response => {
-            console.log("1");
-            console.log(response.data.username);
-            console.log("2");
-            dispatch(signInSuccess(response));
+        const request = axios.post(`${ROOT_URL}/signup`, values, {withCredentials: true}).then(response => {
+            dispatch(signInSuccess());
         }).catch(error => {
             const message = JSON.parse(error.request.response);
             dispatch(signInError(message.message))
@@ -148,20 +154,22 @@ export function signupSubmit(values) {
 }
 
 
-
-export function editProfile(values) {
+export function check() {
+    
     return (dispatch) => {
         dispatch(signingIn());
-        const request = axios.post(`${ROOT_URL}/signup`, values).then(response => {
-            console.log("1");
-            console.log(response.data.username);
-            console.log("2");
-            dispatch(signInSuccess(response));
+        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+            dispatch(authenticate(response));
         }).catch(error => {
-            const message = JSON.parse(error.request.response);
-            dispatch(signInError(message.message))
+            dispatch(noAuthenticate());
         });
     }
 }
 
-
+export function editProfile(values) {
+    const request = axios.get(`${ROOT_URL}`, {withCredentials: true});
+    return {
+        type: PROFILE_EDIT,
+        payload: request
+    }
+}

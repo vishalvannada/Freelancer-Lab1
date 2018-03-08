@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
+import {check, editProfile} from "../actions";
+import {connect} from "react-redux";
 
 class BodyProfile extends Component {
+
+    handleEdit(){
+        this.props.editProfile();
+    }
+
     render() {
         return (
             <div>
@@ -22,9 +29,9 @@ class BodyProfile extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="card profile-body-right">
-                            <div class="card-header">
-                                <button className="edit-profile-button" type="submit">Edit Profile</button>
+                        <div className="card profile-body-right">
+                            <div className="card-header">
+                                <button className="edit-profile-button" onClick={this.handleEdit()} type="submit">Edit Profile</button>
                                 <br/>
                                 <br/>
                                 <hr/>
@@ -35,50 +42,50 @@ class BodyProfile extends Component {
 
                     <div className="row profile-body-under">
                         <div className="col-md-8">
-                            <div class="card">
-                                <div class="card-header">
+                            <div className="card">
+                                <div className="card-header">
                                     Featured
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-4">
 
-                            <div class="card">
-                                <div class="card-header">
+                            <div className="card">
+                                <div className="card-header">
                                     Featured
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
 
-                            <div class="card profile-body-card">
-                                <div class="card-header">
+                            <div className="card profile-body-card">
+                                <div className="card-header">
                                     Featured
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
 
-                            <div class="card profile-body-card">
-                                <div class="card-header">
+                            <div className="card profile-body-card">
+                                <div className="card-header">
                                     Featured
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>
@@ -89,4 +96,4 @@ class BodyProfile extends Component {
     }
 }
 
-export default BodyProfile;
+export default connect(null, {editProfile})(BodyProfile);

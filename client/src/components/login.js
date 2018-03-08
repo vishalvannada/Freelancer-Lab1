@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {loginSubmit} from "../actions";
+import {loginSubmit, check} from "../actions";
 import LinearProgress from 'material-ui/LinearProgress';
 // import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import axios from "axios/index";
 
 class Login extends Component {
 
@@ -26,27 +27,35 @@ class Login extends Component {
         )
     }
 
-    componentWillUnmount(){
-        if(this.props.loginDetails.isLoggedIn === false){
+
+    componentWillMount() {
+        this.props.check();
+    }
+
+
+    componentWillUnmount() {
+        if (this.props.loginDetails.isLoggedIn === false) {
             this.props.loginDetails.errorMsg = '';
         }
     }
 
     onSubmit(values) {
-        this.props.loginSubmit(values)
+        this.props.loginSubmit(values);
     }
 
     render() {
 
-        const {handleSubmit} = this.props;
-        console.log(this.props.loginDetails);
-
-        if (this.props.loginDetails.isLoggedIn === true) {
-            this.props.history.push('/dashboard');
+        if(this.props.loginDetails.isLoggedIn === true){
+            this.props.history.push("/dashboard");
         }
 
-        // console.log(this.props);
+        if(this.props.loginDetails.isLoggingIn === true){
+            <div>
+                Loading ..
+            </div>
+        }
 
+        const {handleSubmit} = this.props;
         return (
             <div className="total">
                 <div className="m-auto login-container">
@@ -78,9 +87,8 @@ class Login extends Component {
                         </div>
 
                         <MuiThemeProvider>
-                            {/*<LinearProgress mode="indeterminate"/>*/}
-
-                            <div className={this.props.loginDetails.isLoggingIn == true ? "m-auto loading" : 'display-none'}>
+                            <div
+                                className={this.props.loginDetails.isLoggingIn == true ? "m-auto loading" : 'display-none'}>
                                 <LinearProgress/>
                             </div>
                         </MuiThemeProvider>
@@ -148,5 +156,5 @@ export default reduxForm({
     validate,
     form: 'LoginForm'
 })(
-    connect(mapStateToProps, {loginSubmit})(Login)
+    connect(mapStateToProps, {loginSubmit, check})(Login)
 );

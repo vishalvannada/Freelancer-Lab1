@@ -3,33 +3,45 @@ import TopNavBar from "./topNavBar";
 import BelowTopNavBar from "./belowTopNavBar";
 import BodyDashboard from "./bodyDashboard";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {logout} from "../actions";
+import CircularProgress from 'material-ui/CircularProgress';
 import {connect} from "react-redux";
+import {check} from "../actions";
 
 
+class Dashboard extends Component {
 
-class Dashboard extends Component{
-    render(){
-        // this.props.history.push("/");
+    componentWillMount() {
+        this.props.check();
+    }
 
-        if(this.props.logout.isLoggedIn === false){
-            this.props.history.push("/login");
+    render() {
+        console.log(this.props.dashboard)
+        if(this.props.dashboard.loginStatus.isLoggingIn === true){
+            return <div>
+                <MuiThemeProvider>
+                    <CircularProgress/>
+                </MuiThemeProvider>
+            </div>
         }
 
-        return(
+        if(this.props.dashboard.loginStatus.isLoggedIn === false){
+            this.props.history.push("/login")
+        }
+
+        return (
             <div>
                 <MuiThemeProvider>
-                <TopNavBar name={this.props.logout.username}/>
+                    <TopNavBar name={this.props.dashboard.username}/>
                 </MuiThemeProvider>
                 <BelowTopNavBar type="dashboard"/>
-                <BodyDashboard name={this.props.logout.username}/>
+                <BodyDashboard name={this.props.dashboard.username}/>
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    return {logout: state.login}
+    return {dashboard: state.dashboard}
 }
 
-export default connect(mapStateToProps, null)(Dashboard);
+export default connect(mapStateToProps, {check})(Dashboard);

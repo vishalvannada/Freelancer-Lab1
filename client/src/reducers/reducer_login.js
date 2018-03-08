@@ -1,26 +1,14 @@
-import {LOGGING_IN, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SIGNING_IN, SIGNIN_SUCCESS ,SIGNIN_FAIL} from "../actions";
+import {LOGGING_IN, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SIGNING_IN, SIGNIN_SUCCESS ,SIGNIN_FAIL, AUTH, NO_AUTH} from "../actions";
 
 //state may be object or array or anything that we want
 
 const Logout = {
+    isLoggingIn : false,
     isLoggedIn : false,
-    username : null,
-    password : null,
-    isLoggingIn : false,
     errorMsg : ''
 }
 
-const Login = {
-    isLoggedIn : true,
-    username : localStorage.getItem('username'),
-    password : null,
-    isLoggingIn : false,
-    errorMsg : ''
-}
-
-const initialState = localStorage.getItem('username') ? Login : Logout;
-
-export default function (state = initialState, action) {
+export default function (state = Logout, action) {
     switch (action.type) {
         case LOGGING_IN:
             return action.payload;
@@ -31,7 +19,6 @@ export default function (state = initialState, action) {
         case LOGIN_FAIL:
             return action.payload;
         case LOGOUT:
-            localStorage.clear();
             return action.payload;
         case SIGNING_IN:
             return action.payload;
@@ -39,7 +26,14 @@ export default function (state = initialState, action) {
             return action.payload;
         case SIGNIN_FAIL:
             return action.payload;
+        case AUTH:
+            return action.payload;
+        case NO_AUTH:
+            return action.payload;
         default:
+            // console.log(action.type);
+            // console.log("yes");
+            // console.log(state)
             return state;
     }
 }

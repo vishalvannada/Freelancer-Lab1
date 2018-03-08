@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import LinearProgress from 'material-ui/LinearProgress';
 // import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {signupSubmit} from "../actions";
+import {signupSubmit, check} from "../actions";
 
 
 class SignUp extends Component {
@@ -27,6 +27,10 @@ class SignUp extends Component {
         )
     }
 
+    componentWillMount(){
+        this.props.check();
+    }
+
     onSubmit(values) {
         this.props.signupSubmit(values);
     }
@@ -37,10 +41,9 @@ class SignUp extends Component {
 
         console.log(this.props.loginDetails);
 
-        if (this.props.loginDetails.isLoggedIn === true) {
-            this.props.history.push('/dashboard');
+        if(this.props.loginDetails.isLoggedIn === true){
+            this.props.history.push("/dashboard");
         }
-
 
         return (
             <div className="total">
@@ -211,6 +214,6 @@ export default reduxForm({
     validate,
     form: 'SignUpForm'
 })(
-    connect(mapStateToProps, {signupSubmit})(SignUp)
+    connect(mapStateToProps, {signupSubmit, check})(SignUp)
 );
 

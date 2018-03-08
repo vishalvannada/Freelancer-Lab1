@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('client-sessions');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -31,6 +32,14 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+
+app.use(session({
+    cookieName : 'session',
+    secret : 'CMPE273_Redux',
+    duration : 30 *60 *1000,
+    activeDuration : 5*60*1000
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

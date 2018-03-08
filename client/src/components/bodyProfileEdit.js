@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {reduxForm} from "redux-form";
+import {check, loginSubmit} from "../actions";
+import {connect} from "react-redux";
 
 class BodyProfileEdit extends Component {
     render() {
@@ -89,4 +92,27 @@ class BodyProfileEdit extends Component {
     }
 }
 
-export default BodyProfileEdit;
+
+function validate(values) {
+
+    //object that returns errors, if errors is empty the form will be submitted, else it wont be submitted
+    //if errors has any properties, redux from assumes that form is invalid
+    const errors = {};
+
+    //names are associated to fields in the redux form names
+    if (!values.username) {
+        errors.username = "Please enter your username or email";
+    }
+    if (!values.password) {
+        errors.password = "Please enter your password";
+    }
+    return errors;
+}
+
+
+export default reduxForm({
+    validate,
+    form: 'ProfileForm'
+})(
+    connect(null, null)(BodyProfileEdit)
+);
