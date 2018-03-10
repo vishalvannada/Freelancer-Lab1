@@ -2,23 +2,59 @@ import React, {Component} from 'react';
 import TopNavBar from "./topNavBar";
 import ProfileBelowNavBar from './profileBelowNavBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CircularProgress from 'material-ui/CircularProgress';
 import BodyProfile from './bodyProfile';
-import {check} from "../actions";
+import BodyProfileEdit from './bodyProfileEdit';
+import {profileCheck} from "../actions";
 import {connect} from "react-redux";
 
 
+class Profile extends Component {
 
-class Profile extends Component{
-    render(){
-        return(
-            <div>
+    componentDidMount(){
+        console.log("came profile comp")
+        this.props.profileCheck();
+    }
+
+    render() {
+        console.log("came profile")
+
+        if(this.props.profile.loginStatus.isLoggingIn === true){
+            return <div>
                 <MuiThemeProvider>
-                    <TopNavBar/>
+                    <CircularProgress/>
                 </MuiThemeProvider>
-                <ProfileBelowNavBar type="improve"/>
-                <BodyProfile/>
             </div>
-        )
+        }
+
+        if(this.props.profile.loginStatus.isLoggedIn === false){
+            this.props.history.push("/login")
+        }
+
+        if (this.props.profile.editing === true) {
+            return (
+                <div>
+                    <MuiThemeProvider>
+                        <TopNavBar/>
+                    </MuiThemeProvider>
+                    <ProfileBelowNavBar type="improve"/>
+                    <BodyProfileEdit profile={this.props.profile}/>
+                </div>
+            )
+
+        }
+        else {
+            return (
+                <div>
+                    <MuiThemeProvider>
+                        <TopNavBar/>
+                    </MuiThemeProvider>
+                    <ProfileBelowNavBar type="improve"/>
+                    <BodyProfile profile={this.props.profile}/>
+                }
+                </div>
+            )
+        }
     }
 }
 
@@ -26,4 +62,4 @@ function mapStateToProps(state) {
     return {profile: state.profile}
 }
 
-export default connect(mapStateToProps, {check})(Profile);
+export default connect(mapStateToProps, {profileCheck})(Profile);

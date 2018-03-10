@@ -45,8 +45,8 @@ class PopoverExampleAnimation extends React.Component {
 
         let label = "H";
 
-        if(this.props.name){
-            label = this.props.name.substring(0,1)
+        if (this.props.name) {
+            label = this.props.name.substring(0, 1)
         }
 
 
@@ -75,9 +75,9 @@ class PopoverExampleAnimation extends React.Component {
                         </div>
                         <Divider/>
 
-                        <Link to="/profile">
+                        <a href="/profile">
                             <MenuItem primaryText="Profile" leftIcon={<Person/>}/>
-                        </Link>
+                        </a>
                         <MenuItem primaryText="Membership" leftIcon={<Membership/>}/>
                         <MenuItem primaryText="Settings" leftIcon={<Settings/>}/>
                         <MenuItem primaryText="Refer a Client" leftIcon={<Refer/>}/>

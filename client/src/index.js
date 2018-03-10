@@ -27,6 +27,25 @@ export const store = createStoreWithMiddleware(reducers);
 //     const message = JSON.parse(error.request.response);
 //     console.log(message);
 // });
+function loggedIn() {
+    console.log('looo')
+    return (dispatch) => {
+        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+            return true
+        }).catch(error => {
+            return false
+        });
+    }
+}
+
+function requireAuth(nextState, replace) {
+    console.log("hereddddddd")
+    if (!loggedIn()) {
+        replace({
+            pathname: '/login'
+        })
+    }
+}
 
 
 ReactDOM.render(
@@ -37,7 +56,7 @@ ReactDOM.render(
                     <Route path="/login" component={Login}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/profile" component={Profile}/>
-                    <Route path="/dashboard" onEnter component={Dashboard}/>
+                    <Route path="/dashboard" onEnter={requireAuth} component={Dashboard}/>
                 </Switch>
             </div>
         </BrowserRouter>

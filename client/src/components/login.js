@@ -45,9 +45,7 @@ class Login extends Component {
 
     render() {
 
-        if(this.props.loginDetails.isLoggedIn === true){
-            this.props.history.push("/dashboard");
-        }
+        console.log("loin")
 
         if(this.props.loginDetails.isLoggingIn === true){
             <div>
@@ -55,9 +53,14 @@ class Login extends Component {
             </div>
         }
 
+        if(this.props.loginDetails.isLoggedIn === true){
+            this.props.history.push("/dashboard");
+        }
+
+
         const {handleSubmit} = this.props;
         return (
-            <div className="total">
+            <div key="vishal" className="total">
                 <div className="m-auto login-container">
 
                     <div className="logo-header">

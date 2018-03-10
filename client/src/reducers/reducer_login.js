@@ -3,7 +3,7 @@ import {LOGGING_IN, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SIGNING_IN, SIGNIN_SUCCES
 //state may be object or array or anything that we want
 
 const Logout = {
-    isLoggingIn : false,
+    isLoggingIn : true,
     isLoggedIn : false,
     errorMsg : ''
 }
@@ -27,13 +27,16 @@ export default function (state = Logout, action) {
         case SIGNIN_FAIL:
             return action.payload;
         case AUTH:
+            console.log("her")
             return action.payload;
         case NO_AUTH:
+            console.log("her")
             return action.payload;
         default:
             // console.log(action.type);
             // console.log("yes");
             // console.log(state)
+            console.log("her"+action.type)
             return state;
     }
 }

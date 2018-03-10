@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const LOGGING_IN = 'loggingin';
 export const LOGIN_SUCCESS = 'loginsuccess';
 export const LOGIN_FAIL = 'loginfail';
@@ -9,6 +10,7 @@ export const SIGNIN_FAIL = 'signinfail';
 export const PROFILE_EDIT = 'profile_edit';
 export const NO_AUTH = 'no_auth';
 export const AUTH = 'auth';
+export const PROFILE_AUTH = 'profile_auth';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -17,7 +19,7 @@ function loggingIn() {
         type: LOGGING_IN,
         payload: {
             isLoggingIn: true,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: ''
         }
     }
@@ -29,7 +31,7 @@ function loginSuccess(response) {
         type: LOGIN_SUCCESS,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : true,
+            isLoggedIn: true,
             errorMsg: ''
         }
     }
@@ -42,7 +44,7 @@ function loginError(message) {
         type: LOGIN_FAIL,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: message,
         }
     }
@@ -53,7 +55,7 @@ function signingIn() {
         type: SIGNING_IN,
         payload: {
             isLoggingIn: true,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: ''
         }
     }
@@ -65,7 +67,7 @@ function signInSuccess() {
         type: SIGNIN_SUCCESS,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : true,
+            isLoggedIn: true,
             errorMsg: ''
         }
     }
@@ -77,7 +79,7 @@ function signInError(message) {
         type: SIGNIN_FAIL,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: message,
         }
     }
@@ -89,7 +91,7 @@ function logoutDone() {
         type: LOGOUT,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: '',
         }
     }
@@ -100,10 +102,10 @@ function authenticate(response) {
         type: AUTH,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : true,
+            isLoggedIn: true,
             errorMsg: '',
         },
-        response : response,
+        response: response,
     }
 }
 
@@ -112,9 +114,37 @@ function noAuthenticate() {
         type: NO_AUTH,
         payload: {
             isLoggingIn: false,
-            isLoggedIn : false,
+            isLoggedIn: false,
             errorMsg: '',
         }
+    }
+}
+
+
+function profileUpdate(response) {
+    console.log("Here")
+    return {
+        type: PROFILE_EDIT,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+        },
+        response: response
+    }
+}
+
+
+function profileAuth(response) {
+    console.log("Here")
+    return {
+        type: PROFILE_AUTH,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+        },
+        response: response
     }
 }
 
@@ -134,7 +164,7 @@ export function loginSubmit(values) {
 
 export function logout() {
     return (dispatch) => {
-        const request = axios.get(`${ROOT_URL}/login/logout`, {withCredentials : true}).then(response => {
+        const request = axios.get(`${ROOT_URL}/login/logout`, {withCredentials: true}).then(response => {
             dispatch(logoutDone());
         })
     }
@@ -155,7 +185,6 @@ export function signupSubmit(values) {
 
 
 export function check() {
-    
     return (dispatch) => {
         dispatch(signingIn());
         const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
@@ -166,10 +195,52 @@ export function check() {
     }
 }
 
-export function editProfile(values) {
-    const request = axios.get(`${ROOT_URL}`, {withCredentials: true});
-    return {
-        type: PROFILE_EDIT,
-        payload: request
+
+export function profileCheck() {
+
+    console.log("here")
+    return (dispatch) => {
+        const request = axios.get(`${ROOT_URL}`, {withCredentials: true}).then(response => {
+            dispatch(profileAuth(response));
+        }).catch(error => {
+            dispatch(noAuthenticate());
+        });
     }
 }
+
+
+export function editProfile(values) {
+
+    return (dispatch) => {
+        dispatch(signingIn());
+        const request = axios.get(`${ROOT_URL}`, {withCredentials: true},).then(response => {
+            dispatch(profileUpdate(response));
+        }).catch(error => {
+            dispatch(noAuthenticate());
+        });
+    }
+}
+
+
+export function uploadImage(payload) {
+    console.log("hereinimage")
+    console.log(payload.get('dp').type)
+    return (dispatch) => {
+        const request = axios.post('http://localhost:3000/upload', payload, {
+            withCredentials: true,
+        }, {
+            headers: {
+                'accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Content-Type': payload.get('dp').type,
+                // 'Content-Type': `multipart/form-data; boundary=${payload._boundary}`,
+            }
+        }).then(response => {
+            console.log("vishslkjhoudbshb")
+            dispatch(profileUpdate(response));
+        }).catch(error => {
+            console.log("sdghsf")
+            dispatch(noAuthenticate());
+        });
+    }
+} 

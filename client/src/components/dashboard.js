@@ -11,12 +11,18 @@ import {check} from "../actions";
 class Dashboard extends Component {
 
     componentWillMount() {
+        console.log("here")
         this.props.check();
+
     }
 
     render() {
-        console.log(this.props.dashboard)
-        if(this.props.dashboard.loginStatus.isLoggingIn === true){
+
+        if(this.props.dashboard.redirect === true){
+            this.props.history.push("/profile")
+        }
+
+        if (this.props.dashboard.loginStatus.isLoggingIn === true) {
             return <div>
                 <MuiThemeProvider>
                     <CircularProgress/>
@@ -24,12 +30,15 @@ class Dashboard extends Component {
             </div>
         }
 
-        if(this.props.dashboard.loginStatus.isLoggedIn === false){
+        if (this.props.dashboard.loginStatus.isLoggedIn === false) {
             this.props.history.push("/login")
         }
 
+
+
+
         return (
-            <div>
+            <div key="vishalv">
                 <MuiThemeProvider>
                     <TopNavBar name={this.props.dashboard.username}/>
                 </MuiThemeProvider>
@@ -37,6 +46,8 @@ class Dashboard extends Component {
                 <BodyDashboard name={this.props.dashboard.username}/>
             </div>
         )
+
+
     }
 }
 

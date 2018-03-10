@@ -1,10 +1,106 @@
 import React, {Component} from 'react';
-import {reduxForm} from "redux-form";
+import {Field, reduxForm, initialize} from 'redux-form';
 import {check, loginSubmit} from "../actions";
 import {connect} from "react-redux";
+import {FileUpload} from 'redux-file-upload';
+import {profileCheck, uploadImage} from "../actions";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FormData from 'form-data'
+
+import TextField from 'material-ui/TextField';
+
 
 class BodyProfileEdit extends Component {
+
+    renderField(field) {
+        const className = `form-control input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
+        return (
+            <div className="form-group form-group-custom">
+                <input
+                    className={className}
+                    {...field.input}
+                    placeholder={field.label}
+                    type={field.type}
+                />
+                <div className="error-message">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
+            </div>
+        )
+    }
+
+    renderText(field) {
+        const className = `form-control ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
+        return (
+            <div className="form-group form-group-custom">
+                <textarea
+                    className={className}
+                    {...field.input}
+                    placeholder={field.label}
+                    type={field.type}
+                />
+                <div className="error-message">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
+            </div>
+        )
+    }
+
+    insertValues() {
+
+        console.log(this.props.profile)
+        const data = {
+            "username": this.props.profile.userDetails.username,
+            "email": this.props.profile.userDetails.email,
+            "phoneNumber": this.props.profile.userDetails.phoneNumber,
+            "bio": this.props.profile.userDetails.aboutMe,
+            "skills": this.props.profile.userDetails.skills
+        }
+
+        this.props.initialize(data);
+    }
+
+    componentDidMount() {
+        this.insertValues();
+    }
+
+    onButtonClick() {
+        this.props.profileCheck();
+    }
+
+    onSubmit() {
+
+    }
+
+    handleFileUpload = (event) => {
+
+        const payload = new FormData();
+
+        console.log(payload)
+        payload.append('dp', event.target.files[0]);
+        console.log(event.target.files[0].type)
+        console.log(payload.get('dp'))
+        console.log(payload._boundary)
+
+        this.props.uploadImage(payload);
+
+        // API.uploadFile(payload)
+        //     .then((status) => {
+        //         if (status === 204) {
+        //             API.getImages()
+        //                 .then((data) => {
+        //                     this.setState({
+        //                         images: data
+        //                     });
+        //                 });
+        //         }
+        //     });
+
+    };
+
     render() {
+        console.log(this.props.profile)
+        const {handleSubmit} = this.props;
         return (
             <div>
                 <div className="background-image">
@@ -18,20 +114,71 @@ class BodyProfileEdit extends Component {
                                         src="https://www.buira.org/assets/images/shared/default-profile.png"
                                         alt="..." className="d-block profile-profilepic"
                                     />
+
+                                    <div>
+                                        <MuiThemeProvider>
+                                            <TextField
+                                                className={'fileupload'}
+                                                type="file"
+                                                name="mypic"
+                                                onChange={this.handleFileUpload}
+                                            />
+                                        </MuiThemeProvider>
+                                    </div>
                                 </div>
+
 
                                 <div className="col-md-7">
 
+                                    <form className="edit-profile" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                                        <Field
+                                            label="This is your Name"
+                                            name="username"
+                                            component={this.renderField}
+                                            type="text"
+                                        />
+
+                                        <Field
+                                            label="Email Address"
+                                            name="email"
+                                            component={this.renderField}
+                                            type="email"
+                                        />
+
+                                        <Field
+                                            label="Phone Number"
+                                            name="phoneNumber"
+                                            component={this.renderField}
+                                            type="tel"
+                                        />
+
+
+                                        <Field
+                                            label="Bio Ex: I am an experienced Salesforce Developer"
+                                            name="bio" component={this.renderText}/>
+
+
+                                        <Field
+                                            label="Skills"
+                                            name="skills" component={this.renderText}/>
+
+
+                                        <button className="save-profile" type="submit">Save</button>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div class="card profile-body-right">
                             <div class="card-header">
-                                <button className="edit-profile-button" type="submit">Edit Profile</button>
+                                <button className="edit-profile-button"
+                                        type="submit"
+                                        onClick={() => this.onButtonClick()}
+                                >View Profile
+                                </button>
                                 <br/>
                                 <br/>
                                 <hr/>
-
                             </div>
                         </div>
                     </div>
@@ -44,7 +191,8 @@ class BodyProfileEdit extends Component {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -58,7 +206,8 @@ class BodyProfileEdit extends Component {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -69,7 +218,8 @@ class BodyProfileEdit extends Component {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -80,7 +230,8 @@ class BodyProfileEdit extends Component {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -101,7 +252,7 @@ function validate(values) {
 
     //names are associated to fields in the redux form names
     if (!values.username) {
-        errors.username = "Please enter your username or email";
+        errors.username = "UserName can't be empty";
     }
     if (!values.password) {
         errors.password = "Please enter your password";
@@ -114,5 +265,6 @@ export default reduxForm({
     validate,
     form: 'ProfileForm'
 })(
-    connect(null, null)(BodyProfileEdit)
+    connect(null, {profileCheck, uploadImage})(BodyProfileEdit)
 );
+

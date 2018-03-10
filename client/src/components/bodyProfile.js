@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import {check, editProfile} from "../actions";
 import {connect} from "react-redux";
 
+
+
 class BodyProfile extends Component {
 
-    handleEdit(){
+    handleEdit() {
         this.props.editProfile();
     }
 
     render() {
+
+
         return (
             <div>
                 <div className="background-image">
@@ -24,14 +28,24 @@ class BodyProfile extends Component {
                                     />
                                 </div>
 
-                                <div className="col-md-7">
 
+
+                                <div className="col-md-7">
+                                    <div className="mt-4 ml-0 pl-0">
+                                        <h3 className="mb-3">{this.props.profile.userDetails.username}</h3>
+                                        <p className="mb-3">{this.props.profile.userDetails.email}</p>
+                                        <p className="mb-3">{this.props.profile.userDetails.phoneNumber}</p>
+                                        <p className="mb-3">{this.props.profile.userDetails.aboutMe}</p>
+                                        <p className="mb-3">{this.props.profile.userDetails.skills}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="card profile-body-right">
                             <div className="card-header">
-                                <button className="edit-profile-button" onClick={this.handleEdit()} type="submit">Edit Profile</button>
+                                <button className="edit-profile-button" onClick={() => this.handleEdit()}
+                                        type="submit">Edit Profile
+                                </button>
                                 <br/>
                                 <br/>
                                 <hr/>
@@ -48,21 +62,22 @@ class BodyProfile extends Component {
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">Special title treatment</h5>
-                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p className="card-text">With supporting text below as a natural lead-in to
+                                        additional content.</p>
                                     <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-4">
-
                             <div className="card">
                                 <div className="card-header">
                                     Featured
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">Special title treatment</h5>
-                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p className="card-text">With supporting text below as a natural lead-in to
+                                        additional content.</p>
                                     <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -73,7 +88,8 @@ class BodyProfile extends Component {
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">Special title treatment</h5>
-                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p className="card-text">With supporting text below as a natural lead-in to
+                                        additional content.</p>
                                     <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -84,7 +100,8 @@ class BodyProfile extends Component {
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">Special title treatment</h5>
-                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p className="card-text">With supporting text below as a natural lead-in to
+                                        additional content.</p>
                                     <a href="#" className="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>

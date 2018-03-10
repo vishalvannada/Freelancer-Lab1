@@ -421,3 +421,27 @@ svg{
 .profile-body-card{
     margin-top: 20px;
 }
+
+.edit-profile{
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 40px;
+}
+
+.save-profile{
+    background: linear-gradient(to bottom,#139ff0 0,#0087e0 100%);
+    border: 1px solid #0087e0;
+    color: #F7F7F7;
+    font-weight: 500 !important;
+    width: 30%;
+    text-shadow: 0 -1px transparent;
+    padding: 5px 10px;
+    font-size: 16px !important;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font: inherit;
+    margin-top: 10px ;
+}

@@ -3,6 +3,7 @@ import PopoverExampleAnimation from "./popOver";
 import Notifications from 'material-ui/svg-icons/social/notifications';
 import Antenna from 'material-ui/svg-icons/action/settings-input-antenna';
 import Menu from 'material-ui/svg-icons/navigation/menu';
+import {Link} from 'react-router-dom';
 
 class TopNavBar extends Component {
     render() {
@@ -11,9 +12,13 @@ class TopNavBar extends Component {
                 <nav className="navbar navbar-expand-lg navbar-light bg-light custom">
                     <div className="container">
 
+                        <Link to="/dashboard">
                         <img className="logo-left brand"
                              src="https://www.f-cdn.com/assets/webapp/assets/freelancer-logo.svg" alt="Freelancer Logo"
-                             data-display="block"/>
+                             data-display="block"
+
+                        />
+                        </Link>
 
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
@@ -92,7 +97,8 @@ class TopNavBar extends Component {
                                 <li className="ml-3"><Notifications/></li>
                                 <li className="ml-3"><Antenna/></li>
                                 <li className="ml-3"><Menu/></li>
-                                <li className="text-center ml-3"><PopoverExampleAnimation name={this.props.name}/></li>
+                                <li className="text-center ml-3"><PopoverExampleAnimation
+                                    name={this.props.name}/></li>
 
                                 {/*<svg-icon><src href="sprite.svg#si-glyph-bubble-message-dot-2" /></svg-icon>*/}
 
