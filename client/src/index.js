@@ -10,7 +10,8 @@ import Login from './components/login';
 import SignUp from './components/signup';
 import Dashboard from "./components/dashboard";
 import Profile from "./components/profile";
-import axios from 'axios'
+import axios from 'axios';
+import PostProject from './components/postProject'
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -21,12 +22,7 @@ const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
 export const store = createStoreWithMiddleware(reducers);
 
-// const request = axios.get('http://localhost:3000').then(response => {
-//     this.props.history.push("/dashboard")
-// }).catch(error => {
-//     const message = JSON.parse(error.request.response);
-//     console.log(message);
-// });
+
 function loggedIn() {
     console.log('looo')
     return (dispatch) => {
@@ -56,7 +52,8 @@ ReactDOM.render(
                     <Route path="/login" component={Login}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/profile" component={Profile}/>
-                    <Route path="/dashboard" onEnter={requireAuth} component={Dashboard}/>
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Route path="/post-project" component={PostProject}/>
                 </Switch>
             </div>
         </BrowserRouter>

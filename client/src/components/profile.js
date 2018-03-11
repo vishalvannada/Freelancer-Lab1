@@ -47,7 +47,7 @@ class Profile extends Component {
             return (
                 <div>
                     <MuiThemeProvider>
-                        <TopNavBar/>
+                        <TopNavBar name={this.props.profile.userDetails.username}/>
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
                     <BodyProfile profile={this.props.profile}/>

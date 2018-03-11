@@ -3,7 +3,6 @@ import {check, editProfile} from "../actions";
 import {connect} from "react-redux";
 
 
-
 class BodyProfile extends Component {
 
     handleEdit() {
@@ -12,7 +11,7 @@ class BodyProfile extends Component {
 
     render() {
 
-
+        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' + this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
         return (
             <div>
                 <div className="background-image">
@@ -22,12 +21,14 @@ class BodyProfile extends Component {
                         <div className="card profile-body-left">
                             <div className="row inside">
                                 <div className="col-md-4">
-                                    <img
-                                        src="https://www.buira.org/assets/images/shared/default-profile.png"
-                                        alt="..." className="d-block profile-profilepic"
-                                    />
+                                    <div className="profile-div-propic thumbnail">
+                                        <img
+                                            // src="https://www.buira.org/assets/images/shared/default-profile.png"
+                                            alt="..." className="d-block profile-profilepic"
+                                            src={src}
+                                        />
+                                    </div>
                                 </div>
-
 
 
                                 <div className="col-md-7">

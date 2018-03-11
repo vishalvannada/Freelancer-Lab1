@@ -3,9 +3,10 @@ import {Field, reduxForm, initialize} from 'redux-form';
 import {check, loginSubmit} from "../actions";
 import {connect} from "react-redux";
 import {FileUpload} from 'redux-file-upload';
-import {profileCheck, uploadImage} from "../actions";
+import {profileCheck, uploadImage, profileSave} from "../actions";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormData from 'form-data'
+import * as API from '../api/API';
 
 import TextField from 'material-ui/TextField';
 
@@ -53,14 +54,15 @@ class BodyProfileEdit extends Component {
             "username": this.props.profile.userDetails.username,
             "email": this.props.profile.userDetails.email,
             "phoneNumber": this.props.profile.userDetails.phoneNumber,
-            "bio": this.props.profile.userDetails.aboutMe,
+            "aboutme": this.props.profile.userDetails.aboutMe,
             "skills": this.props.profile.userDetails.skills
         }
 
         this.props.initialize(data);
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        console.log("yes")
         this.insertValues();
     }
 
@@ -68,18 +70,19 @@ class BodyProfileEdit extends Component {
         this.props.profileCheck();
     }
 
-    onSubmit() {
-
+    onSubmit(values) {
+        this.props.profileSave(values)
     }
+
 
     handleFileUpload = (event) => {
 
         const payload = new FormData();
 
         console.log(payload)
-        payload.append('dp', event.target.files[0]);
+        payload.append('mypic', event.target.files[0]);
         console.log(event.target.files[0].type)
-        console.log(payload.get('dp'))
+        console.log(payload.get('mypic'))
         console.log(payload._boundary)
 
         this.props.uploadImage(payload);
@@ -87,20 +90,20 @@ class BodyProfileEdit extends Component {
         // API.uploadFile(payload)
         //     .then((status) => {
         //         if (status === 204) {
-        //             API.getImages()
-        //                 .then((data) => {
-        //                     this.setState({
-        //                         images: data
-        //                     });
-        //                 });
+        //             console.log("vishl")
         //         }
-        //     });
+        //     }).catch((error) => {
+        //     console.log("shdvASYTD")
+        // });
 
     };
 
     render() {
         console.log(this.props.profile)
         const {handleSubmit} = this.props;
+
+        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' + this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
+
         return (
             <div>
                 <div className="background-image">
@@ -110,11 +113,13 @@ class BodyProfileEdit extends Component {
                         <div className="card profile-body-left">
                             <div className="row inside">
                                 <div className="col-md-4">
-                                    <img
-                                        src="https://www.buira.org/assets/images/shared/default-profile.png"
-                                        alt="..." className="d-block profile-profilepic"
-                                    />
-
+                                    <div className="profile-div-propic thumbnail">
+                                        <img
+                                            // src="https://www.buira.org/assets/images/shared/default-profile.png"
+                                            alt="..." className="d-block profile-profilepic"
+                                            src={src}
+                                        />
+                                    </div>
                                     <div>
                                         <MuiThemeProvider>
                                             <TextField
@@ -155,7 +160,7 @@ class BodyProfileEdit extends Component {
 
                                         <Field
                                             label="Bio Ex: I am an experienced Salesforce Developer"
-                                            name="bio" component={this.renderText}/>
+                                            name="aboutme" component={this.renderText}/>
 
 
                                         <Field
@@ -163,7 +168,9 @@ class BodyProfileEdit extends Component {
                                             name="skills" component={this.renderText}/>
 
 
-                                        <button className="save-profile" type="submit">Save</button>
+                                        <button className="save-profile"
+                                                type="submit">Save
+                                        </button>
 
                                     </form>
                                 </div>
@@ -265,6 +272,6 @@ export default reduxForm({
     validate,
     form: 'ProfileForm'
 })(
-    connect(null, {profileCheck, uploadImage})(BodyProfileEdit)
+    connect(null, {profileCheck, uploadImage, profileSave})(BodyProfileEdit)
 );
 

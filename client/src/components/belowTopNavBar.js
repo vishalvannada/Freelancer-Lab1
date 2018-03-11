@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class BelowTopNavBar extends Component {
     render() {
@@ -33,7 +34,7 @@ class BelowTopNavBar extends Component {
                             </ul>
                         </div>
 
-                        <button type="button" className="btn">Post a Project</button>
+                        <Link to="post-project"><button type="button" className="btn">Post a Project</button></Link>
 
                     </div>
                 </nav>

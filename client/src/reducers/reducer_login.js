@@ -33,9 +33,6 @@ export default function (state = Logout, action) {
             console.log("her")
             return action.payload;
         default:
-            // console.log(action.type);
-            // console.log("yes");
-            // console.log(state)
             console.log("her"+action.type)
             return state;
     }

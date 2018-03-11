@@ -11,6 +11,8 @@ export const PROFILE_EDIT = 'profile_edit';
 export const NO_AUTH = 'no_auth';
 export const AUTH = 'auth';
 export const PROFILE_AUTH = 'profile_auth';
+export const IMAGE_POST='image_post';
+export const UP_SUCCESS = 'up_success'
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -134,11 +136,35 @@ function profileUpdate(response) {
     }
 }
 
+function imagePost(response) {
+    return {
+        type: IMAGE_POST,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+        },
+        response: response
+    }
+}
+
 
 function profileAuth(response) {
     console.log("Here")
     return {
         type: PROFILE_AUTH,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+        },
+        response: response
+    }
+}
+
+function profUpSuccess(response) {
+    return{
+        type: UP_SUCCESS,
         payload: {
             isLoggingIn: false,
             isLoggedIn: true,
@@ -209,7 +235,7 @@ export function profileCheck() {
 }
 
 
-export function editProfile(values) {
+export function editProfile() {
 
     return (dispatch) => {
         dispatch(signingIn());
@@ -223,8 +249,6 @@ export function editProfile(values) {
 
 
 export function uploadImage(payload) {
-    console.log("hereinimage")
-    console.log(payload.get('dp').type)
     return (dispatch) => {
         const request = axios.post('http://localhost:3000/upload', payload, {
             withCredentials: true,
@@ -232,15 +256,23 @@ export function uploadImage(payload) {
             headers: {
                 'accept': 'application/json',
                 'Accept-Language': 'en-US,en;q=0.8',
-                'Content-Type': payload.get('dp').type,
-                // 'Content-Type': `multipart/form-data; boundary=${payload._boundary}`,
+                'Content-Type': payload.get('mypic').type,
             }
         }).then(response => {
-            console.log("vishslkjhoudbshb")
-            dispatch(profileUpdate(response));
+            dispatch(imagePost(response));
         }).catch(error => {
-            console.log("sdghsf")
+            console.log(error)
             dispatch(noAuthenticate());
         });
     }
-} 
+}
+
+export function profileSave(values) {
+    return(dispatch) =>{
+        const request = axios.post(`${ROOT_URL}/savedetails`, values, {withCredentials: true}).then(response => {
+            dispatch(profUpSuccess(response));
+        }).catch(error => {
+            dispatch(noAuthenticate())
+        });
+    }
+}

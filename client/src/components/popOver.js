@@ -45,6 +45,7 @@ class PopoverExampleAnimation extends React.Component {
 
         let label = "H";
 
+        console.log(this.props.name)
         if (this.props.name) {
             label = this.props.name.substring(0, 1)
         }
