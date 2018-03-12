@@ -18,11 +18,9 @@ var upload = multer({storage: storage});
 var type = upload.single('mypic');
 
 router.post('/upload', type, function (req, res, next) {
-
-
     if (req.session.username) {
         console.log("gere jhb")
-        console.log(req.body);
+        console.log(req);
         console.log(req.file.filename);
         var username = req.session.username;
         var getUser = "update users set imagename = '" + req.file.filename + "' where username = '" + req.session.username + "'";
@@ -101,7 +99,7 @@ router.post('/savedetails', function (req, res, next) {
             throw err;
         }
         else {
-            if(req.session.username){
+            if (req.session.username) {
                 var getUser = "select * from users where username = '" + username + "'";
                 console.log("Query is:" + getUser);
                 mysql.fetchData(function (err, results,) {
@@ -117,10 +115,88 @@ router.post('/savedetails', function (req, res, next) {
                     }
                 }, getUser);
             }
-            else{
+            else {
                 res.status(400).send("NO")
             }
         }
     }, getUser);
 })
+
+var storage2 = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/images')
+    },
+    filename: function (req, file, cb) {
+        cb(null, req.session.username + '-' + Date.now() + file.originalname)
+    }
+});
+var upload2 = multer({storage: storage2})
+var type2 = upload2.array('uploads');
+
+router.post('/postproject', type2, function (req, res, next) {
+
+    console.log("hijhb")
+    console.log(req.body)
+    console.log(req.files)
+    console.log("hijhb")
+
+
+    if (req.session.username) {
+        console.log("gere jhb")
+        console.log(req.body);
+        const projectName = req.body.projectName;
+        const projDesc = req.body.projDesc;
+        const skillsReq = req.body.skillsReq;
+        const estBudget = req.body.estBudget;
+        // console.log(req.file.filename);
+        var username = req.session.username;
+
+        // INSERT INTO `test`.`projects` (`projectname`, `projectdesc`, `skills`, `budgetrange`) VALUES ('test2', 'test2-test2', 'c++', '100');
+
+        var getUser = "insert into projects (projectname,projectdesc,skills,budgetrange, username) values ('" +
+            projectName + "','" + projDesc + "','" + skillsReq + "','" + estBudget + "','" + username + "')"
+
+        console.log("Query is:" + getUser);
+        mysql.fetchData(function (err, results,) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(results.insertId)
+
+                req.files.forEach((element)=> {
+                    console.log(element.filename);
+
+                    let query = "insert into files (projectid, filename) values('" + results.insertId + "','" + element.filename + "')";
+                    mysql.fetchData(function (err, results,) {
+                        if (err) {
+                            throw err;
+                        }
+                        else {
+
+                        }
+                    }, query);
+                });
+
+                res.status(204).end();
+
+
+                // INSERT INTO `test`.`files` (`projectid`, `filename`) VALUES ('1', 'vis');
+
+
+                // console.log("Query is:" + getUser);
+
+            }
+        }, getUser);
+    }
+    else {
+        res.status(401).end()
+    }
+
+});
+
+
 module.exports = router;
+
+
+

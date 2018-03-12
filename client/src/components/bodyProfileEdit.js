@@ -81,7 +81,8 @@ class BodyProfileEdit extends Component {
 
         console.log(payload)
         payload.append('mypic', event.target.files[0]);
-        console.log(event.target.files[0].type)
+        console.log(event.target.files)
+        console.log(event.target.files[0])
         console.log(payload.get('mypic'))
         console.log(payload._boundary)
 

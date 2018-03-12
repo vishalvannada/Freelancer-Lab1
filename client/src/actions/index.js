@@ -11,8 +11,11 @@ export const PROFILE_EDIT = 'profile_edit';
 export const NO_AUTH = 'no_auth';
 export const AUTH = 'auth';
 export const PROFILE_AUTH = 'profile_auth';
-export const IMAGE_POST='image_post';
+export const IMAGE_POST = 'image_post';
 export const UP_SUCCESS = 'up_success'
+export const AUTH_POST = 'auth_post'
+export const NO_AUTH_POST = 'no_auth_post'
+export const AUTH_POST_DONE = 'auth_post_done'
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -122,6 +125,42 @@ function noAuthenticate() {
     }
 }
 
+function authenticatePost() {
+    return {
+        type: AUTH_POST,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+            isCompleted : false,
+        }
+    }
+}
+
+function authenticatePostDone() {
+    return {
+        type: AUTH_POST_DONE,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: true,
+            errorMsg: '',
+            isCompleted : true,
+        }
+    }
+}
+
+function noAuthenticatePost() {
+    return {
+        type: NO_AUTH_POST,
+        payload: {
+            isLoggingIn: false,
+            isLoggedIn: false,
+            errorMsg: '',
+            isCompleted : false,
+        }
+    }
+}
+
 
 function profileUpdate(response) {
     console.log("Here")
@@ -163,7 +202,7 @@ function profileAuth(response) {
 }
 
 function profUpSuccess(response) {
-    return{
+    return {
         type: UP_SUCCESS,
         payload: {
             isLoggingIn: false,
@@ -268,11 +307,40 @@ export function uploadImage(payload) {
 }
 
 export function profileSave(values) {
-    return(dispatch) =>{
+    return (dispatch) => {
         const request = axios.post(`${ROOT_URL}/savedetails`, values, {withCredentials: true}).then(response => {
             dispatch(profUpSuccess(response));
         }).catch(error => {
             dispatch(noAuthenticate())
+        });
+    }
+}
+
+export function postProject(payload) {
+    return (dispatch) => {
+        const request = axios.post(`${ROOT_URL}/postproject`, payload, {
+            withCredentials: true,
+        }, {
+            headers: {
+                'accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => {
+            console.log("vishal")
+            dispatch(authenticatePostDone(response));
+        }).catch(error => {
+            dispatch(noAuthenticatePost());
+        });
+    }
+}
+
+export function postProjectcheck() {
+    return (dispatch) => {
+        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+            dispatch(authenticatePost(response));
+        }).catch(error => {
+            dispatch(noAuthenticatePost());
         });
     }
 }

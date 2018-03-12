@@ -451,3 +451,92 @@ svg{
     font: inherit;
     margin-top: 10px ;
 }
+
+
+.full-body{
+    width: 100%;
+    background-color: white;
+}
+
+.container-post-project{
+    width: 790px;
+    margin: auto;
+    padding: 10px;
+}
+
+
+.logo-left-post{
+    width: 170px;
+    margin-top: 40px;
+    margin-left: 280px;
+    margin-bottom: 60px;
+}
+
+
+
+.post-project-button {
+    background-color: #F27F0C;
+    color: white;
+    font-weight: 600;
+
+    border: 1px solid #F27F0C;
+    color: #F7F7F7;
+    font-weight: 700 !important;
+    text-shadow: 0 -1px transparent;
+    padding: 11px 30px;
+    font-size: 20px !important;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    line-height: 18px;
+    text-align: center;
+    font: inherit;
+    margin-bottom: 20px ;
+}
+
+.dropzone-files{
+    height: 65px;
+    border: 1px dashed lightgray;
+    border-radius: 3px;
+}
+
+.dropzone-button{
+    float: left;
+    margin: 10px 20px;
+    text-align: center;
+    vertical-align: middle;
+    height: 40px;
+    width: 160px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.dropzone-button :hover{
+    cursor: pointer;
+}
+
+.text-dropzone{
+    margin-right: 30px;
+    margin-top: 10px;
+    float: right;
+}
+
+.text-dropzone-inside{
+    float: left;
+    width: 560px;
+    padding: 6px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.text-align-left{
+    float: left;
+}
+
+.text-align-right{
+    float: right;
+}
