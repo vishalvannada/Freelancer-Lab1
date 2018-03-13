@@ -196,6 +196,68 @@ router.post('/postproject', type2, function (req, res, next) {
 });
 
 
+
+
+router.get('/loadprojects', function (req, res, next) {
+
+    if (req.session.username) {
+        console.log("gere jhb")
+        var username = req.session.username;
+
+        var getUser = "select * from projects where username != '" + username + "'";
+
+        console.log("Query is:" + getUser);
+        mysql.fetchData(function (err, results,) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(results)
+                res.status(201).send(results);
+            }
+        }, getUser);
+    }
+    else {
+        res.status(401).end()
+    }
+
+});
+
+
+
+router.get('/project', function (req, res, next) {
+
+    if (req.session.username) {
+        console.log("gere jhb")
+        console.log(req.param('id'))
+
+        const id = req.param('id')
+
+
+        var username = req.session.username;
+        //
+
+
+        var getUser = "select * from projects where projectid = '" + id + "'";
+
+        console.log("Query is:" + getUser);
+        mysql.fetchData(function (err, results,) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(results)
+                res.status(201).send(results);
+            }
+        }, getUser);
+    }
+    else {
+        res.status(401).end()
+    }
+
+});
+
+
 module.exports = router;
 
 

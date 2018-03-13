@@ -12,6 +12,8 @@ import Dashboard from "./components/dashboard";
 import Profile from "./components/profile";
 import axios from 'axios';
 import PostProject from './components/postProject'
+import Jobs from './components/jobs'
+import JobSingle from './components/jobSingle'
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -54,6 +56,8 @@ ReactDOM.render(
                     <Route path="/profile" component={Profile}/>
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/post-project" component={PostProject}/>
+                    <Route path="/jobs/:id" component={JobSingle}/>
+                    <Route path="/jobs" component={Jobs}/>
                 </Switch>
             </div>
         </BrowserRouter>

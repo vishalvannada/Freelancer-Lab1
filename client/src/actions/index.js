@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 
 export const LOGGING_IN = 'loggingin';
 export const LOGIN_SUCCESS = 'loginsuccess';
@@ -15,7 +16,9 @@ export const IMAGE_POST = 'image_post';
 export const UP_SUCCESS = 'up_success'
 export const AUTH_POST = 'auth_post'
 export const NO_AUTH_POST = 'no_auth_post'
-export const AUTH_POST_DONE = 'auth_post_done'
+export const AUTH_POST_DONE = 'auth_post_done';
+export const LOAD_PROJECTS = 'load_projects';
+export const LOAD_SINGLE_PROJECT='load_single'
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -132,7 +135,7 @@ function authenticatePost() {
             isLoggingIn: false,
             isLoggedIn: true,
             errorMsg: '',
-            isCompleted : false,
+            isCompleted: false,
         }
     }
 }
@@ -144,7 +147,7 @@ function authenticatePostDone() {
             isLoggingIn: false,
             isLoggedIn: true,
             errorMsg: '',
-            isCompleted : true,
+            isCompleted: true,
         }
     }
 }
@@ -156,7 +159,7 @@ function noAuthenticatePost() {
             isLoggingIn: false,
             isLoggedIn: false,
             errorMsg: '',
-            isCompleted : false,
+            isCompleted: false,
         }
     }
 }
@@ -210,6 +213,20 @@ function profUpSuccess(response) {
             errorMsg: '',
         },
         response: response
+    }
+}
+
+function loadProjects(response) {
+    return {
+        type: LOAD_PROJECTS,
+        response: response,
+    }
+}
+
+function SingleProject(response) {
+    return{
+        type : LOAD_SINGLE_PROJECT,
+        response : response,
     }
 }
 
@@ -341,6 +358,33 @@ export function postProjectcheck() {
             dispatch(authenticatePost(response));
         }).catch(error => {
             dispatch(noAuthenticatePost());
+        });
+    }
+}
+
+
+export function loadAllProjects() {
+    return (dispatch) => {
+        const request = axios.get('http://localhost:3000/loadprojects', {withCredentials: true}).then(response => {
+            console.log(response.data[0])
+            dispatch(loadProjects(response));
+        }).catch(error => {
+            // dispatch(noAuthenticatePost());
+        });
+    }
+}
+
+export function loadSingleProject(id) {
+    return (dispatch) => {
+        const request = axios.get(`http://localhost:3000/project?id=${id}`,
+            {
+                withCredentials: true
+            },
+        ).then(response => {
+            console.log(response.data[0])
+            dispatch(SingleProject(response));
+        }).catch(error => {
+            // dispatch(noAuthenticatePost());
         });
     }
 }

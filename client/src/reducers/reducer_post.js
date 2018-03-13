@@ -1,5 +1,3 @@
-
-//state may be object or array or anything that we want
 import {AUTH_POST, NO_AUTH_POST, AUTH_POST_DONE} from "../actions";
 
 const Logout = {
