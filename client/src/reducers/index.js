@@ -6,6 +6,7 @@ import ProfileReducer from './reducer_profile';
 import DashboardReducer from './reducer_dashboard';
 import PostProjectReducer from './reducer_post';
 import ProjectsReducer from './reducer_projects';
+import SingleProjectReducer from './reducer_single_project';
 
 const rootReducer = combineReducers({
     login : LoginReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     profile : ProfileReducer,
     postProject : PostProjectReducer,
     allProjects : ProjectsReducer,
+    singleProject : SingleProjectReducer,
     form : formReducer
 });
 

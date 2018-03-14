@@ -248,11 +248,12 @@ class PostProject extends Component {
                         <h5 className="mt-5">What is your estimated budget?</h5>
                         <Field name="estBudget" component="select" className="form-control form-control-lg">
                             <option value="">Select Budget</option>
-                            <option value="Basic ($2 - 8 USD)">Basic ($2 - 8 USD)</option>
-                            <option value="Moderate ($8 - 15 USD)">Moderate ($8 - 15 USD)</option>
-                            <option value="Standard ($15 - 25 USD)">Standard ($15 - 25 USD)</option>
-                            <option value="Skilled ($25 - 50 USD)">Skilled ($25 - 50 USD)</option>
-                            <option value="Expert ($50 +  USD)">Expert ($50 + USD)</option>
+                            <option value="$20 - 80 USD">Basic ($20 - 80 USD)</option>
+                            <option value="$80 - 150 USD">Moderate ($80 - 150 USD)</option>
+                            <option value="$150 - 250">Standard ($150 - 250 USD)</option>
+                            <option value="$250 - 500 USD">Skilled ($250 - 500 USD)</option>
+                            <option value="$500+  USD">Expert ($500
+                                + USD)</option>
                         </Field>
 
                         <button className="post-project-button mt-5" type="submit">Post My Project</button>

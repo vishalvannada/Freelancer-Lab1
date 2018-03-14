@@ -164,7 +164,7 @@ router.post('/postproject', type2, function (req, res, next) {
             else {
                 console.log(results.insertId)
 
-                req.files.forEach((element)=> {
+                req.files.forEach((element) => {
                     console.log(element.filename);
 
                     let query = "insert into files (projectid, filename) values('" + results.insertId + "','" + element.filename + "')";
@@ -196,8 +196,6 @@ router.post('/postproject', type2, function (req, res, next) {
 });
 
 
-
-
 router.get('/loadprojects', function (req, res, next) {
 
     if (req.session.username) {
@@ -224,7 +222,6 @@ router.get('/loadprojects', function (req, res, next) {
 });
 
 
-
 router.get('/project', function (req, res, next) {
 
     if (req.session.username) {
@@ -235,10 +232,17 @@ router.get('/project', function (req, res, next) {
 
 
         var username = req.session.username;
-        //
-
 
         var getUser = "select * from projects where projectid = '" + id + "'";
+
+        // SELECT bidid, bids.username, projectid, period, amount, imagename FROM test.bids join test.users on test.bids.username = test.users.username
+         var getBids = "select bidid, bids.username, projectid, period, amount, imagename from bids join users on bids.username = users.username where " +
+            "projectid = '" + id + "'";
+        var getFiles = "select * from files where projectid = '" + id + "'";
+
+
+        let project = {};
+        let bids = {}
 
         console.log("Query is:" + getUser);
         mysql.fetchData(function (err, results,) {
@@ -246,8 +250,39 @@ router.get('/project', function (req, res, next) {
                 throw err;
             }
             else {
-                console.log(results)
-                res.status(201).send(results);
+                console.log(" 3 "+ results);
+                // res.json({
+                //     project : results,
+                // })
+                project = results;
+
+                mysql.fetchData(function (err, results,) {
+                    if (err) {
+                        throw err;
+                    }
+                    else {
+                        console.log("1" + results);
+                        // res.status(201).send(results);
+                        // res.json({
+                        //     bids : results,
+                        // })
+
+                        bids = results;
+                        mysql.fetchData(function (err, results,) {
+                            if (err) {
+                                throw err;
+                            }
+                            else {
+                                console.log("2" + results);
+                                res.status(201).json({
+                                    files : results,
+                                    project : project,
+                                    bids : bids,
+                                })
+                            }
+                        }, getFiles);
+                    }
+                }, getBids);
             }
         }, getUser);
     }
@@ -256,6 +291,35 @@ router.get('/project', function (req, res, next) {
     }
 
 });
+
+router.post('/savebid', function (req, res, next) {
+
+    const projectid = req.param('projectid');
+    const amount = req.param('amount');
+    const days = req.param('days');
+
+    console.log("here" + " " + projectid + amount + days)
+
+    // INSERT INTO `test`.`bids` (`username`, `projectid`, `period`, `amount`) VALUES ('hk', '14', '10', '150');
+
+    if(req.session.username){
+        const insertBid = "insert into bids (username, projectid, period, amount) values ('" + req.session.username + "', '" +
+            projectid + "','" + days + "','" + amount + "')";
+
+        console.log("q0 " + insertBid);
+
+        mysql.fetchData(function (err, results) {
+            if(err){
+                throw err;
+            }
+            else{
+                console.log(results)
+            }
+        }, insertBid)
+
+    }
+
+})
 
 
 module.exports = router;

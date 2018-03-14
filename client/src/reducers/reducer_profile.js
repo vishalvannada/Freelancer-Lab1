@@ -121,7 +121,7 @@ export default function (state = profile, action) {
             }
 
         default:
-            console.log("prof:def" + action.type)
+            // console.log("prof:def" + action.type)
             return state;
     }
 }

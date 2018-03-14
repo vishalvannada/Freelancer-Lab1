@@ -54,7 +54,7 @@ router.get('/logincheck', function (req, res) {
 
 router.get('/logout', function (req, res) {
     console.log(req.session.username)
-    req.session.reset();
+    req.session.destroy();
     console.log(req.session.username)
     console.log('Session destroyed');
     res.status(201).send("Logged Out");

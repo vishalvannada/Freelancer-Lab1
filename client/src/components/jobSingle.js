@@ -3,22 +3,105 @@ import TopNavBar from "./topNavBar";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from 'material-ui/CircularProgress';
 import {connect} from "react-redux";
-import JobsBelowNavBar from './jobsBelowNavBar';
-import JobsBody from './jobsBody'
-import {loadSingleProject} from '../actions/index'
+import {loadSingleProject, submitBid} from '../actions/index'
+import {Field, reduxForm} from 'redux-form';
+import _ from 'lodash'
 
 class JobSingle extends Component {
 
+    renderField1(field) {
+        const className = `custom-input input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
+        return (
+            <div className="input-group font-size-13 custom-input-append mx-4 mr-0">
+                <div className="input-group-prepend">
+                    <span className="input-group-text font-size-13">$</span>
+                </div>
+                <input
+                    className={className}
+                    {...field.input}
+                    type={field.type}
+                />
+                <div className="input-group-append">
+                    <span className="input-group-text font-size-13">USD</span>
+                </div>
+
+                <div className="error-message">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
+            </div>
+        )
+    }
+
+    renderField2(field) {
+        const className = `custom-input input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
+        return (
+            <div className="input-group font-size-13 custom-input-append mx-4 mr-0">
+                <input
+                    className={className}
+                    {...field.input}
+                    type={field.type}
+                />
+                <div className="input-group-append">
+                    <span className="input-group-text font-size-13">Days</span>
+                </div>
+
+                <div className="error-message">
+                    {field.meta.touched ? field.meta.error : ''}
+                </div>
+            </div>
+        )
+    }
+
+    renderFiles() {
+        return _.map(this.props.singleProject.files, file => {
+            return (
+                <li className="mx-4" key={file.filename}>
+                    <a href={'http://localhost:3000/images/' + file.filename} download>
+                        {'file' + file.id}
+                    </a>
+                </li>
+            )
+        })
+    }
+
+    renderBids() {
+        return _.map(this.props.singleProject.bids, bid => {
+            return (
+                <li className="list-group-item" key={bid.bidid}>
+                    <div className="row">
+                        <div className="col-md-8">
+                            <img
+                                className="image-bid"
+                                src={bid.imagename == '' ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.imagename}>
+                            </img>
+                            <br/>
+                            <p>{bid.username}</p>
+                        </div>
+                        <div className="col-md-4">
+                            <span className="strong-weight">{bid.amount}</span>
+                            <br/>
+                            <span className="font-size-13">in {bid.period} days</span>
+                        </div>
+                    </div>
+
+                </li>
+            )
+        })
+    }
+
     componentDidMount() {
         console.log("Single Job")
-
         const {id} = this.props.match.params;
-        console.log(id)
         this.props.loadSingleProject(id);
     }
 
-    render() {
+    onSubmit(values) {
+        values.projectid = this.props.singleProject.project.projectid;
+        this.props.submitBid(values);
+    }
 
+
+    render() {
 
 
         // if(this.props.dashboard.redirect === true){
@@ -37,6 +120,11 @@ class JobSingle extends Component {
         //     this.props.history.push("/login")
         // }
 
+        const {handleSubmit} = this.props;
+
+        const classForm = this.props.singleProject.isBidding === true ? "" : "display";
+        const {id} = this.props.match.params;
+        const thisProject = this.props.singleProject.project;
 
         return (
             <div>
@@ -45,23 +133,55 @@ class JobSingle extends Component {
                 </MuiThemeProvider>
 
                 <div className="container-post-project">
-                    <h4 className="mt-5">{this.props.project.projectname}</h4>
-                    <div className="title-single-project">
-                        <div className="row">
-                            <div className="col-md-1.5 inside-details ml-5 mr-4 my-2 pr-4 font-size-14">
-                                <span className="ml-2">Bids</span>
-                                <h4 className="text-primary text-center">141</h4>
+                    <h4 className="mt-5">{thisProject.projectname}</h4>
+
+
+                    <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className={classForm}>
+                        <div className="title-single-project mt-3">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="mt-4 mx-4 alert alert-primary font-size-14" role="alert">
+                                        <strong>NOTE: </strong>
+                                        <span>Freelancer Project Fee will only be charged when you get
+                                        awarded and accept the project</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-md-1.5 inside-details mr-4 my-2 pr-4 font-size-14">
-                                <span>Avg Bid</span>
-                                <h4 className="text-primary text-center">141</h4>
-                            </div>
-                            <div className="col-md-2.5 inside-details mr-4 my-2 pr-4 font-size-14">
-                                <span className="ml-2">Project Budget</span>
-                                <h4 className="text-primary text-center">141</h4>
+                            <div className="row">
+                                <div className="col-md-5 font-size-13">
+                                <span className="pt-4 px-4">
+                                    <strong>Bid:</strong>
+                                    <Field
+                                        label="Email or Username"
+                                        name="amount"
+                                        component={this.renderField1}
+                                        type="number"
+                                    />
+                                </span>
+                                    <p className="px-4 mb-0">Paid to you:</p>
+                                    <p className=" mt-0 px-4">Freelancer Project Fee: $ 0 USD</p>
+                                    <hr className="ml-4"/>
+
+                                    <button className="mx-4 mb-4 save-profile"
+                                            type="submit">Place Bid
+                                    </button>
+
+                                </div>
+
+                                <div className="col-md-5 font-size-13">
+                                    <span className="pt-4 px-4">
+                                    <strong>Deliver in:</strong>
+                                    <Field
+                                        name="days"
+                                        type="number"
+                                        component={this.renderField2}
+                                    />
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                     <div className="title-single-project mt-3">
                         <div className="row">
@@ -70,42 +190,75 @@ class JobSingle extends Component {
                                     Project Description
                                 </h5>
                                 <p className="px-4">
-                                    {this.props.project.projectdesc}
+                                    {thisProject.projectdesc}
                                 </p>
                                 <br/>
-                                <p><h5 className="px-4">
+                                <h5 className="px-4">
                                     Skills Required
-                                </h5></p>
+                                </h5>
                                 <p className="px-4">
-                                    {this.props.project.skills}
+                                    {thisProject.skills}
                                 </p>
 
-                                <p className="font-size-14 px-4" >Project ID : {this.props.project.projectid}</p>
+                                <br/>
+                                <h5 className="mx-4">
+                                    Files Related to this project
+                                </h5>
+                                {this.renderFiles()}
+
+                                <br/>
+                                <p className="font-size-14 px-4">Project ID : {thisProject.projectid}</p>
                             </div>
                             <div className="col-md-6">
-
-
-
-
                                 <button className="bid-now-single">
                                     <span>Bid on This Project</span>
                                 </button>
-
-
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <ul className="list-group">
+
+                        <span className="mt-2"></span>
+                        <li className="list-group-item background-dark  mt-3">
+                        <span className="row font-size-14">
+                            <div className="col-md-8">FREELANCERS BIDDING</div>
+                            <div className="col-md-4">BID USD</div>
+                            {/*<div>{this.props.projects}</div>*/}
+                        </span>
+                        </li>
+
+                        {this.renderBids()}
+
+                    </ul>
+                </div>
             </div>
         )
-
-
     }
 }
 
-function mapStateToProps(state) {
-    return {project: state.allProjects}
+function validate(values) {
+    const errors = {};
+    if (!values.amount) {
+        errors.amount = "Enter Bid Amount";
+    }
+
+    if (isNaN(values.amount)) {
+        errors.amount = "Enter a number"
+    }
+    if (!values.days) {
+        errors.days = "Enter the days to deliver in";
+    }
+    return errors;
 }
 
-export default connect(mapStateToProps, {loadSingleProject})(JobSingle);
+function mapStateToProps(state) {
+    return {singleProject: state.singleProject}
+}
+
+export default reduxForm({
+    validate,
+    form: 'BidProject'
+})(
+    connect(mapStateToProps, {loadSingleProject, submitBid})(JobSingle)
+);

@@ -35,7 +35,7 @@ export default function (state = dashboard, action) {
                 username: ''
             }
         default:
-            console.log("def" + action.type + action.payload)
+            // console.log("def" + action.type + action.payload)
             return state;
     }
 }

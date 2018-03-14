@@ -33,7 +33,7 @@ export default function (state = Logout, action) {
             console.log("her")
             return action.payload;
         default:
-            console.log("her"+action.type)
+            // console.log("her"+action.type)
             return state;
     }
 }

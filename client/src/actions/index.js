@@ -18,7 +18,8 @@ export const AUTH_POST = 'auth_post'
 export const NO_AUTH_POST = 'no_auth_post'
 export const AUTH_POST_DONE = 'auth_post_done';
 export const LOAD_PROJECTS = 'load_projects';
-export const LOAD_SINGLE_PROJECT='load_single'
+export const LOAD_SINGLE_PROJECT='load_single';
+export const DISPLAY_BID = 'display_bid'
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -376,12 +377,29 @@ export function loadAllProjects() {
 
 export function loadSingleProject(id) {
     return (dispatch) => {
-        const request = axios.get(`http://localhost:3000/project?id=${id}`,
-            {
-                withCredentials: true
-            },
+        const request = axios.get(`http://localhost:3000/project?id=${id}`, {withCredentials: true},
         ).then(response => {
-            console.log(response.data[0])
+            console.log(response)
+            dispatch(SingleProject(response));
+        }).catch(error => {
+            // dispatch(noAuthenticatePost());
+        });
+    }
+}
+
+export function displayBidSection() {
+    return{
+        type : DISPLAY_BID,
+    }
+}
+
+
+
+export function submitBid(values) {
+    return (dispatch) => {
+        const request = axios.post(`http://localhost:3000/savebid`, values, {withCredentials: true},
+        ).then(response => {
+            console.log(response)
             dispatch(SingleProject(response));
         }).catch(error => {
             // dispatch(noAuthenticatePost());

@@ -38,7 +38,7 @@ app.use(session({
     cookieName : 'session',
     secret : 'CMPE273_Redux',
     duration : 30 *60 *1000,
-    activeDuration : 5*60*1000
+    activeDuration : 20*60*1000
 }));
 
 // view engine setup
