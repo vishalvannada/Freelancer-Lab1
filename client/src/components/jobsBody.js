@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import _ from 'lodash';
 import Computer from 'material-ui/svg-icons/hardware/computer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {displayBidSection} from '../actions/index'
 
 class JobsBody extends Component {
 
@@ -25,15 +26,25 @@ class JobsBody extends Component {
                                     <h4 className="text-primary">{project.projectname}</h4>
                                 </Link>
                                 <p>{project.projectdesc}</p>
-                                <span>{project.skills}</span>
+                                <strong>Skills : </strong><span>{project.skills}</span>
+                                <br/>
+                                <h6>Employer : <span className="text-primary">
+                                    {project.username}
+                                </span></h6>
                             </div>
                         </div>
                         <div className="col-md-2">
-                            4
+                            {project.bidcount}
                         </div>
                         <div className="col-md-3 text-center">
                             <p>{project.budgetrange}</p>
-                            <button type="button" className="btn btn-success">Bid Now</button>
+                            <button type="button" className="btn btn-success" onClick={() => this.props.history.push({
+                                pathname : `jobs/${project.projectid}`,
+                                state : {toggle : true}
+                            })}>Bid Now</button>
+                            <br/>
+                            <br/>
+                            <span className="font-size-13">ProjectID : {project.projectid}</span>
                         </div>
                     </div>
                 </li>
@@ -55,7 +66,7 @@ class JobsBody extends Component {
                     <span className="mt-2"></span>
                     <li className="list-group-item background-dark  mt-5">
                         <span className="row font-size-14 p-2">
-                            <div className="col-md-7">PROJECT/CONTEST</div>
+                            <div className="col-md-7">PROJECT</div>
                             <div className="col-md-2">BIDS/ENTRIES</div>
                             <div className="col-md-3 text-center">PRICE(USD)</div>
                             {/*<div>{this.props.projects}</div>*/}
@@ -70,4 +81,4 @@ class JobsBody extends Component {
     }
 }
 
-export default connect(null, null)(JobsBody);
+export default connect(null, {displayBidSection})(JobsBody);

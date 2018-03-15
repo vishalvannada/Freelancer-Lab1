@@ -1,5 +1,9 @@
 import axios from 'axios';
 import _ from 'lodash';
+import createHistory from 'history/createBrowserHistory';
+import {push} from 'react-router-redux'
+
+const history = createHistory()
 
 export const LOGGING_IN = 'loggingin';
 export const LOGIN_SUCCESS = 'loginsuccess';
@@ -18,8 +22,10 @@ export const AUTH_POST = 'auth_post'
 export const NO_AUTH_POST = 'no_auth_post'
 export const AUTH_POST_DONE = 'auth_post_done';
 export const LOAD_PROJECTS = 'load_projects';
-export const LOAD_SINGLE_PROJECT='load_single';
-export const DISPLAY_BID = 'display_bid'
+export const LOAD_SINGLE_PROJECT = 'load_single';
+export const DISPLAY_BID = 'display_bid';
+export const GET_MY_PROJECTS = 'get_my_projects';
+
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -225,12 +231,19 @@ function loadProjects(response) {
 }
 
 function SingleProject(response) {
-    return{
-        type : LOAD_SINGLE_PROJECT,
-        response : response,
+    return {
+        type: LOAD_SINGLE_PROJECT,
+        response: response,
     }
 }
 
+
+function myProjectsDispatch(response) {
+    return {
+        type: GET_MY_PROJECTS,
+        response: response,
+    }
+}
 
 export function loginSubmit(values) {
     return (dispatch) => {
@@ -241,6 +254,12 @@ export function loginSubmit(values) {
             const message = JSON.parse(error.request.response);
             dispatch(loginError(message.message))
         });
+    }
+}
+
+function displayBid() {
+    return {
+        type : DISPLAY_BID,
     }
 }
 
@@ -388,11 +407,14 @@ export function loadSingleProject(id) {
 }
 
 export function displayBidSection() {
-    return{
-        type : DISPLAY_BID,
+
+    // DISPLAY_BID
+    console.log("here");
+    return (dispatch) => {
+        dispatch(displayBid());
+        dispatch(push('/dashboard'))
     }
 }
-
 
 
 export function submitBid(values) {
@@ -401,6 +423,19 @@ export function submitBid(values) {
         ).then(response => {
             console.log(response)
             dispatch(SingleProject(response));
+        }).catch(error => {
+            // dispatch(noAuthenticatePost());
+        });
+    }
+}
+
+export function getMyProjects() {
+    console.log("here")
+    return (dispatch) => {
+        const request = axios.get(`http://localhost:3000/getmyprojects`, {withCredentials: true},
+        ).then(response => {
+            console.log("here2");
+            dispatch(myProjectsDispatch(response));
         }).catch(error => {
             // dispatch(noAuthenticatePost());
         });

@@ -40,7 +40,7 @@ class Jobs extends Component {
                     <TopNavBar/>
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="improve"/>
-                <JobsBody projects={this.props.projects}/>
+                <JobsBody projects={this.props.projects} history = {this.props.history}/>
             </div>
         )
 

@@ -5,13 +5,10 @@ var mysql = require('./mysql');
 router.post('/', function (req, res) {
 
     const username = req.param("username");
-
-    console.log("Here");
     var getUser = "select * from users where (username='" + username +
         "' or email='" + req.param("username") + "') and password='" + req.param("password") + "'";
 
-    console.log("Query is:" + getUser);
-
+    // console.log("Query is:" + getUser);
     mysql.fetchData(function (err, results,) {
         if (err) {
             throw err;
@@ -29,7 +26,7 @@ router.post('/', function (req, res) {
                     " Please double-check and try again."
                 });
             }
-            console.log(results)
+            // console.log(results)
         }
     }, getUser);
 

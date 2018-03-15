@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {LOAD_PROJECTS} from '../actions/index'
+import {LOAD_PROJECTS} from '../actions/index';
 
 const projects = {}
 

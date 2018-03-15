@@ -1,9 +1,9 @@
+
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-class BelowTopNavBar extends Component {
+class MyProjectsBelowNavBar extends Component {
     render() {
-
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light custom-below">
@@ -12,15 +12,15 @@ class BelowTopNavBar extends Component {
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
-                                    <Link
-                                        to="myprojects"
+                                    <a
                                         className={this.props.type === "myProjects" ? 'nav-link border-down' : 'nav-link'}
-                                        >My Projects</Link>
+                                        href="#">My Projects</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a
+                                    <Link
+                                        to="dashboard"
                                         className={this.props.type === "dashboard" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Dashboard</a>
+                                        >Dashboard</Link>
                                 </li>
                                 <li className="nav-item">
                                     <a
@@ -40,8 +40,8 @@ class BelowTopNavBar extends Component {
                     </div>
                 </nav>
             </div>
-        );
+        )
     }
 }
 
-export default BelowTopNavBar;
+export default MyProjectsBelowNavBar;

@@ -9,6 +9,13 @@ import _ from 'lodash'
 
 class JobSingle extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggle: false
+        }
+    }
+
     renderField1(field) {
         const className = `custom-input input-login ${field.meta.touched && field.meta.error ? 'border-red' : ''}`
         return (
@@ -120,9 +127,23 @@ class JobSingle extends Component {
         //     this.props.history.push("/login")
         // }
 
+        console.log(this.props.location.state)
+
         const {handleSubmit} = this.props;
 
-        const classForm = this.props.singleProject.isBidding === true ? "" : "display";
+        let classForm = {};
+        let buttonToggle = {};
+
+        if (this.props.location.state) {
+            classForm = this.props.location.state.toggle === true || this.state.toggle === true ? "" : "display-none";
+            buttonToggle = this.props.location.state.toggle === true || this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
+        }
+        else{
+            classForm = this.state.toggle === true ? "" : "display-none";
+            buttonToggle = this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
+        }
+
+
         const {id} = this.props.match.params;
         const thisProject = this.props.singleProject.project;
 
@@ -210,7 +231,9 @@ class JobSingle extends Component {
                                 <p className="font-size-14 px-4">Project ID : {thisProject.projectid}</p>
                             </div>
                             <div className="col-md-6">
-                                <button className="bid-now-single">
+                                <button className={buttonToggle} onClick={() => this.setState({
+                                    toggle : true
+                                })}>
                                     <span>Bid on This Project</span>
                                 </button>
                             </div>

@@ -12,9 +12,6 @@ export default function (state = singleProject, action) {
     switch (action.type) {
         case LOAD_SINGLE_PROJECT:
             console.log(action.response.data.project[0])
-
-
-
             return {
                 project : action.response.data.project[0],
                 bids : _.mapKeys(action.response.data.bids, 'bidid'),
