@@ -15,6 +15,7 @@ import PostProject from './components/postProject'
 import Jobs from './components/jobs'
 import JobSingle from './components/jobSingle';
 import MyProjects from './components/myProjects';
+import NotFound from './components/notFound';
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -60,6 +61,7 @@ ReactDOM.render(
                     <Route path="/myprojects" component={MyProjects}/>
                     <Route path="/jobs/:id" component={JobSingle}/>
                     <Route path="/jobs" component={Jobs}/>
+                    <Route path="*" component={NotFound}/>
                 </Switch>
             </div>
         </BrowserRouter>
