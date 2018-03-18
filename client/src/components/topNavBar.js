@@ -93,7 +93,7 @@ class TopNavBar extends Component {
                                 </li>
 
 
-                                <li><img className="icons ml-2" src="svg/si-glyph-bubble-message-dot-2.svg"/></li>
+                                <li><img className="icons ml-1" src="/svg/si-glyph-bubble-message-dot-2.svg"/></li>
                                 <li className="ml-3"><Notifications/></li>
                                 <li className="ml-3"><Antenna/></li>
                                 <li className="ml-3"><Menu/></li>

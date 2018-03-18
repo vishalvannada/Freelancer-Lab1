@@ -16,17 +16,19 @@ class MyProjects extends Component {
 
     render() {
 
-        // if(this.props.dashboard.redirect === true){
-        //     this.props.history.push("/profile")
-        // }
-        //
-        // if (this.props.dashboard.loginStatus.isLoggingIn === true) {
-        //     return <div>
-        //         <MuiThemeProvider>
-        //             <CircularProgress/>
-        //         </MuiThemeProvider>
-        //     </div>
-        // }
+        if (this.props.myProjects.isLoggingIn === true) {
+            return <div>
+                <MuiThemeProvider>
+                    <CircularProgress/>
+                </MuiThemeProvider>
+            </div>
+        }
+
+        if(this.props.myProjects.isLoggedIn === false){
+            this.props.history.push("/login")
+        }
+
+
         //
         // if (this.props.dashboard.loginStatus.isLoggedIn === false) {
         //     this.props.history.push("/login")

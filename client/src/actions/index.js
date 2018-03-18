@@ -25,6 +25,7 @@ export const LOAD_PROJECTS = 'load_projects';
 export const LOAD_SINGLE_PROJECT = 'load_single';
 export const DISPLAY_BID = 'display_bid';
 export const GET_MY_PROJECTS = 'get_my_projects';
+export const NO_FROM_PROJECTS = 'no_from_projects';
 
 
 const ROOT_URL = 'http://localhost:3000';
@@ -230,6 +231,12 @@ function loadProjects(response) {
     }
 }
 
+function noFromProjects() {
+    return{
+        type : NO_FROM_PROJECTS,
+    }
+}
+
 function SingleProject(response) {
     return {
         type: LOAD_SINGLE_PROJECT,
@@ -389,7 +396,7 @@ export function loadAllProjects() {
             console.log(response.data[0])
             dispatch(loadProjects(response));
         }).catch(error => {
-            // dispatch(noAuthenticatePost());
+            dispatch(noFromProjects());
         });
     }
 }
@@ -401,7 +408,7 @@ export function loadSingleProject(id) {
             console.log(response)
             dispatch(SingleProject(response));
         }).catch(error => {
-            // dispatch(noAuthenticatePost());
+            dispatch(noFromProjects());
         });
     }
 }
@@ -424,7 +431,7 @@ export function submitBid(values) {
             console.log(response)
             dispatch(SingleProject(response));
         }).catch(error => {
-            // dispatch(noAuthenticatePost());
+            dispatch(noFromProjects());
         });
     }
 }
@@ -437,7 +444,7 @@ export function getMyProjects() {
             console.log("here2");
             dispatch(myProjectsDispatch(response));
         }).catch(error => {
-            // dispatch(noAuthenticatePost());
+            dispatch(noFromProjects());
         });
     }
 }

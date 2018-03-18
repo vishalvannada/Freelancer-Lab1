@@ -4,9 +4,9 @@ import {check, loginSubmit} from "../actions";
 import {connect} from "react-redux";
 import {FileUpload} from 'redux-file-upload';
 import {profileCheck, uploadImage, profileSave} from "../actions";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormData from 'form-data'
 import * as API from '../api/API';
+import Edit from 'material-ui/svg-icons/editor/mode-edit';
 
 import TextField from 'material-ui/TextField';
 
@@ -99,11 +99,14 @@ class BodyProfileEdit extends Component {
 
     };
 
+
     render() {
         console.log(this.props.profile)
         const {handleSubmit} = this.props;
 
-        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' + this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
+
+        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' +
+            this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
 
         return (
             <div>
@@ -122,14 +125,17 @@ class BodyProfileEdit extends Component {
                                         />
                                     </div>
                                     <div>
-                                        <MuiThemeProvider>
-                                            <TextField
-                                                className={'fileupload'}
-                                                type="file"
-                                                name="mypic"
-                                                onChange={this.handleFileUpload}
-                                            />
-                                        </MuiThemeProvider>
+                                        <label for="file-upload" className="custom-file-upload">
+                                            <Edit className="icon-edit"/>
+                                            <span className="file-button">Edit Profile Picture</span>
+                                        </label>
+                                        <input
+                                            id="file-upload"
+                                            type="file"
+                                            name="mypic"
+                                            onChange={this.handleFileUpload}
+                                            accept="image/x-png,image/gif,image/jpeg"
+                                        />
                                     </div>
                                 </div>
 

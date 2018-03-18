@@ -9,30 +9,24 @@ import {loadAllProjects} from '../actions/index'
 
 class Jobs extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         // console.log("here")
         this.props.loadAllProjects();
-
     }
 
     render() {
 
-        // if(this.props.dashboard.redirect === true){
-        //     this.props.history.push("/profile")
-        // }
+        if (this.props.projects.isLoggingIn === true) {
+            return <div>
+                <MuiThemeProvider>
+                    <CircularProgress/>
+                </MuiThemeProvider>
+            </div>
+        }
 
-        // if (this.props.dashboard.loginStatus.isLoggingIn === true) {
-        //     return <div>
-        //         <MuiThemeProvider>
-        //             <CircularProgress/>
-        //         </MuiThemeProvider>
-        //     </div>
-        // }
-        //
-        // if (this.props.dashboard.loginStatus.isLoggedIn === false) {
-        //     this.props.history.push("/login")
-        // }
-
+        if (this.props.projects.isLoggedIn === false) {
+            this.props.history.push("/login")
+        }
 
         return (
             <div>
@@ -40,7 +34,7 @@ class Jobs extends Component {
                     <TopNavBar/>
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="improve"/>
-                <JobsBody projects={this.props.projects} history = {this.props.history}/>
+                <JobsBody projects={this.props.projects.projects} history={this.props.history}/>
             </div>
         )
 
@@ -49,7 +43,9 @@ class Jobs extends Component {
 }
 
 function mapStateToProps(state) {
-    return {projects: state.allProjects}
+    return {
+        projects: state.allProjects,
+    }
 }
 
 export default connect(mapStateToProps, {loadAllProjects})(Jobs);

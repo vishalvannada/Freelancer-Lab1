@@ -1,28 +1,39 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('./mysql');
+var bcrypt = require('bcryptjs');
 
 router.post('/', function (req, res) {
 
     const username = req.param("username");
     var getUser = "select * from users where (username='" + username +
-        "' or email='" + req.param("username") + "') and password='" + req.param("password") + "'";
+        "' or email='" + req.param("username") + "')";
 
-    // console.log("Query is:" + getUser);
+    console.log("Query is:" + getUser);
     mysql.fetchData(function (err, results,) {
         if (err) {
             throw err;
         }
         else {
             if (results.length > 0) {
-                req.session.username = results[0].username;
-                req.session.email = results[0].email;
-                res.status(201).send(results);
+                console.log(results[0].password)
+                if(bcrypt.compareSync(req.param('password'),results[0].password)){
+                    req.session.username = results[0].username;
+                    req.session.email = results[0].email;
+                    res.status(201).send(results);
+                }
+                else{
+                    res.status(401).json({
+                        message: "The password you entered does not match with the username." +
+                        " Please double-check and try again."
+                    });
+                }
+
             }
             else {
                 console.log("Not Valid");
                 res.status(401).json({
-                    message: "The email and password you entered did not match our records." +
+                    message: "The email or username you entered did not match our records." +
                     " Please double-check and try again."
                 });
             }

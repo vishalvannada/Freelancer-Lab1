@@ -11,7 +11,7 @@ import {connect} from "react-redux";
 
 class Profile extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("came profile comp")
         this.props.profileCheck();
     }
@@ -19,7 +19,7 @@ class Profile extends Component {
     render() {
         console.log("came profile")
 
-        if(this.props.profile.loginStatus.isLoggingIn === true){
+        if (this.props.profile.loginStatus.isLoggingIn === true) {
             return <div>
                 <MuiThemeProvider>
                     <CircularProgress/>
@@ -27,7 +27,7 @@ class Profile extends Component {
             </div>
         }
 
-        if(this.props.profile.loginStatus.isLoggedIn === false){
+        if (this.props.profile.loginStatus.isLoggedIn === false) {
             this.props.history.push("/login")
         }
 
@@ -35,10 +35,12 @@ class Profile extends Component {
             return (
                 <div>
                     <MuiThemeProvider>
-                        <TopNavBar/>
+                        <TopNavBar name={this.props.profile.userDetails.username}/>
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
-                    <BodyProfileEdit profile={this.props.profile}/>
+                    <MuiThemeProvider>
+                        <BodyProfileEdit profile={this.props.profile}/>
+                    </MuiThemeProvider>
                 </div>
             )
 
@@ -51,7 +53,7 @@ class Profile extends Component {
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
                     <BodyProfile profile={this.props.profile}/>
-                }
+                    }
                 </div>
             )
         }

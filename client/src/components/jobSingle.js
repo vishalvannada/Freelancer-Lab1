@@ -111,9 +111,17 @@ class JobSingle extends Component {
     render() {
 
 
-        // if(this.props.dashboard.redirect === true){
-        //     this.props.history.push("/profile")
-        // }
+        if(this.props.singleProject.isLoggingIn === true){
+            return <div>
+                <MuiThemeProvider>
+                    <CircularProgress/>
+                </MuiThemeProvider>
+            </div>
+        }
+
+        if (this.props.singleProject.isLoggedIn === false) {
+            this.props.history.push('/login')
+        }
 
         // if (this.props.dashboard.loginStatus.isLoggingIn === true) {
         //     return <div>
@@ -123,9 +131,7 @@ class JobSingle extends Component {
         //     </div>
         // }
         //
-        // if (this.props.dashboard.loginStatus.isLoggedIn === false) {
-        //     this.props.history.push("/login")
-        // }
+
 
         console.log(this.props.location.state)
 

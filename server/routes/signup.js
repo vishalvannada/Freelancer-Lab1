@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('./mysql');
+var bcrypt = require('bcryptjs');
 
 
 router.post('/', function (req, res, next) {
@@ -9,6 +10,12 @@ router.post('/', function (req, res, next) {
     console.log(req.param('username'));
     console.log(req.param('password'));
     console.log(req.param('confirmPassword'));
+
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(req.param('password'), salt);
+    console.log(hash);
+
+    console.log(bcrypt.compareSync(req.param('password'), hash));
 
 
     var getEmail = "select * from users where (email='" + req.param("email") + "')";
@@ -38,7 +45,7 @@ router.post('/', function (req, res, next) {
                 }
                 else {
                     var insertUser = "INSERT INTO users (username, password, email) VALUES ('" +
-                        req.param("username") + "','" + req.param("password") + "','" + req.param("email") + "')";
+                        req.param("username") + "','" + hash + "','" + req.param("email") + "')";
                     mysql.fetchData(function (err, result) {
                         if (err) {
                             throw err;
