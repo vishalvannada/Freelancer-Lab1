@@ -74,6 +74,10 @@ class PostProject extends Component {
         this.props.postProjectcheck();
     }
 
+    componentWillUnmount(){
+        arrayFiles = [];
+    }
+
     onSubmit(data) {
         var body = new FormData();
         console.log(data)

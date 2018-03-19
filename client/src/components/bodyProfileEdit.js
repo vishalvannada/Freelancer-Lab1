@@ -105,7 +105,7 @@ class BodyProfileEdit extends Component {
         const {handleSubmit} = this.props;
 
 
-        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' +
+        const src = this.props.profile.userDetails.image !== null ? 'http://localhost:3000/images/' +
             this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
 
         return (
@@ -268,8 +268,21 @@ function validate(values) {
     if (!values.username) {
         errors.username = "UserName can't be empty";
     }
-    if (!values.password) {
-        errors.password = "Please enter your password";
+
+    if (values.username) {
+        if (values.username.length < 6) {
+            errors.username = "Username should be of 6 letters or more!";
+        }
+    }
+
+    if (!values.email) {
+        errors.email = "Email can't be empty";
+    }
+    if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+        errors.email = "Please enter a valid email address";
+    }
+    if(isNaN(values.phoneNumber)){
+        errors.phoneNumber = "Please Enter a valid phone number"
     }
     return errors;
 }

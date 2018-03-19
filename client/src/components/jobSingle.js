@@ -72,11 +72,12 @@ class JobSingle extends Component {
     }
 
     renderBids() {
+        const buttonclass = this.props.singleProject.username == this.props.singleProject.project.username ? 'btn btn-success' : 'display-none btn btn-success';
         return _.map(this.props.singleProject.bids, bid => {
             return (
                 <li className="list-group-item" key={bid.bidid}>
                     <div className="row">
-                        <div className="col-md-8">
+                        <div className="col-md-5">
                             <img
                                 className="image-bid"
                                 src={bid.imagename == '' ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.imagename}>
@@ -84,6 +85,13 @@ class JobSingle extends Component {
                             <br/>
                             <p>{bid.username}</p>
                         </div>
+
+                        <div className="col-md-3">
+                            <button type="button" className={buttonclass}>
+                                Hire
+                            </button>
+                        </div>
+
                         <div className="col-md-4">
                             <span className="strong-weight">{bid.amount}</span>
                             <br/>
@@ -110,7 +118,7 @@ class JobSingle extends Component {
 
     render() {
 
-
+        console.log(this.props.singleProject.username)
         if(this.props.singleProject.isLoggingIn === true){
             return <div>
                 <MuiThemeProvider>
@@ -122,16 +130,6 @@ class JobSingle extends Component {
         if (this.props.singleProject.isLoggedIn === false) {
             this.props.history.push('/login')
         }
-
-        // if (this.props.dashboard.loginStatus.isLoggingIn === true) {
-        //     return <div>
-        //         <MuiThemeProvider>
-        //             <CircularProgress/>
-        //         </MuiThemeProvider>
-        //     </div>
-        // }
-        //
-
 
         console.log(this.props.location.state)
 
@@ -145,8 +143,9 @@ class JobSingle extends Component {
             buttonToggle = this.props.location.state.toggle === true || this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
         }
         else{
+            console.log()
             classForm = this.state.toggle === true ? "" : "display-none";
-            buttonToggle = this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
+            buttonToggle = this.state.toggle === true || (this.props.singleProject.username === this.props.singleProject.project.username) ? "bid-now-single display-none" : "bid-now-single";
         }
 
 

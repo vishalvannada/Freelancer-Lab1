@@ -86,9 +86,22 @@ router.post('/savedetails', function (req, res, next) {
 
     const username = req.param('username');
     const email = req.param('email');
-    const phoneNumber = req.param('phoneNumber');
-    const aboutme = req.param('aboutme');
-    const skills = req.param('skills');
+
+    let phoneNumber = '';
+    let aboutme = '';
+    let skills = '';
+
+    if (req.param('phoneNumber')) {
+        phoneNumber = req.param('phoneNumber');
+    }
+
+    if (req.param('aboutme')) {
+        aboutme = req.param('aboutme');
+    }
+
+    if (req.param('skills')) {
+        skills = req.param('skills');
+    }
 
 
     var getUser = "update users set username = '" + username + "', email = '" + email + "',phonenumber = '" + phoneNumber + "' , aboutme= '" + aboutme + "',skills = '" + skills + "' where username = '" + username + "'";
@@ -278,6 +291,7 @@ router.get('/project', function (req, res, next) {
                                     files: results,
                                     project: project,
                                     bids: bids,
+                                    username : req.session.username,
                                 })
                             }
                         }, getFiles);

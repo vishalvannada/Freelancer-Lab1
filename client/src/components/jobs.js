@@ -36,7 +36,7 @@ class Jobs extends Component {
                 <JobsBelowNavBar type="improve"/>
                 <JobsBody projects={this.props.projects.projects} history={this.props.history}/>
                 <div>
-                    <img className="image1" src="./Capture5.png" alt="aaa"/>
+                    <img className="imagefooter" src="./Capture5.png" alt="aaa"/>
                 </div>
             </div>
         )

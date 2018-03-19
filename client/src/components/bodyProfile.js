@@ -11,7 +11,7 @@ class BodyProfile extends Component {
 
     render() {
 
-        const src = this.props.profile.userDetails.image !== '' ? 'http://localhost:3000/images/' + this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
+        const src = this.props.profile.userDetails.image !== null ? 'http://localhost:3000/images/' + this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
         return (
             <div>
                 <div className="background-image">

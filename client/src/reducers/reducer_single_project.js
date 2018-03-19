@@ -8,6 +8,7 @@ const singleProject = {
     isBidding : false,
     isLoggingIn : true,
     isLoggedIn : false,
+    username : ''
 }
 
 export default function (state = singleProject, action) {
@@ -21,6 +22,7 @@ export default function (state = singleProject, action) {
                 isBidding: false,
                 isLoggingIn: false,
                 isLoggedIn : true,
+                username : action.response.data.username,
             };
         case NO_FROM_PROJECTS:
             return{
@@ -30,6 +32,7 @@ export default function (state = singleProject, action) {
                 isBidding : false,
                 isLoggingIn : false,
                 isLoggedIn : false,
+                username : ''
             }
         case LOGOUT:
             return{
@@ -39,6 +42,7 @@ export default function (state = singleProject, action) {
                 isBidding : false,
                 isLoggingIn : false,
                 isLoggedIn : false,
+                username : ''
             }
         default:
             // console.log("her"+action.type)

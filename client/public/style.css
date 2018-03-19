@@ -698,6 +698,11 @@ input[type="file"] {
     width:1343px;
 }
 
+.imagefooter {
+    width:1343px;
+    margin-top: 300px;
+}
+
 .extra {
     margin-top: 10px;
     margin-left: 80px;
