@@ -28,7 +28,7 @@ class MyProjectsBody extends Component {
     renderBidProjects() {
         return _.map(this.props.myProjects.bidProjects, project => {
             return (
-                <div>
+                <div key={project.projectid}>
                     <li className="list-group-item" key={project.projectid}>
                         <div className="row font-size-14 p-2">
                             <div className="col-md-4">
@@ -38,7 +38,9 @@ class MyProjectsBody extends Component {
                                 <p className="font-size-13">ProjectID : {project.projectid}</p>
                             </div>
 
-                            <div className="col-md-2"><strong className="text-primary">{project.owner}</strong></div>
+                            <div className="col-md-2"><strong className="text-primary">
+                                <Link to={`/users/${project.owner}`}>{project.owner}</Link>
+                                </strong></div>
                             <div className="col-md-2"><strong>{project.avg}</strong></div>
                             <div className="col-md-2"><strong>{project.amount}</strong></div>
                             <div className="col-md-2 text-success"><strong>OPEN</strong></div>

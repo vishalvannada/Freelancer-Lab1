@@ -29,7 +29,9 @@ class JobsBody extends Component {
                                 <strong>Skills : </strong><span>{project.skills}</span>
                                 <br/>
                                 <h6>Employer : <span className="text-primary">
+                                    <Link to={`users/${project.username}`}>
                                     {project.username}
+                                    </Link>
                                 </span></h6>
                             </div>
                         </div>

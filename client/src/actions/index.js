@@ -26,6 +26,7 @@ export const LOAD_SINGLE_PROJECT = 'load_single';
 export const DISPLAY_BID = 'display_bid';
 export const GET_MY_PROJECTS = 'get_my_projects';
 export const NO_FROM_PROJECTS = 'no_from_projects';
+export const SEND_PROFILE = 'send_profile'
 
 
 const ROOT_URL = 'http://localhost:3000';
@@ -252,6 +253,13 @@ function myProjectsDispatch(response) {
     }
 }
 
+function sendUserData(response) {
+    return{
+        type : SEND_PROFILE,
+        response : response
+    }
+}
+
 export function loginSubmit(values) {
     return (dispatch) => {
         dispatch(loggingIn());
@@ -306,7 +314,6 @@ export function check() {
 
 
 export function profileCheck() {
-
     console.log("here")
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}`, {withCredentials: true}).then(response => {
@@ -448,3 +455,16 @@ export function getMyProjects() {
         });
     }
 }
+
+export function getUserProfile(username) {
+    return (dispatch) => {
+        const request = axios.get(`http://localhost:3000/getuserprofile?username=${username}`, {withCredentials: true},
+        ).then(response => {
+            console.log("here2");
+            dispatch(sendUserData(response));
+        }).catch(error => {
+            // dispatch(noFromUserProfile());
+        });
+    }
+}
+

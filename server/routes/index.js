@@ -385,6 +385,26 @@ router.get('/getmyprojects', function (req, res, next) {
 
 });
 
+router.get('/getuserprofile', function (req, res) {
+
+    if(req.session.username){
+
+        const username = req.param('username')
+        const getUser = "select * from users where username = '" + username + "'" ;
+
+        mysql.fetchData(function (err, results) {
+            if (err) {
+                throw err;
+            }
+            else {
+                res.status(201).send(results);
+                console.log(results)
+            }
+        }, getUser)
+
+    }
+})
+
 module.exports = router;
 
 

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import {reducer as formReducer} from 'redux-form';
-// import PostsReducer from './reducer_posts';
 import LoginReducer from './reducer_login';
 import ProfileReducer from './reducer_profile';
 import DashboardReducer from './reducer_dashboard';
@@ -8,6 +7,7 @@ import PostProjectReducer from './reducer_post';
 import ProjectsReducer from './reducer_projects';
 import SingleProjectReducer from './reducer_single_project';
 import MyProjectReducer from './reducer_my_projects'
+import ViewProfile from './reducer_view_profile'
 
 const rootReducer = combineReducers({
     login : LoginReducer,
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
     allProjects : ProjectsReducer,
     singleProject : SingleProjectReducer,
     myProjects : MyProjectReducer,
+    viewProfile : ViewProfile,
     form : formReducer
 });
 

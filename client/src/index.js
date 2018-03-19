@@ -17,6 +17,7 @@ import JobSingle from './components/jobSingle';
 import MyProjects from './components/myProjects';
 import NotFound from './components/notFound';
 import Home from './components/home';
+import ViewProfile from './components/viewProfile';
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -63,6 +64,7 @@ ReactDOM.render(
                     <Route path="/jobs/:id" component={JobSingle}/>
                     <Route path="/jobs" component={Jobs}/>
                     <Route path="/home" component={Home}/>
+                    <Route path="/users/:username" component={ViewProfile}/>
                     <Route path="*" component={NotFound}/>
                 </Switch>
             </div>
