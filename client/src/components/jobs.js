@@ -31,10 +31,13 @@ class Jobs extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    <TopNavBar/>
+                    <TopNavBar />
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="improve"/>
                 <JobsBody projects={this.props.projects.projects} history={this.props.history}/>
+                <div>
+                    <img className="image1" src="./Capture5.png" alt="aaa"/>
+                </div>
             </div>
         )
 

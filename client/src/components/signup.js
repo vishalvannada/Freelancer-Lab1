@@ -187,6 +187,13 @@ function validate(values) {
     if (!values.username) {
         errors.username = "Please enter a username!";
     }
+
+    if (values.username) {
+        if (values.username.length < 6) {
+            errors.username = "Username should be of 6 letters or more!";
+        }
+    }
+
     if (!values.password) {
         errors.password = "Please enter a password";
     }

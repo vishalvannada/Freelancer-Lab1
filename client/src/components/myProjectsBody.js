@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import _ from 'lodash'
-
+import {Link} from 'react-router-dom';
 
 const styles = {
     tab: {
@@ -32,14 +32,16 @@ class MyProjectsBody extends Component {
                     <li className="list-group-item" key={project.projectid}>
                         <div className="row font-size-14 p-2">
                             <div className="col-md-4">
-                                <h4 className="text-primary">{project.projectname}</h4>
+                                <Link to={`/jobs/${project.projectid}`}>
+                                    <h4 className="text-primary">{project.projectname}</h4>
+                                </Link>
                                 <p className="font-size-13">ProjectID : {project.projectid}</p>
                             </div>
 
                             <div className="col-md-2"><strong className="text-primary">{project.owner}</strong></div>
                             <div className="col-md-2"><strong>{project.avg}</strong></div>
                             <div className="col-md-2"><strong>{project.amount}</strong></div>
-                            <div className="col-md-2 "><strong>STATUS</strong></div>
+                            <div className="col-md-2 text-success"><strong>OPEN</strong></div>
 
                         </div>
                     </li>
@@ -55,15 +57,18 @@ class MyProjectsBody extends Component {
                 <li className="list-group-item" key={project.projectid}>
                     <div className="row font-size-14 p-2">
                         <div className="col-md-4">
-                            <h5 className="text-primary">{project.projectname}</h5>
+                            <Link to={`/jobs/${project.projectid}`}>
+                                <h5 className="text-primary">{project.projectname}</h5>
+                            </Link>
                             <span>{project.projectdesc}</span>
                             <br/>
+
                             <span className="font-size-13">ProjectID : {project.projectid}</span>
                         </div>
-                        <div className="col-md-2"><strong>FREELANCER</strong></div>
-                        <div className="col-md-2"><strong>DEADLINE</strong></div>
+                        <div className="col-md-2"><strong></strong></div>
+                        <div className="col-md-2"><strong></strong></div>
                         <div className="col-md-2"><strong>{project.avg}</strong></div>
-                        <div className="col-md-2 "><strong>STATUS</strong></div>
+                        <div className="col-md-2 text-success"><strong>OPEN</strong></div>
                     </div>
                 </li>
             )

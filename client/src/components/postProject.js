@@ -275,12 +275,30 @@ function validate(values) {
     const errors = {};
 
     //names are associated to fields in the redux form names
-    if (!values.username) {
-        errors.username = "Please enter your username or email";
+    if (!values.projectName) {
+        errors.projectName = "Please enter the name of the project";
     }
-    if (!values.password) {
-        errors.password = "Please enter your password";
+
+    if (values.projectName) {
+        if (values.projectName.length < 10) {
+            errors.projectName = "Project name should contain more than 10 letters";
+        }
     }
+
+    if (!values.projDesc) {
+        errors.projDesc = "Please enter the project description";
+    }
+
+    if (values.projDesc) {
+        if (values.projDesc.length < 20) {
+            errors.projDesc = "Project Description should contain more than 20 letters";
+        }
+    }
+
+    if(!values.skillsReq){
+        errors.skillsReq = "Please enter skills"
+    }
+
     return errors;
 }
 
