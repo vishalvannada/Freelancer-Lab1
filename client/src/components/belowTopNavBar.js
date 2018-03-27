@@ -13,7 +13,7 @@ class BelowTopNavBar extends Component {
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
                                     <Link
-                                        to="myprojects"
+                                        to="/myprojects"
                                         className={this.props.type === "myProjects" ? 'nav-link border-down' : 'nav-link'}
                                         >My Projects</Link>
                                 </li>

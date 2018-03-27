@@ -11,7 +11,7 @@ import {check} from "../actions";
 class Dashboard extends Component {
 
     componentWillMount() {
-        console.log("here")
+        console.log("here");
         this.props.check();
 
     }
