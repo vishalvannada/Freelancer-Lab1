@@ -264,6 +264,7 @@ export function loginSubmit(values) {
     return (dispatch) => {
         dispatch(loggingIn());
         const request = axios.post(`${ROOT_URL}/login`, values, {withCredentials: true}).then(response => {
+            console.log("Came here dude")
             dispatch(loginSuccess(response))
         }).catch(error => {
             const message = JSON.parse(error.request.response);
@@ -317,6 +318,7 @@ export function profileCheck() {
     console.log("here")
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}`, {withCredentials: true}).then(response => {
+            console.log(response)
             dispatch(profileAuth(response));
         }).catch(error => {
             dispatch(noAuthenticate());
@@ -340,7 +342,7 @@ export function editProfile() {
 
 export function uploadImage(payload) {
     return (dispatch) => {
-        const request = axios.post('http://localhost:3000/upload', payload, {
+        const request = axios.post(`${ROOT_URL}/upload`, payload, {
             withCredentials: true,
         }, {
             headers: {
@@ -369,7 +371,7 @@ export function profileSave(values) {
 
 export function postProject(payload) {
     return (dispatch) => {
-        const request = axios.post(`${ROOT_URL}/postproject`, payload, {
+        const request = axios.post(`${ROOT_URL}/project/postproject`, payload, {
             withCredentials: true,
         }, {
             headers: {
@@ -388,7 +390,7 @@ export function postProject(payload) {
 
 export function postProjectcheck() {
     return (dispatch) => {
-        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+        const request = axios.get(`${ROOT_URL}/login/logincheck`, {withCredentials: true}).then(response => {
             dispatch(authenticatePost(response));
         }).catch(error => {
             dispatch(noAuthenticatePost());

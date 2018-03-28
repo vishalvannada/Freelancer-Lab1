@@ -10,17 +10,12 @@ import {check} from "../actions";
 
 class Dashboard extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         console.log("here");
         this.props.check();
-
     }
 
     render() {
-
-        if(this.props.dashboard.redirect === true){
-            this.props.history.push("/profile")
-        }
 
         if (this.props.dashboard.loginStatus.isLoggingIn === true) {
             return <div>
@@ -28,6 +23,10 @@ class Dashboard extends Component {
                     <CircularProgress/>
                 </MuiThemeProvider>
             </div>
+        }
+
+        if(this.props.dashboard.redirect === true){
+            this.props.history.push("/profile")
         }
 
         if (this.props.dashboard.loginStatus.isLoggedIn === false) {

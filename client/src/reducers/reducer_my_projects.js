@@ -1,14 +1,14 @@
 import _ from 'lodash';
 import {GET_MY_PROJECTS, NO_FROM_PROJECTS, LOGOUT} from '../actions/index'
 
-const myProjects = {
+const initialState = {
     bidProjects: {},
     published: {},
     isLoggingIn: true,
     isLoggedIn: false,
 }
 
-export default function (state = myProjects, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case GET_MY_PROJECTS :
             return {

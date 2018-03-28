@@ -17,6 +17,8 @@ class MyProjects extends Component {
     render() {
 
         if (this.props.myProjects.isLoggingIn === true) {
+
+            console.log("sfjsbhj")
             return <div>
                 <MuiThemeProvider>
                     <CircularProgress/>
@@ -28,13 +30,7 @@ class MyProjects extends Component {
             this.props.history.push("/login")
         }
 
-
-        //
-        // if (this.props.dashboard.loginStatus.isLoggedIn === false) {
-        //     this.props.history.push("/login")
-        // }
-
-        console.log(this.props.myProjects)
+        // console.log(this.props.myProjects)
         return (
             <div>
                 <MuiThemeProvider>

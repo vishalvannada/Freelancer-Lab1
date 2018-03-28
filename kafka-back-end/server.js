@@ -1,17 +1,38 @@
 var connection =  new require('./kafka/Connection');
 var login = require('./services/login');
+var signUp = require('./services/signUp');
+var postProject = require('./services/postProject');
+var profile = require('./services/profile');
+var imageUpload = require('./services/imageUpload');
+var saveProfileDetails = require('./services/saveProfileDetails')
 
-var topic_name = 'login_topic';
+var topic_name1 = 'login_topic';
+var consumer1 = connection.getConsumer(topic_name1);
 
-var consumer = connection.getConsumer(topic_name);
+var topic_name2 = 'signUp_topic';
+var consumer2 = connection.getConsumer(topic_name2);
+
+var topic_name3 = 'postProject_topic';
+var consumer3 = connection.getConsumer(topic_name3);
+
+var topic_name4 = 'profile_topic';
+var consumer4 = connection.getConsumer(topic_name4);
+
+var topic_name5 = 'imageUpload_topic';
+var consumer5 = connection.getConsumer(topic_name5);
+
+var topic_name6 = 'saveProfileDetails_topic';
+var consumer6 = connection.getConsumer(topic_name6);
 
 var producer = connection.getProducer();
 
-console.log('server is running');
-consumer.on('message', function (message) {
+
+consumer1.on('message', function (message) {
     console.log('message received');
-    console.log(JSON.stringify(message.value));
+    console.log(message)
+    console.log(JSON.parse(message.value));
     var data = JSON.parse(message.value);
+    console.log(data)
     login.handle_request(data.data, function(err,res){
         console.log('after handle',res, err);
         var payloads = [
@@ -28,6 +49,130 @@ consumer.on('message', function (message) {
         });
         return;
     });
-    //
+});
 
+
+consumer2.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    signUp.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer3.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    postProject.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer4.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    profile.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+
+consumer5.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data);
+    imageUpload.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer6.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data);
+    saveProfileDetails.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
 });

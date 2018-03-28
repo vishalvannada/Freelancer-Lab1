@@ -54,7 +54,7 @@ class BodyProfileEdit extends Component {
             "username": this.props.profile.userDetails.username,
             "email": this.props.profile.userDetails.email,
             "phoneNumber": this.props.profile.userDetails.phoneNumber,
-            "aboutme": this.props.profile.userDetails.aboutMe,
+            "aboutMe": this.props.profile.userDetails.aboutMe,
             "skills": this.props.profile.userDetails.skills
         }
 
@@ -84,7 +84,6 @@ class BodyProfileEdit extends Component {
         console.log(event.target.files)
         console.log(event.target.files[0])
         console.log(payload.get('mypic'))
-        console.log(payload._boundary)
 
         this.props.uploadImage(payload);
 
@@ -104,9 +103,11 @@ class BodyProfileEdit extends Component {
         console.log(this.props.profile)
         const {handleSubmit} = this.props;
 
+        let src = 'https://www.buira.org/assets/images/shared/default-profile.png';
+        if(this.props.profile.userDetails.image) {
+            src = 'http://localhost:3000/images/' + this.props.profile.userDetails.image;
+        }
 
-        const src = this.props.profile.userDetails.image !== null ? 'http://localhost:3000/images/' +
-            this.props.profile.userDetails.image : 'https://www.buira.org/assets/images/shared/default-profile.png';
 
         return (
             <div>
@@ -125,7 +126,7 @@ class BodyProfileEdit extends Component {
                                         />
                                     </div>
                                     <div>
-                                        <label for="file-upload" className="custom-file-upload">
+                                        <label for = "file-upload" className="custom-file-upload">
                                             <Edit className="icon-edit"/>
                                             <span className="file-button">Edit Profile Picture</span>
                                         </label>
@@ -167,7 +168,7 @@ class BodyProfileEdit extends Component {
 
                                         <Field
                                             label="Bio Ex: I am an experienced Salesforce Developer"
-                                            name="aboutme" component={this.renderText}/>
+                                            name="aboutMe" component={this.renderText}/>
 
 
                                         <Field

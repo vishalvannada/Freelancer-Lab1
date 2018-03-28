@@ -3,7 +3,7 @@ var url = 'mongodb://localhost:27017/local'
 
 function handle_request(msg, callback){
     var res = {};
-    console.log("In handle request:"+ JSON.stringify(msg));
+    // console.log("In handle request:"+ JSON.stringify(msg));
 
 
     try {
@@ -13,17 +13,20 @@ function handle_request(msg, callback){
 
             var coll = mongo.collection('users');
 
-            coll.findOne({username: msg.username, password:msg.password}, function(err, user){
+            coll.findOne({
+                $or: [ { username : msg.username }, { email : msg.username } ],
+            }, function(err, user){
                 if (user) {
                     // done(null, {username: username, password: password});
-                    console.log("True")
+                    console.log(typeof(user))
                     res.code = "200";
                     res.value = "Success Login";
+                    res.result = user;
 
                 } else {
                     res.code = "401";
                     res.value = "Failed Login";
-
+                    res.result = {}
                 }
 
                 console.log('callback')
