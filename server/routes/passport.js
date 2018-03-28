@@ -17,7 +17,7 @@ module.exports = function(passport) {
                 console.log("Here in passport")
                 if(results.code == 200){
                     console.log("Here nn")
-                    done(null,{username:username});
+                    done(null,results.result);
                 }
                 else {
                     done(null,false);

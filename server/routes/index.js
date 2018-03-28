@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('./mysql');
-var fs = require('fs');
+var kafka = require('./kafka/client')
 var multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -18,35 +18,27 @@ var upload = multer({storage: storage});
 var type = upload.single('mypic');
 
 router.post('/upload', type, function (req, res, next) {
-    if (req.session.username) {
-        console.log("gere jhb")
-        console.log(req);
+
+    if (req.session) {
         console.log(req.file.filename);
         var username = req.session.username;
-        var getUser = "update users set imagename = '" + req.file.filename + "' where username = '" + req.session.username + "'";
-        console.log("Query is:" + getUser);
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
+
+        kafka.make_request('imageUpload_topic', {
+            username: username,
+            image: req.file.filename,
+        }, function (err, results) {
+            console.log('in result');
+            if (results.code == 200) {
+                console.log(results);
+                res.status(201).send(results.result)
             }
             else {
-                console.log(results)
-                var getUser = "select * from users where username = '" + username + "'";
-                console.log("Query is:" + getUser);
-                mysql.fetchData(function (err, results,) {
-                    if (err) {
-                        throw err;
-                    }
-                    else {
-                        if (results.length > 0) {
-                            console.log("Valid");
-                            console.log(results);
-                            res.status(201).send(results);
-                        }
-                    }
-                }, getUser);
+                res.status(401).json({
+                    message: results.message
+                })
             }
-        }, getUser);
+
+        });
     }
     else {
         res.status(401).end()
@@ -54,28 +46,26 @@ router.post('/upload', type, function (req, res, next) {
 
 });
 
-/* GET home page. */
-router.get('/', function (req, res) {
-    console.log(req.session)
 
-    if (req.session.username) {
+router.get('/', function (req, res) {
+    if (req.session) {
         var username = req.session.username;
-        var getUser = "select * from users where username = '" + username + "'";
-        console.log("Query is:" + getUser);
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
+        kafka.make_request('profile_topic', {"username": username,}, function (err, results) {
+
+            if (results.code == 200) {
+                console.log(results);
+                // req.session.username = req.param('username');
+                res.status(201).send(results.result)
             }
             else {
-                if (results.length > 0) {
-                    //  console.log("Valid");
-                    //   console.log(results);
-                    res.status(201).send(results);
-                }
+                console.log('roo', results);
+                res.status(401).end()
             }
-        }, getUser);
+
+        });
     }
     else {
+        console.log("NoValid");
         res.status(401).send("NO")
     }
 });
@@ -83,129 +73,55 @@ router.get('/', function (req, res) {
 
 router.post('/savedetails', function (req, res, next) {
 
-    const username = req.param('username');
-    const email = req.param('email');
 
-    let phoneNumber = '';
-    let aboutme = '';
-    let skills = '';
+    if(req.session){
+        const username = req.param('username');
+        const email = req.param('email');
+        let phoneNumber = '';
+        let aboutMe = '';
+        let skills = '';
 
-    if (req.param('phoneNumber')) {
-        phoneNumber = req.param('phoneNumber');
-    }
-
-    if (req.param('aboutme')) {
-        aboutme = req.param('aboutme');
-    }
-
-    if (req.param('skills')) {
-        skills = req.param('skills');
-    }
-
-
-    var getUser = "update users set username = '" + username + "', email = '" + email + "',phonenumber = '" + phoneNumber + "' , aboutme= '" + aboutme + "',skills = '" + skills + "' where username = '" + username + "'";
-
-    mysql.fetchData(function (err, results,) {
-        if (err) {
-            throw err;
+        if (req.param('phoneNumber')) {
+            phoneNumber = req.param('phoneNumber');
         }
-        else {
-            if (req.session.username) {
-                var getUser = "select * from users where username = '" + username + "'";
-                console.log("Query is:" + getUser);
-                mysql.fetchData(function (err, results,) {
-                    if (err) {
-                        throw err;
-                    }
-                    else {
-                        if (results.length > 0) {
-                            console.log("Valid");
-                            console.log(results);
-                            res.status(201).send(results);
-                        }
-                    }
-                }, getUser);
-            }
-            else {
-                res.status(400).send("NO")
-            }
+
+        if (req.param('aboutMe')) {
+            aboutMe = req.param('aboutMe');
         }
-    }, getUser);
+
+        if (req.param('skills')) {
+            skills = req.param('skills');
+        }
+
+        kafka.make_request('saveProfileDetails_topic',
+            {
+                oldname : req.session.username,
+                username: username,
+                aboutMe: aboutMe,
+                skills: skills,
+                phoneNumber : phoneNumber,
+                email : email,
+            },
+
+            function (err, results) {
+                console.log('in result');
+                if (results.code == 200) {
+                    console.log(results);
+                    res.status(201).send(results.result)
+                }
+                else {
+                    res.status(401).json({
+                        message: results.message
+                    })
+                }
+
+            });
+    }
+    else{
+        res.status(401).end();
+    }
+
 })
-
-var storage2 = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/images')
-    },
-    filename: function (req, file, cb) {
-        cb(null, req.session.username + '-' + Date.now() + file.originalname)
-    }
-});
-var upload2 = multer({storage: storage2})
-var type2 = upload2.array('uploads');
-
-router.post('/postproject', type2, function (req, res, next) {
-
-    console.log("hijhb")
-    console.log(req.body)
-    console.log(req.files)
-    console.log("hijhb")
-
-
-    if (req.session.username) {
-        console.log("gere jhb")
-        console.log(req.body);
-        const projectName = req.body.projectName;
-        const projDesc = req.body.projDesc;
-        const skillsReq = req.body.skillsReq;
-        const estBudget = req.body.estBudget;
-        // console.log(req.file.filename);
-        var username = req.session.username;
-
-        // INSERT INTO `test`.`projects` (`projectname`, `projectdesc`, `skills`, `budgetrange`) VALUES ('test2', 'test2-test2', 'c++', '100');
-
-        var getUser = "insert into projects (projectname,projectdesc,skills,budgetrange, username) values ('" +
-            projectName + "','" + projDesc + "','" + skillsReq + "','" + estBudget + "','" + username + "')"
-
-        console.log("Query is:" + getUser);
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
-            }
-            else {
-                console.log(results.insertId)
-
-                req.files.forEach((element) => {
-                    console.log(element.filename);
-
-                    let query = "insert into files (projectid, filename) values('" + results.insertId + "','" + element.filename + "')";
-                    mysql.fetchData(function (err, results,) {
-                        if (err) {
-                            throw err;
-                        }
-                        else {
-
-                        }
-                    }, query);
-                });
-
-                res.status(204).end();
-
-
-                // INSERT INTO `test`.`files` (`projectid`, `filename`) VALUES ('1', 'vis');
-
-
-                // console.log("Query is:" + getUser);
-
-            }
-        }, getUser);
-    }
-    else {
-        res.status(401).end()
-    }
-
-});
-
 
 router.get('/loadprojects', function (req, res, next) {
 
@@ -290,7 +206,7 @@ router.get('/project', function (req, res, next) {
                                     files: results,
                                     project: project,
                                     bids: bids,
-                                    username : req.session.username,
+                                    username: req.session.username,
                                 })
                             }
                         }, getFiles);
@@ -387,10 +303,10 @@ router.get('/getmyprojects', function (req, res, next) {
 
 router.get('/getuserprofile', function (req, res) {
 
-    if(req.session.username){
+    if (req.session.username) {
 
         const username = req.param('username')
-        const getUser = "select * from users where username = '" + username + "'" ;
+        const getUser = "select * from users where username = '" + username + "'";
 
         mysql.fetchData(function (err, results) {
             if (err) {

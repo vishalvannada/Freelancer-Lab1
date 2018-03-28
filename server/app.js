@@ -4,12 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('client-sessions');
+// var session = require('client-sessions');
+
+var passport = require('passport');
+require('./routes/passport')(passport);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
-var signup = require('./routes/signup');
+var signup = require('./routes/signUp');
+var project = require('./routes/project');
+var mongoSessionURL = "mongodb://localhost:27017/sessions";
+var expressSessions = require("express-session");
+var mongoStore = require("connect-mongo")(expressSessions);
 
 var app = express();
 
@@ -34,13 +41,26 @@ app.use(function (req, res, next) {
 });
 
 
-app.use(session({
-    cookieName : 'session',
-    secret : 'CMPE273_Redux',
-    duration : 30 *60 *1000,
-    activeDuration : 20*60*1000
-}));
+// app.use(session({
+//     cookieName : 'session',
+//     secret : 'CMPE273_Redux',
+//     duration : 30 *60 *1000,
+//     activeDuration : 20*60*1000
+// }));
 
+app.use(expressSessions({
+    secret: "CMPE273_passport",
+    resave: false,
+    //Forces the session to be saved back to the session store, even if the session was never modified during the request
+    saveUninitialized: false, //force to save uninitialized session to db.
+    //A session is uninitialized when it is new but not modified.
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 6 * 1000,
+    store: new mongoStore({
+        url: mongoSessionURL
+    })
+}));
+app.use(passport.initialize());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -57,7 +77,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/login',login);
 app.use('/signup',signup);
-
+app.use('/project',project);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

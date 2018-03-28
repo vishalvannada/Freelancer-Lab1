@@ -25,7 +25,7 @@ function fetchData(callback, sqlQuery) {
                     console.log("ERROR: " + err.message);
                 }
                 else {	// return err or result
-                    // console.log(rows);
+                    console.log(rows);
                     callback(err, rows);
                     conn.release();
                     console.log("\nConnection Released..");
