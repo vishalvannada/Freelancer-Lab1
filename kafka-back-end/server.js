@@ -24,6 +24,9 @@ var consumer5 = connection.getConsumer(topic_name5);
 var topic_name6 = 'saveProfileDetails_topic';
 var consumer6 = connection.getConsumer(topic_name6);
 
+var topic_name7 = 'viewProfile_topic';
+var consumer7 = connection.getConsumer(topic_name7);
+
 var producer = connection.getProducer();
 
 
@@ -160,6 +163,31 @@ consumer6.on('message', function (message) {
     var data = JSON.parse(message.value);
     console.log(data);
     saveProfileDetails.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer7.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    profile.handle_request(data.data, function(err,res){
         console.log('after handle',res, err);
         var payloads = [
             { topic: data.replyTo,

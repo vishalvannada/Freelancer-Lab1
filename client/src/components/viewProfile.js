@@ -14,6 +14,11 @@ class ViewProfile extends Component {
 
     render() {
         // const src = this.props.profile.user.imagename !== null ? 'http://localhost:3000/images/' + this.props.profile.user.imagename : 'https://www.buira.org/assets/images/shared/default-profile.png';
+
+        let src = 'https://www.buira.org/assets/images/shared/default-profile.png';
+        if(this.props.profile.user.image) {
+            src = 'http://localhost:3000/images/' + this.props.profile.user.image;
+        }
         return (
             <div>
                 <MuiThemeProvider>
@@ -29,9 +34,9 @@ class ViewProfile extends Component {
                                 <div className="col-md-4">
                                     <div className="profile-div-propic thumbnail">
                                         <img
-                                            src="https://www.buira.org/assets/images/shared/default-profile.png"
+                                            // src="https://www.buira.org/assets/images/shared/default-profile.png"
                                             alt="..." className="d-block profile-profilepic"
-                                            // src={src}
+                                            src={src}
                                         />
                                     </div>
                                 </div>

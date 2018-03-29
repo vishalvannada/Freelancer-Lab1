@@ -303,21 +303,24 @@ router.get('/getmyprojects', function (req, res, next) {
 
 router.get('/getuserprofile', function (req, res) {
 
-    if (req.session.username) {
-
+    if (req.session) {
         const username = req.param('username')
-        const getUser = "select * from users where username = '" + username + "'";
+        kafka.make_request('viewProfile_topic', {"username": username,}, function (err, results) {
 
-        mysql.fetchData(function (err, results) {
-            if (err) {
-                throw err;
+            if (results.code == 200) {
+                console.log(results);
+                // req.session.username = req.param('username');
+                res.status(201).send(results.result)
             }
             else {
-                res.status(201).send(results);
-                console.log(results)
+                console.log('roo', results);
+                res.status(401).end()
             }
-        }, getUser)
 
+        });
+    }
+    else{
+        res.status(401).end();
     }
 })
 

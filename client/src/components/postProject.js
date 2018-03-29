@@ -7,7 +7,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import FileInput from './dropzone'
 import Dropzone from 'react-dropzone';
 import Icon from 'material-ui/svg-icons/content/add';
-import {postProject, postProjectcheck} from '../actions/index'
+import {postProject, postProjectcheck} from '../actions/index';
+import { scroller } from 'react-scroll';
 
 const FILE_FIELD_NAME = 'files';
 let arrayFiles = [];
@@ -219,13 +220,16 @@ class PostProject extends Component {
                             Freelancers
                             will use these skills to
                             find projects they are most interested and experienced in.</p>
-                        <Field
-                            label="e.g. Build me a website"
-                            name="skillsReq"
-                            component={this.renderField}
-                            type="text"
-                        />
-                        <p className="font-size-14 mb-5">Suggested skills: Website Design , Logo Design , Mobile App
+                        <Field name="skillsReq" component="select" className="form-control form-control-lg" multiple>
+                            <option value="">Select Budget</option>
+                            <option value="$20 - 80 USD">Basic ($20 - 80 USD)</option>
+                            <option value="$80 - 150 USD">Moderate ($80 - 150 USD)</option>
+                            <option value="$150 - 250">Standard ($150 - 250 USD)</option>
+                            <option value="$250 - 500 USD">Skilled ($250 - 500 USD)</option>
+                            <option value="$500+  USD">Expert ($500
+                                + USD)</option>
+                        </Field>
+                        <p className="font-size-14 mt-2 mb-5">Suggested skills: Website Design , Logo Design , Mobile App
                             Development , Data Entry ,
                             Article Writing</p>
 
@@ -306,6 +310,19 @@ function validate(values) {
     return errors;
 }
 
+export function scrollToFirstError(errors) {
+    console.log("errors", errors)
+    // const errorFields = getErrorFieldNames(errors);
+    // // Using breakable for loop
+    // for (let i = 0; i < errorFields.length; i++) {
+    //     const fieldName = `position-${errorFields[i]}`;
+    //     // Checking if the marker exists in DOM
+    //     if (document.querySelectorAll(`[name="${fieldName}"]`).length) {
+    //         scroller.scrollTo(fieldName, { offset: -200, smooth: true });
+    //         break;
+    //     }
+    // }
+}
 
 function mapStateToProps(state) {
     return {loginValid: state.postProject}
@@ -313,7 +330,8 @@ function mapStateToProps(state) {
 
 export default reduxForm({
     validate,
-    form: 'PostProjectForm'
+    form: 'PostProjectForm',
+    onSubmitFail : (errors) => scrollToFirstError(errors),
 })(
     connect(mapStateToProps, {postProject, postProjectcheck})(PostProject)
 );

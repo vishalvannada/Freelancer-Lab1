@@ -20,26 +20,33 @@ router.post('/postproject', type2, function (req, res, next) {
 
         const projectName = req.body.projectName;
         const projDesc = req.body.projDesc;
-        const skillsReq = req.body.skillsReq;
+        var skillsReq = req.body.skillsReq;
         const estBudget = req.body.estBudget;
         var username = req.session.username;
 
-        kafka.make_request('postProject_topic', {
-            "projectName": projectName,
-            "projDesc": projDesc,
-            "skillsReq": skillsReq,
-            "estBudget" : estBudget,
-            "username" : username
-        }, function (err, results) {
-            console.log('in result');
+        skillsReq = skillsReq.split(',');
+        console.log(typeof(skillsReq), skillsReq)
 
-            if (results.code == 200) {
-                res.status(204).end()
-            }
-            else {
-                res.status(401).end()
-            }
-        });
+
+        const mapFiles = req.files.map( file => file.filename);
+        console.log(typeof(mapFiles), mapFiles)
+        // kafka.make_request('postProject_topic', {
+        //     "projectName": projectName,
+        //     "projDesc": projDesc,
+        //     "skillsReq": skillsReq,
+        //     "estBudget" : estBudget,
+        //     "username" : username,
+        //     "files" : mapFiles,
+        // }, function (err, results) {
+        //     console.log('in result');
+        //
+        //     if (results.code == 200) {
+        //         res.status(204).end()
+        //     }
+        //     else {
+        //         res.status(401).end()
+        //     }
+        // });
     }
     else {
         res.status(401).end()

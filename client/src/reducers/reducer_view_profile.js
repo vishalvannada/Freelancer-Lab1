@@ -9,11 +9,11 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type){
         case SEND_PROFILE:
-            console.log(action.response.data[0])
+            console.log(action.response.data)
             return{
                 isLoggingIn : false,
                 isLoggedIn : true,
-                user : action.response.data[0]
+                user : action.response.data
             }
         default :
             return state;

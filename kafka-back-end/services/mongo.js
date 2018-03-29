@@ -16,11 +16,11 @@ exports.connect = function(url, callback){
 };
 
 /**
- * Returns the collection on the selected database
+ * Returns the collection on the selected database.
  */
 exports.collection = function(name){
     if (!connected) {
-      throw new Error('Must connect to Mongo before calling "collection"');
+      throw new Error('Must connect to Mongo before calling Collection');
     } 
     return db.collection(name);
 };

@@ -12,7 +12,8 @@ function handle_request(msg, callback) {
                 projDesc: msg.projDesc,
                 skillsReq: msg.skillsReq,
                 estBudget : msg.estBudget,
-                username : msg.username
+                username : msg.username,
+                files : msg.files
             }, function (err, check) {
                 if (check) {
                     console.log(check)
