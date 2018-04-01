@@ -399,9 +399,9 @@ export function postProjectcheck() {
 }
 
 
-export function loadAllProjects() {
+export function loadAllProjects(page) {
     return (dispatch) => {
-        const request = axios.get('http://localhost:3000/loadprojects', {withCredentials: true}).then(response => {
+        const request = axios.get(`${ROOT_URL}/project/loadprojects?page=${page}`, {withCredentials: true}).then(response => {
             console.log(response.data[0])
             dispatch(loadProjects(response));
         }).catch(error => {
@@ -448,7 +448,7 @@ export function submitBid(values) {
 export function getMyProjects() {
     console.log("here")
     return (dispatch) => {
-        const request = axios.get(`http://localhost:3000/getmyprojects`, {withCredentials: true},
+        const request = axios.get(`${ROOT_URL}/project/getmyprojects`, {withCredentials: true},
         ).then(response => {
             console.log("here2");
             dispatch(myProjectsDispatch(response));
@@ -460,7 +460,7 @@ export function getMyProjects() {
 
 export function getUserProfile(username) {
     return (dispatch) => {
-        const request = axios.get(`http://localhost:3000/getuserprofile?username=${username}`, {withCredentials: true},
+        const request = axios.get(`${ROOT_URL}/getuserprofile?username=${username}`, {withCredentials: true},
         ).then(response => {
             console.log("here2");
             dispatch(sendUserData(response));

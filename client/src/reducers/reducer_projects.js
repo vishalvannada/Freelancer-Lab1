@@ -5,7 +5,9 @@ import {LOGOUT} from "../actions";
 const projects = {
     isLoggingIn : true,
     isLoggedIn : false,
-    projects : {}
+    projects : {},
+    current : '',
+    pages : ''
 }
 
 export default function (state = projects, action) {
@@ -14,20 +16,26 @@ export default function (state = projects, action) {
             return {
                 isLoggingIn : false,
                 isLoggedIn: true,
-                projects : _.mapKeys(action.response.data, 'projectid')
+                projects : _.mapKeys(action.response.data.projects, '_id'),
+                current : action.response.data.current,
+                pages : action.response.data.pages
             };
         case NO_FROM_PROJECTS :{
             return {
                 isLoggingIn : false,
                 isLoggedIn: false,
                 projects : {},
+                current : '',
+                pages : ''
             };
         }
         case LOGOUT:
             return {
                 isLoggingIn: false,
                 isLoggedIn : false,
-                projects : {}
+                projects : {},
+                current : '',
+                pages : ''
             }
         default:
             // console.log("her"+action.type)

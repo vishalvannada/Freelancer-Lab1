@@ -7,18 +7,26 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import FileInput from './dropzone'
 import Dropzone from 'react-dropzone';
 import Icon from 'material-ui/svg-icons/content/add';
+import Info from 'material-ui/svg-icons/action/info-outline';
 import {postProject, postProjectcheck} from '../actions/index';
-import { scroller } from 'react-scroll';
+import {scroller} from 'react-scroll';
+import _ from 'lodash';
+
 
 const FILE_FIELD_NAME = 'files';
 let arrayFiles = [];
+
+let customErrors = {
+    estBudget: ''
+};
+let toggle = false;
 
 const renderDropzoneInput = (field) => {
     console.log(field.input.value)
     const newFile = field.input.value;
     arrayFiles.push(...newFile);
     console.log(...newFile);
-    console.log( field.input.value[0])
+    console.log(field.input.value[0])
     let files = arrayFiles;
     console.log(files);
     return (
@@ -75,7 +83,7 @@ class PostProject extends Component {
         this.props.postProjectcheck();
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         arrayFiles = [];
     }
 
@@ -84,7 +92,7 @@ class PostProject extends Component {
         console.log(data)
         console.log(arrayFiles)
 
-        arrayFiles.forEach((element)=> {
+        arrayFiles.forEach((element) => {
             body.append('uploads', element)
         })
 
@@ -139,24 +147,25 @@ class PostProject extends Component {
         )
     }
 
+
     render() {
 
-        if(this.props.loginValid.isLoggingIn === true){
-            return(
+        if (this.props.loginValid.isLoggingIn === true) {
+            return (
                 <div>
                     Loading...
                 </div>
             )
         }
 
-        if(this.props.loginValid.isLoggedIn === false){
+        if (this.props.loginValid.isLoggedIn === false) {
             this.props.history.push("/login")
         }
 
-        if(this.props.loginValid.isCompleted === true){
+        if (this.props.loginValid.isCompleted === true) {
             this.props.history.push("/dashboard")
         }
-        const {handleSubmit, reset} = this.props;
+        const {handleSubmit, pristine, reset, submitting, input, meta} = this.props;
 
         const styles = {
             block: {
@@ -169,6 +178,12 @@ class PostProject extends Component {
                 marginTop: 10,
             }
         };
+
+
+        const required = value => {
+            console.log(value)
+            value ? undefined : 'Required'
+        }
 
         return (
             <div className="full-body">
@@ -220,18 +235,45 @@ class PostProject extends Component {
                             Freelancers
                             will use these skills to
                             find projects they are most interested and experienced in.</p>
-                        <Field name="skillsReq" component="select" className="form-control form-control-lg" multiple>
-                            <option value="">Select Budget</option>
-                            <option value="$20 - 80 USD">Basic ($20 - 80 USD)</option>
-                            <option value="$80 - 150 USD">Moderate ($80 - 150 USD)</option>
-                            <option value="$150 - 250">Standard ($150 - 250 USD)</option>
-                            <option value="$250 - 500 USD">Skilled ($250 - 500 USD)</option>
-                            <option value="$500+  USD">Expert ($500
-                                + USD)</option>
+                        <Field name="skillsReq" component="select"
+                               className={`form-control mb-2`}
+                               multiple={true} value={[]} type="select-multiple"
+                               required
+                        >
+                            <option>Java</option>
+                            <option>C</option>
+                            <option>C++</option>
+                            <option>JavaScript</option>
+                            <option>C #</option>
+                            <option>MERN Stack</option>
+                            <option>MEAN Stack</option>
+                            <option>LAMP Stack</option>
+                            <option>Website Design</option>
+                            <option>Logo Design</option>
+                            <option>Mobile App Development(Android)</option>
+                            <option>Mobile App Development(ios)</option>
                         </Field>
-                        <p className="font-size-14 mt-2 mb-5">Suggested skills: Website Design , Logo Design , Mobile App
+
+
+                        <span className="font-size-14">Suggested skills: Website Design , Logo Design , Mobile
+                            App
                             Development , Data Entry ,
-                            Article Writing</p>
+                            Article Writing</span>
+
+                        <br/>
+
+                        <div className="text-align-left mt-0">
+                            <MuiThemeProvider>
+                                <Info/>
+                            </MuiThemeProvider>
+                        </div>
+
+                        <div className="text-align-left font-size-14 mt-2 p-1 ml-3">
+                            Control + Click to select multiple skills
+                        </div>
+
+                        <br/>
+                        <p className="mb-5"></p>
 
 
                         <h5>How do you want to pay?</h5>
@@ -254,14 +296,13 @@ class PostProject extends Component {
 
 
                         <h5 className="mt-5">What is your estimated budget?</h5>
-                        <Field name="estBudget" component="select" className="form-control form-control-lg">
-                            <option value="">Select Budget</option>
-                            <option value="$20 - 80 USD">Basic ($20 - 80 USD)</option>
-                            <option value="$80 - 150 USD">Moderate ($80 - 150 USD)</option>
-                            <option value="$150 - 250">Standard ($150 - 250 USD)</option>
-                            <option value="$250 - 500 USD">Skilled ($250 - 500 USD)</option>
-                            <option value="$500+  USD">Expert ($500
-                                + USD)</option>
+                        <Field name="estBudget" component="select" className="form-control form-control-lg" required>
+                            <option default value="20 - 80">Basic ($20 - 80 USD)</option>
+                            <option value="80 - 150">Moderate ($80 - 150 USD)</option>
+                            <option value="150 - 250">Standard ($150 - 250 USD)</option>
+                            <option value="250 - 500">Skilled ($250 - 500 USD)</option>
+                            <option value="500 - ">Expert ($500 + USD)</option>
+
                         </Field>
 
                         <button className="post-project-button mt-5" type="submit">Post My Project</button>
@@ -272,6 +313,10 @@ class PostProject extends Component {
             </div>
         )
     }
+}
+
+function errorBlur(values) {
+    console.log(values)
 }
 
 //helper for validation
@@ -303,25 +348,29 @@ function validate(values) {
         }
     }
 
-    if(!values.skillsReq){
-        errors.skillsReq = "Please enter skills"
+    if (!values.estBudget) {
+        values.estBudget = '20 - 80'
     }
-
     return errors;
 }
 
 export function scrollToFirstError(errors) {
     console.log("errors", errors)
-    // const errorFields = getErrorFieldNames(errors);
-    // // Using breakable for loop
-    // for (let i = 0; i < errorFields.length; i++) {
-    //     const fieldName = `position-${errorFields[i]}`;
-    //     // Checking if the marker exists in DOM
-    //     if (document.querySelectorAll(`[name="${fieldName}"]`).length) {
-    //         scroller.scrollTo(fieldName, { offset: -200, smooth: true });
-    //         break;
-    //     }
-    // }
+
+
+    const errorFields = Object.keys(errors);
+    // Using breakable for loop
+    console.log(errorFields)
+    for (let i = 0; i < errorFields.length; i++) {
+        const fieldName = errorFields[i];
+        // Checking if the marker exists in DOM
+        console.log(fieldName)
+        if (document.querySelectorAll(`[name="${fieldName}"]`).length) {
+            console.log("ONe")
+            scroller.scrollTo(fieldName, {offset: -200, smooth: true});
+            break;
+        }
+    }
 }
 
 function mapStateToProps(state) {
@@ -331,7 +380,7 @@ function mapStateToProps(state) {
 export default reduxForm({
     validate,
     form: 'PostProjectForm',
-    onSubmitFail : (errors) => scrollToFirstError(errors),
+    onSubmitFail: (errors) => scrollToFirstError(errors),
 })(
     connect(mapStateToProps, {postProject, postProjectcheck})(PostProject)
 );

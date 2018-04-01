@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
         case GET_MY_PROJECTS :
             return {
                 bidProjects: _.mapKeys(action.response.data.bidProjects, 'bidid'),
-                published: _.mapKeys(action.response.data.publishedProjects, 'projectid'),
+                published: _.mapKeys(action.response.data.publishedProjects, '_id'),
                 isLoggingIn: false,
                 isLoggedIn: true,
             }

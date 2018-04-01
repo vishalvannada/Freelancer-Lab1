@@ -56,16 +56,16 @@ class MyProjectsBody extends Component {
     renderPublishedProjects() {
         return _.map(this.props.myProjects.published, project => {
             return (
-                <li className="list-group-item" key={project.projectid}>
+                <li className="list-group-item" key={project._id}>
                     <div className="row font-size-14 p-2">
                         <div className="col-md-4">
-                            <Link to={`/jobs/${project.projectid}`}>
-                                <h5 className="text-primary">{project.projectname}</h5>
+                            <Link to={`/jobs/${project._id}`}>
+                                <h5 className="text-primary">{project.projectName}</h5>
                             </Link>
-                            <span>{project.projectdesc}</span>
+                            <span>{project.projDesc}</span>
                             <br/>
 
-                            <span className="font-size-13">ProjectID : {project.projectid}</span>
+                            <span className="font-size-13">ProjectID : {project._id}</span>
                         </div>
                         <div className="col-md-2"><strong></strong></div>
                         <div className="col-md-2"><strong></strong></div>

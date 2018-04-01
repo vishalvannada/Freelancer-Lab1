@@ -80,7 +80,7 @@ KafkaRPC.prototype.setupResponseQueue = function (producer, topic_name, next) {
         console.log('msg received - kafkarpc.js');
         var data = JSON.parse(message.value);
 
-        console.log(data.data)
+        // console.log(data.data)
         //get the correlationId
         var correlationId = data.correlationId;
         //is it a response to a pending request
@@ -93,7 +93,7 @@ KafkaRPC.prototype.setupResponseQueue = function (producer, topic_name, next) {
             delete self.requests[correlationId];
             //callback, no err
 
-            console.log('hghggh', data.data)
+            // console.log('hghggh', data.data)
             entry.callback(null, data.data);
         }
     });

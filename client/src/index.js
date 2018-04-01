@@ -61,8 +61,8 @@ ReactDOM.render(
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/post-project" component={PostProject}/>
                     <Route path="/myprojects" component={MyProjects}/>
-                    <Route path="/jobs/:id" component={JobSingle}/>
-                    <Route path="/jobs" component={Jobs}/>
+                    <Route path="/jobs/single/:id" component={JobSingle}/>
+                    <Route path="/jobs/:page" component={Jobs}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/users/:username" component={ViewProfile}/>
                     <Route path="*" component={NotFound}/>

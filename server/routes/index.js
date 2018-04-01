@@ -123,32 +123,6 @@ router.post('/savedetails', function (req, res, next) {
 
 })
 
-router.get('/loadprojects', function (req, res, next) {
-
-    if (req.session.username) {
-        console.log("gere jhb")
-        var username = req.session.username;
-
-        var getUser = "select *, (select count(bids.projectid) from test.bids where projects.projectid = bids.projectid)" +
-            "as bidcount from projects where username != '" + username + "'";
-
-        console.log("Query is:" + getUser);
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
-            }
-            else {
-                console.log(results)
-                res.status(201).send(results);
-            }
-        }, getUser);
-    }
-    else {
-        res.status(401).end()
-    }
-
-});
-
 
 router.get('/project', function (req, res, next) {
 
@@ -248,58 +222,6 @@ router.post('/savebid', function (req, res, next) {
     }
 })
 
-
-router.get('/getmyprojects', function (req, res, next) {
-
-    if (req.session.username) {
-        var username = req.session.username;
-
-        // SELECT *, (select round(avg(bids.amount)) from test.bids where projects.projectid = bids.projectid)as avg
-        // FROM test.projects where username = 'hk';
-
-        var getPublishedProjects = "select *, (select round(avg(bids.amount)) from test.bids where projects.projectid = bids.projectid)as avg  from projects where username = '" + username + "'";
-        // console.log("Query is:" + getUser);
-
-        let publishedProjects = {};
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
-            }
-            else {
-
-                console.log(results)
-                publishedProjects = results;
-
-                // SELECT bidid, bids.username as bidder, amount, projects.projectid, projectname, projectdesc, skills, projects.username as owner, (select round(avg(bids.amount)) from test.bids where projects.projectid = bids.projectid) as avg FROM test.projects join
-                // test.bids where bids.username = 'hk' and projects.projectid = bids.projectid
-
-                var getBidProjects = "SELECT bidid, bids.username as bidder, amount, projects.projectid, projectname, projectdesc, skills, budgetrange, projects.username as owner, (select round(avg(bids.amount)) from test.bids where projects.projectid = bids.projectid) as avg FROM projects join" +
-                    " bids where bids.username = '" + username + "' and projects.projectid = bids.projectid";
-                // console.log("Query is:" + getUser);
-                mysql.fetchData(function (err, results,) {
-                    if (err) {
-                        throw err;
-                    }
-                    else {
-                        console.log(results)
-                        //  console.log("Valid");
-                        //   console.log(results);
-                        res.status(201).json({
-                            publishedProjects: publishedProjects,
-                            bidProjects: results,
-                        })
-
-                    }
-                }, getBidProjects);
-            }
-        }, getPublishedProjects);
-    }
-    else {
-        res.status(401).send("NO")
-    }
-
-
-});
 
 router.get('/getuserprofile', function (req, res) {
 

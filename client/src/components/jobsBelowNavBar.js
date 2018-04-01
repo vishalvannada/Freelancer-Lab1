@@ -10,8 +10,10 @@ class JobsBelowNavBar extends Component {
 
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                                <li>
-                                    <a className="nav-link strong-weight">Projects with My Skills</a>
+                                <li className="nav-item">
+                                    <a
+                                        className={this.props.type === "mySkills" ? 'nav-link border-down' : 'nav-link'}
+                                        href="#">Projects with My Skills</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
