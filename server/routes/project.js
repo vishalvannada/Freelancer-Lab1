@@ -105,8 +105,8 @@ router.get('/loadprojects', function (req, res, next) {
 
             res.status(201).json({
                 projects: results.projects,
-                current : page,
-                pages : Math.ceil(results.count / perPage)
+                current: page,
+                pages: Math.ceil(results.count / perPage)
             })
 
             if (results.code == 200) {
@@ -135,6 +135,104 @@ router.get('/loadprojects', function (req, res, next) {
         //         res.status(201).send(results);
         //     }
         // }, getUser);
+    }
+    else {
+        res.status(401).end()
+    }
+
+});
+
+
+router.get('/', function (req, res, next) {
+
+    if (req.session.username) {
+
+        console.log(req.param('id'))
+
+        const id = req.param('id');
+
+        kafka.make_request('getOneProject_topic', {
+            "id": id
+        }, function (err, results) {
+            console.log('in result', results);
+
+            res.status(201).json({
+                project: results.project,
+                bids: [],
+                username: req.session.username,
+            })
+
+
+            // res.status(201).json({
+            //     projects: results.projects,
+            //     current : page,
+            //     pages : Math.ceil(results.count / perPage)
+            // })
+
+            if (results.code == 200) {
+                // res.status(204).end()
+            }
+            else {
+                // res.status(401).end()
+            }
+        });
+
+
+        //     var username = req.session.username;
+        //
+        //     var getUser = "select * from projects where projectid = '" + id + "'";
+        //
+        //     // SELECT bidid, bids.username, projectid, period, amount, imagename FROM test.bids join test.users on test.bids.username = test.users.username
+        //     var getBids = "select bidid, bids.username, projectid, period, amount, imagename from bids join users on bids.username = users.username where " +
+        //         "projectid = '" + id + "'";
+        //     var getFiles = "select * from files where projectid = '" + id + "'";
+        //
+        //
+        //     let project = {};
+        //     let bids = {}
+        //
+        //     console.log("Query is:" + getUser);
+        //     mysql.fetchData(function (err, results,) {
+        //         if (err) {
+        //             throw err;
+        //         }
+        //         else {
+        //             console.log(" 3 " + results);
+        //             // res.json({
+        //             //     project : results,
+        //             // })
+        //             project = results;
+        //
+        //             mysql.fetchData(function (err, results,) {
+        //                 if (err) {
+        //                     throw err;
+        //                 }
+        //                 else {
+        //                     console.log("1" + results);
+        //                     // res.status(201).send(results);
+        //                     // res.json({
+        //                     //     bids : results,
+        //                     // })
+        //
+        //                     bids = results;
+        //                     mysql.fetchData(function (err, results,) {
+        //                         if (err) {
+        //                             throw err;
+        //                         }
+        //                         else {
+        //                             console.log("2" + results);
+        //                             res.status(201).json({
+        //                                 files: results,
+        //                                 project: project,
+        //                                 bids: bids,
+        //                                 username: req.session.username,
+        //                             })
+        //                         }
+        //                     }, getFiles);
+        //                 }
+        //             }, getBids);
+        //         }
+        //     }, getUser);
     }
     else {
         res.status(401).end()

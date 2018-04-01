@@ -4,7 +4,6 @@ import {LOAD_SINGLE_PROJECT, NO_FROM_PROJECTS, LOGOUT} from '../actions/index'
 const singleProject = {
     project : {},
     bids : {},
-    files : {},
     isBidding : false,
     isLoggingIn : true,
     isLoggedIn : false,
@@ -16,9 +15,8 @@ export default function (state = singleProject, action) {
         case LOAD_SINGLE_PROJECT:
             console.log(action.response.data.project[0])
             return {
-                project : action.response.data.project[0],
+                project : action.response.data.project,
                 bids : _.mapKeys(action.response.data.bids, 'bidid'),
-                files : _.mapKeys(action.response.data.files, 'id'),
                 isBidding: false,
                 isLoggingIn: false,
                 isLoggedIn : true,
@@ -28,7 +26,6 @@ export default function (state = singleProject, action) {
             return{
                 project : {},
                 bids : {},
-                files : {},
                 isBidding : false,
                 isLoggingIn : false,
                 isLoggedIn : false,
@@ -38,7 +35,6 @@ export default function (state = singleProject, action) {
             return{
                 project : {},
                 bids : {},
-                files : {},
                 isBidding : false,
                 isLoggingIn : false,
                 isLoggedIn : false,

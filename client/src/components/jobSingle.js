@@ -60,11 +60,13 @@ class JobSingle extends Component {
     }
 
     renderFiles() {
-        return _.map(this.props.singleProject.files, file => {
+        var i = 0;
+        return _.map(this.props.singleProject.project.files, file => {
             return (
                 <li className="mx-4" key={file.filename}>
-                    <a href={'http://localhost:3000/images/' + file.filename} download>
-                        {'file' + file.id}
+                    <a href={'http://localhost:3000/images/' + file} download target="_blank">
+                        {'file' + i}
+                        {i++}
                     </a>
                 </li>
             )
@@ -111,7 +113,7 @@ class JobSingle extends Component {
     }
 
     onSubmit(values) {
-        values.projectid = this.props.singleProject.project.projectid;
+        values.projectid = this.props.singleProject.project._id;
         this.props.submitBid(values);
     }
 
@@ -159,7 +161,7 @@ class JobSingle extends Component {
                 </MuiThemeProvider>
 
                 <div className="container-post-project">
-                    <h4 className="mt-5">{thisProject.projectname}</h4>
+                    <h4 className="mt-5">{thisProject.projectName}</h4>
 
 
                     <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className={classForm}>
@@ -216,14 +218,14 @@ class JobSingle extends Component {
                                     Project Description
                                 </h5>
                                 <p className="px-4">
-                                    {thisProject.projectdesc}
+                                    {thisProject.projDesc}
                                 </p>
                                 <br/>
                                 <h5 className="px-4">
                                     Skills Required
                                 </h5>
                                 <p className="px-4">
-                                    {thisProject.skills}
+                                    {thisProject.skillsReq}
                                 </p>
 
                                 <br/>
@@ -233,7 +235,7 @@ class JobSingle extends Component {
                                 {this.renderFiles()}
 
                                 <br/>
-                                <p className="font-size-14 px-4">Project ID : {thisProject.projectid}</p>
+                                <p className="font-size-14 px-4">Project ID : {thisProject._id}</p>
                             </div>
                             <div className="col-md-6">
                                 <button className={buttonToggle} onClick={() => this.setState({

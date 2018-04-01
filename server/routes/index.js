@@ -124,76 +124,6 @@ router.post('/savedetails', function (req, res, next) {
 })
 
 
-router.get('/project', function (req, res, next) {
-
-    if (req.session.username) {
-        console.log("gere jhb")
-        console.log(req.param('id'))
-
-        const id = req.param('id')
-
-
-        var username = req.session.username;
-
-        var getUser = "select * from projects where projectid = '" + id + "'";
-
-        // SELECT bidid, bids.username, projectid, period, amount, imagename FROM test.bids join test.users on test.bids.username = test.users.username
-        var getBids = "select bidid, bids.username, projectid, period, amount, imagename from bids join users on bids.username = users.username where " +
-            "projectid = '" + id + "'";
-        var getFiles = "select * from files where projectid = '" + id + "'";
-
-
-        let project = {};
-        let bids = {}
-
-        console.log("Query is:" + getUser);
-        mysql.fetchData(function (err, results,) {
-            if (err) {
-                throw err;
-            }
-            else {
-                console.log(" 3 " + results);
-                // res.json({
-                //     project : results,
-                // })
-                project = results;
-
-                mysql.fetchData(function (err, results,) {
-                    if (err) {
-                        throw err;
-                    }
-                    else {
-                        console.log("1" + results);
-                        // res.status(201).send(results);
-                        // res.json({
-                        //     bids : results,
-                        // })
-
-                        bids = results;
-                        mysql.fetchData(function (err, results,) {
-                            if (err) {
-                                throw err;
-                            }
-                            else {
-                                console.log("2" + results);
-                                res.status(201).json({
-                                    files: results,
-                                    project: project,
-                                    bids: bids,
-                                    username: req.session.username,
-                                })
-                            }
-                        }, getFiles);
-                    }
-                }, getBids);
-            }
-        }, getUser);
-    }
-    else {
-        res.status(401).end()
-    }
-
-});
 
 router.post('/savebid', function (req, res, next) {
 
@@ -206,19 +136,44 @@ router.post('/savebid', function (req, res, next) {
     // INSERT INTO `test`.`bids` (`username`, `projectid`, `period`, `amount`) VALUES ('hk', '14', '10', '150');
 
     if (req.session.username) {
-        const insertBid = "insert into bids (username, projectid, period, amount) values ('" + req.session.username + "', '" +
-            projectid + "','" + days + "','" + amount + "')";
+        kafka.make_request('saveBid_topic',
+            {
+                oldname : req.session.username,
+                username: username,
+                aboutMe: aboutMe,
+                skills: skills,
+                phoneNumber : phoneNumber,
+                email : email,
+            },
 
-        console.log("q0 " + insertBid);
+            function (err, results) {
+                console.log('in result');
+                if (results.code == 200) {
+                    console.log(results);
+                    res.status(201).send(results.result)
+                }
+                else {
+                    res.status(401).json({
+                        message: results.message
+                    })
+                }
 
-        mysql.fetchData(function (err, results) {
-            if (err) {
-                throw err;
-            }
-            else {
-                console.log(results)
-            }
-        }, insertBid)
+            });
+
+
+        // const insertBid = "insert into bids (username, projectid, period, amount) values ('" + req.session.username + "', '" +
+        //     projectid + "','" + days + "','" + amount + "')";
+        //
+        // console.log("q0 " + insertBid);
+        //
+        // mysql.fetchData(function (err, results) {
+        //     if (err) {
+        //         throw err;
+        //     }
+        //     else {
+        //         console.log(results)
+        //     }
+        // }, insertBid)
     }
 })
 

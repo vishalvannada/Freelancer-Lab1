@@ -412,9 +412,9 @@ export function loadAllProjects(page) {
 
 export function loadSingleProject(id) {
     return (dispatch) => {
-        const request = axios.get(`http://localhost:3000/project?id=${id}`, {withCredentials: true},
+        const request = axios.get(`${ROOT_URL}/project?id=${id}`, {withCredentials: true},
         ).then(response => {
-            console.log(response)
+            console.log(response.data)
             dispatch(SingleProject(response));
         }).catch(error => {
             dispatch(noFromProjects());
@@ -435,10 +435,10 @@ export function displayBidSection() {
 
 export function submitBid(values) {
     return (dispatch) => {
-        const request = axios.post(`http://localhost:3000/savebid`, values, {withCredentials: true},
+        const request = axios.post(`${ROOT_URL}/savebid`, values, {withCredentials: true},
         ).then(response => {
             console.log(response)
-            dispatch(SingleProject(response));
+            // dispatch(SingleProject(response));
         }).catch(error => {
             dispatch(noFromProjects());
         });

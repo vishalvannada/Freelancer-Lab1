@@ -80,7 +80,7 @@ class JobsBody extends Component {
         return (
             this.props.projects.pages > 0 ?
 
-                <ul className="pagination">
+                <ul className="pagination mt-4">
 
                     {this.props.projects.current === 1 ? <li className="page-item disabled"><a>First</a></li> :
                         <li className="page-item"><Link className="page-link" to="/jobs/1">First</Link></li>}
