@@ -41,7 +41,7 @@ class JobsBody extends Component {
                         <div className="col-md-3 text-center">
                             <p>{project.estBudget}</p>
                             <button type="button" className="btn btn-success" onClick={() => this.props.history.push({
-                                pathname: `jobs/${project._id}`,
+                                pathname: `/jobs/single/${project._id}`,
                                 state: {toggle: true}
                             })}>Bid Now
                             </button>

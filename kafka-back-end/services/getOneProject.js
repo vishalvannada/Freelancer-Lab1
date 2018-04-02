@@ -11,33 +11,48 @@ function handle_request(msg, callback) {
 
             var coll = mongo.collection('projects');
 
-            console.log(msg.id)
+            console.log(msg.id);
             var o_id = new mongo1.ObjectID(msg.id);
             coll.findOne({"_id": o_id}, function (err, project) {
 
-                console.log(project);
+                // console.log(project);
+                var id = project._id.toString();
+                var coll2 = mongo.collection('bids');
 
-                res.code = "200";
-                res.value = "Success";
-                res.project = project;
+                console.log(id)
+                coll2.aggregate([
+                    {$match: {"projectid": id}},
+                    {
+                        $lookup: {
+                            from: "users",
+                            localField: "username",
+                            foreignField: "username",
+                            as: "image"
+                        }
+                    },
+                    {$unwind: "$image"},
+                    {
+                        $project: {
+                            _id: 1,
+                            projectid: 1,
+                            amount: 1,
+                            period: 1,
+                            username: 1,
+                            image: "$image.image",
+                        }
+                    }
+                ]).toArray(function (err, bids) {
+
+                    console.log(bids, msg.username);
+
+                    res.code = "200";
+                    res.value = "Success";
+                    res.project = project;
+                    res.bids = bids;
 
 
-                callback(null, res);
-
-                // projects.forEach(project => {
-                //     console.log(project)
-                // })
-                //
-                // coll.find({username: {$ne: msg.username}}).count( function (err, count) {
-                //     console.log("here",count)
-                //
-                //     res.code = "200";
-                //     res.value = "Success";
-                //     res.projects = projects;
-                //     res.count = count;
-                //
-                //     callback(null, res);
-                // })
+                    callback(null, res);
+                });
             });
         });
     }

@@ -77,12 +77,12 @@ class JobSingle extends Component {
         const buttonclass = this.props.singleProject.username == this.props.singleProject.project.username ? 'btn btn-success' : 'display-none btn btn-success';
         return _.map(this.props.singleProject.bids, bid => {
             return (
-                <li className="list-group-item" key={bid.bidid}>
+                <li className="list-group-item" key={bid._id}>
                     <div className="row">
                         <div className="col-md-5">
                             <img
                                 className="image-bid"
-                                src={bid.imagename == '' ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.imagename}>
+                                src={bid.image == '' ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.image}>
                             </img>
                             <br/>
                             <p>{bid.username}</p>
@@ -145,7 +145,7 @@ class JobSingle extends Component {
             buttonToggle = this.props.location.state.toggle === true || this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
         }
         else{
-            console.log()
+            console.log(this.props.singleProject.username,this.props.singleProject.project.username)
             classForm = this.state.toggle === true ? "" : "display-none";
             buttonToggle = this.state.toggle === true || (this.props.singleProject.username === this.props.singleProject.project.username) ? "bid-now-single display-none" : "bid-now-single";
         }

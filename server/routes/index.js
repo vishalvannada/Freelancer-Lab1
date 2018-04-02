@@ -74,7 +74,7 @@ router.get('/', function (req, res) {
 router.post('/savedetails', function (req, res, next) {
 
 
-    if(req.session){
+    if (req.session) {
         const username = req.param('username');
         const email = req.param('email');
         let phoneNumber = '';
@@ -95,12 +95,12 @@ router.post('/savedetails', function (req, res, next) {
 
         kafka.make_request('saveProfileDetails_topic',
             {
-                oldname : req.session.username,
+                oldname: req.session.username,
                 username: username,
                 aboutMe: aboutMe,
                 skills: skills,
-                phoneNumber : phoneNumber,
-                email : email,
+                phoneNumber: phoneNumber,
+                email: email,
             },
 
             function (err, results) {
@@ -117,12 +117,11 @@ router.post('/savedetails', function (req, res, next) {
 
             });
     }
-    else{
+    else {
         res.status(401).end();
     }
 
 })
-
 
 
 router.post('/savebid', function (req, res, next) {
@@ -138,25 +137,23 @@ router.post('/savebid', function (req, res, next) {
     if (req.session.username) {
         kafka.make_request('saveBid_topic',
             {
-                oldname : req.session.username,
-                username: username,
-                aboutMe: aboutMe,
-                skills: skills,
-                phoneNumber : phoneNumber,
-                email : email,
-            },
-
-            function (err, results) {
+                username: req.session.username,
+                projectid: projectid,
+                amount: amount,
+                period : days,
+            }, function (err, results) {
                 console.log('in result');
-                if (results.code == 200) {
-                    console.log(results);
-                    res.status(201).send(results.result)
-                }
-                else {
-                    res.status(401).json({
-                        message: results.message
-                    })
-                }
+
+                console.log(results)
+                // if (results.code == 200) {
+                //     console.log(results);
+                //     res.status(201).send(results.result)
+                // }
+                // else {
+                //     res.status(401).json({
+                //         message: results.message
+                //     })
+                // }
 
             });
 
@@ -196,7 +193,7 @@ router.get('/getuserprofile', function (req, res) {
 
         });
     }
-    else{
+    else {
         res.status(401).end();
     }
 })

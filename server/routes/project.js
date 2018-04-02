@@ -158,7 +158,7 @@ router.get('/', function (req, res, next) {
 
             res.status(201).json({
                 project: results.project,
-                bids: [],
+                bids: results.bids,
                 username: req.session.username,
             })
 

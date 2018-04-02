@@ -16,7 +16,7 @@ export default function (state = singleProject, action) {
             console.log(action.response.data.project[0])
             return {
                 project : action.response.data.project,
-                bids : _.mapKeys(action.response.data.bids, 'bidid'),
+                bids : _.mapKeys(action.response.data.bids, '_id'),
                 isBidding: false,
                 isLoggingIn: false,
                 isLoggedIn : true,
