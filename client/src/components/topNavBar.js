@@ -23,25 +23,24 @@ class TopNavBar extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Hire Freelancers
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
+                                        <a className="dropdown-item">Action</a>
                                         <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#">Something else here</a>
+                                        <a className="dropdown-item">Something else here</a>
                                     </div>
                                 </li>
                                 <li className="nav-item active dropdown">
-
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">
                                         Work
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Action</a>
+                                        <p><strong className="font-size-13 p-3">FIND WORK</strong></p>
+                                        <Link className="dropdown-item" to='/jobs/1'>Browse Projects</Link>
                                         <a className="dropdown-item" href="#">Another action</a>
                                         <div className="dropdown-divider"></div>
                                         <a className="dropdown-item" href="#">Something else here</a>

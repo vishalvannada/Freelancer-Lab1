@@ -10,8 +10,9 @@ function handle_request(msg, callback) {
 
             var coll = mongo.collection('projects');
 
-            console.log(msg.perPage, msg.page)
-            coll.aggregate([{$match: {username: {$ne: msg.username}}}, {
+            var regex = ".*" + msg.projectName + ".*"
+            console.log(msg, regex)
+            coll.aggregate([{$match: {projectName: new RegExp(regex, 'i')}}, {
                 $lookup: {
                     from: "bids",
                     localField: "_id",
@@ -32,8 +33,8 @@ function handle_request(msg, callback) {
             }]).skip((msg.perPage * parseInt(msg.page)) - msg.perPage)
                 .limit(msg.perPage).toArray(function (err, projects){
 
-            // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
-            //     .limit(msg.perPage).toArray(function (err, projects) {
+                // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
+                //     .limit(msg.perPage).toArray(function (err, projects) {
 
                 console.log(projects, msg.username);
 
@@ -41,13 +42,15 @@ function handle_request(msg, callback) {
                     console.log(project)
                 })
 
-                coll.find({username: {$ne: msg.username}}).count(function (err, count) {
+                coll.find({projectName: new RegExp(regex, 'i')}).count(function (err, count) {
                     console.log("here", count)
 
                     res.code = "200";
                     res.value = "Success";
                     res.projects = projects;
                     res.count = count;
+
+                    console.log(res)
 
                     callback(null, res);
                 })

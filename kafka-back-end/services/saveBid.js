@@ -1,5 +1,6 @@
 var mongo = require('./mongo');
 var url = 'mongodb://localhost:27017/local'
+var mongo1 = require('mongodb');
 
 function handle_request(msg, callback) {
     var res = {};
@@ -7,9 +8,10 @@ function handle_request(msg, callback) {
         mongo.connect(url, function () {
             console.log('Connected to mongo at: ' + url);
             var coll = mongo.collection('bids');
+            var projectid = new mongo1.ObjectID(msg.projectid);
             coll.insert({
                 username: msg.username,
-                projectid: msg.projectid,
+                projectid: projectid,
                 amount: msg.amount,
                 period : msg.period,
             }, function (err, check) {

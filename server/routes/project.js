@@ -240,4 +240,36 @@ router.get('/', function (req, res, next) {
 
 });
 
+
+router.get('/search', function (req, res, next) {
+    if (req.session.username) {
+
+        let perPage = 2;
+        let page = req.param('page')
+        console.log(page)
+
+        kafka.make_request('searchProjects_topic', {
+            "perPage": perPage,
+            "page": page,
+            "username": req.session.username,
+            "projectName" : req.param('projectName'),
+            "skillsReq" : req.param('skillsReq')
+        }, function (err, results) {
+            console.log('in result', results);
+
+            res.status(201).json({
+                projects: results.projects,
+                current: page,
+                pages: Math.ceil(results.count / perPage)
+            })
+
+        });
+
+    }
+    else {
+        res.status(401).end()
+    }
+
+});
+
 module.exports = router;

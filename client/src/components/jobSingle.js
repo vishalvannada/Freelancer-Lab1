@@ -7,6 +7,9 @@ import {loadSingleProject, submitBid} from '../actions/index'
 import {Field, reduxForm} from 'redux-form';
 import _ from 'lodash'
 
+
+var bidDone = false;
+
 class JobSingle extends Component {
 
     constructor(props) {
@@ -63,7 +66,7 @@ class JobSingle extends Component {
         var i = 0;
         return _.map(this.props.singleProject.project.files, file => {
             return (
-                <li className="mx-4" key={file.filename}>
+                <li className="mx-4" key={i}>
                     <a href={'http://localhost:3000/images/' + file} download target="_blank">
                         {'file' + i}
                         {i++}
@@ -82,7 +85,7 @@ class JobSingle extends Component {
                         <div className="col-md-5">
                             <img
                                 className="image-bid"
-                                src={bid.image == '' ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.image}>
+                                src={bid.image == '' || bid.image == undefined ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.image}>
                             </img>
                             <br/>
                             <p>{bid.username}</p>
@@ -121,7 +124,7 @@ class JobSingle extends Component {
     render() {
 
         console.log(this.props.singleProject.username)
-        if(this.props.singleProject.isLoggingIn === true){
+        if (this.props.singleProject.isLoggingIn === true) {
             return <div>
                 <MuiThemeProvider>
                     <CircularProgress/>
@@ -137,17 +140,26 @@ class JobSingle extends Component {
 
         const {handleSubmit} = this.props;
 
+        _.map(this.props.singleProject.bids, bid => {
+            console.log(bid)
+            if (bid.username == this.props.singleProject.username) {
+                bidDone = true;
+                console.log("hh")
+            }
+        });
+
+        console.log(bidDone)
+
         let classForm = {};
         let buttonToggle = {};
 
         if (this.props.location.state) {
-            classForm = this.props.location.state.toggle === true || this.state.toggle === true ? "" : "display-none";
+            classForm = (this.props.location.state.toggle === true || this.state.toggle === true) && !bidDone ? "" : "display-none";
             buttonToggle = this.props.location.state.toggle === true || this.state.toggle === true ? "bid-now-single display-none" : "bid-now-single";
         }
-        else{
-            console.log(this.props.singleProject.username,this.props.singleProject.project.username)
+        else {
             classForm = this.state.toggle === true ? "" : "display-none";
-            buttonToggle = this.state.toggle === true || (this.props.singleProject.username === this.props.singleProject.project.username) ? "bid-now-single display-none" : "bid-now-single";
+            buttonToggle = this.state.toggle === true || (this.props.singleProject.username === this.props.singleProject.project.username) || bidDone ? "bid-now-single display-none" : "bid-now-single";
         }
 
 
@@ -225,7 +237,14 @@ class JobSingle extends Component {
                                     Skills Required
                                 </h5>
                                 <p className="px-4">
-                                    {thisProject.skillsReq}
+                                    {thisProject.skillsReq ? thisProject.skillsReq.map(skill => {
+                                        return (
+                                            <span key={skill}>
+                                                {skill}
+                                                <br/>
+                                            </span>
+                                        )
+                                    }) : <span></span>}
                                 </p>
 
                                 <br/>
@@ -239,7 +258,7 @@ class JobSingle extends Component {
                             </div>
                             <div className="col-md-6">
                                 <button className={buttonToggle} onClick={() => this.setState({
-                                    toggle : true
+                                    toggle: true
                                 })}>
                                     <span>Bid on This Project</span>
                                 </button>

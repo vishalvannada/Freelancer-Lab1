@@ -16,12 +16,10 @@ function handle_request(msg, callback) {
             coll.findOne({"_id": o_id}, function (err, project) {
 
                 // console.log(project);
-                var id = project._id.toString();
+                // var id = project._id.toString();
                 var coll2 = mongo.collection('bids');
-
-                console.log(id)
                 coll2.aggregate([
-                    {$match: {"projectid": id}},
+                    {$match: {"projectid": project._id}},
                     {
                         $lookup: {
                             from: "users",

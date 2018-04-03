@@ -233,8 +233,8 @@ function loadProjects(response) {
 }
 
 function noFromProjects() {
-    return{
-        type : NO_FROM_PROJECTS,
+    return {
+        type: NO_FROM_PROJECTS,
     }
 }
 
@@ -254,9 +254,9 @@ function myProjectsDispatch(response) {
 }
 
 function sendUserData(response) {
-    return{
-        type : SEND_PROFILE,
-        response : response
+    return {
+        type: SEND_PROFILE,
+        response: response
     }
 }
 
@@ -275,7 +275,7 @@ export function loginSubmit(values) {
 
 function displayBid() {
     return {
-        type : DISPLAY_BID,
+        type: DISPLAY_BID,
     }
 }
 
@@ -470,3 +470,24 @@ export function getUserProfile(username) {
     }
 }
 
+export function searchProjects(values) {
+    // console.log(values, values.get('page'), values.get('projectName'))
+
+    return (dispatch) => {
+        const request = axios.get(`${ROOT_URL}/project/search`, {
+            params : {
+                projectName : values.get('projectName'),
+                skillsReq : values.get('skillsReq'),
+                page : values.get('page')
+            },
+            withCredentials: true
+            }
+        ).then(response => {
+            console.log(response)
+            // dispatch(SingleProject(response));
+            dispatch(loadProjects(response));
+        }).catch(error => {
+            // dispatch(noFromProjects());
+        });
+    }
+}

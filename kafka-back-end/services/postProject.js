@@ -13,7 +13,8 @@ function handle_request(msg, callback) {
                 skillsReq: msg.skillsReq,
                 estBudget : msg.estBudget,
                 username : msg.username,
-                files : msg.files
+                files : msg.files,
+                status : 'OPEN'
             }, function (err, check) {
                 if (check) {
                     console.log(check)

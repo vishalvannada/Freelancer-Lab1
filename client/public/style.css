@@ -537,8 +537,18 @@ svg {
 }
 
 .jobs {
-    background-color: white !important;
     border-radius: 3px;
+}
+
+.jobs hr {
+    color: #000;
+    border: 0;
+    clear: both;
+    display: block;
+    width: 100%;
+    background-color: lightgray;
+    height: 1px;
+
 }
 
 .background-dark {
@@ -644,17 +654,17 @@ input[type="file"] {
     float: right;
 }
 
-.max-width-50{
+.max-width-50 {
     max-width: 50%;
 }
 
-.opacity-less{
-    opacity: 0.8    ;
+.opacity-less {
+    opacity: 0.8;
 }
 
 .first_new {
     position: relative;
-    box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .08), 0 2px 4px 0 rgba(0, 0, 0, .12);
     background: #fff;
     min-height: 64px;
     max-height: 64px;
@@ -665,12 +675,12 @@ input[type="file"] {
 .second_new {
     float: right;
     margin-right: 80px;
-    font-family: Roboto,"Helvetica";
+    font-family: Roboto, "Helvetica";
     vertical-align: middle;
     margin-left: 670px;
 }
 
-.second_new li{
+.second_new li {
     margin: auto;
 }
 
@@ -686,7 +696,7 @@ input[type="file"] {
 .second_new li button {
     margin-top: 6px;
     border-radius: 3px;
-    background: linear-gradient(to bottom,#fc8c14 0,#f77d0e 100%);
+    background: linear-gradient(to bottom, #fc8c14 0, #f77d0e 100%);
     border: 1px solid #f77d0e;
     color: #F7F7F7;
     font-weight: 700;
@@ -695,11 +705,11 @@ input[type="file"] {
 }
 
 .image1 {
-    width:1343px;
+    width: 1343px;
 }
 
 .imagefooter {
-    width:1343px;
+    width: 1343px;
     margin-top: 300px;
 }
 
@@ -714,6 +724,19 @@ input[type="file"] {
     margin-right: 0px;
 }
 
-.total{
+.total {
     max-width: 1343px !important;
+}
+
+.extra-pagination a {
+    background-color: #cccccc;
+    color: black;
+}
+
+.extra-search{
+    height: 60px;
+}
+
+.container-search-project{
+    width : 950px;
 }

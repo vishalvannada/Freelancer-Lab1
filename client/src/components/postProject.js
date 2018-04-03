@@ -10,16 +10,33 @@ import Icon from 'material-ui/svg-icons/content/add';
 import Info from 'material-ui/svg-icons/action/info-outline';
 import {postProject, postProjectcheck} from '../actions/index';
 import {scroller} from 'react-scroll';
-import _ from 'lodash';
+// import _ from 'lodash';
+import Multiselect from 'react-widgets/lib/Multiselect';
+import 'react-widgets/dist/css/react-widgets.css';
 
 
 const FILE_FIELD_NAME = 'files';
 let arrayFiles = [];
 
-let customErrors = {
-    estBudget: ''
-};
-let toggle = false;
+const renderMultiselect = ({input, data, valueField, textField, meta}) => {
+
+    const className = `${meta.touched && meta.error ? 'border-red' : ''}`
+    return (
+        <div>
+            <Multiselect {...input}
+                         className={className}
+                         onBlur={() => input.onBlur()}
+                         value={input.value || []} // requires value to be an array
+                         data={data}
+                         valueField={valueField}
+                         textField={textField}
+            />
+            <div className="error-message">
+                {meta.touched ? meta.error : ''}
+            </div>
+        </div>
+    )
+}
 
 const renderDropzoneInput = (field) => {
     console.log(field.input.value)
@@ -150,6 +167,8 @@ class PostProject extends Component {
 
     render() {
 
+        console.log(this.props)
+
         if (this.props.loginValid.isLoggingIn === true) {
             return (
                 <div>
@@ -235,24 +254,32 @@ class PostProject extends Component {
                             Freelancers
                             will use these skills to
                             find projects they are most interested and experienced in.</p>
-                        <Field name="skillsReq" component="select"
-                               className={`form-control mb-2`}
-                               multiple={true} value={[]} type="select-multiple"
-                               required
-                        >
-                            <option>Java</option>
-                            <option>C</option>
-                            <option>C++</option>
-                            <option>JavaScript</option>
-                            <option>C #</option>
-                            <option>MERN Stack</option>
-                            <option>MEAN Stack</option>
-                            <option>LAMP Stack</option>
-                            <option>Website Design</option>
-                            <option>Logo Design</option>
-                            <option>Mobile App Development(Android)</option>
-                            <option>Mobile App Development(ios)</option>
-                        </Field>
+                        {/*<Field name="skillsReq" component="select"*/}
+                        {/*className={`form-control mb-2`}*/}
+                        {/*multiple={true} value={[]} type="select-multiple"*/}
+                        {/*required*/}
+                        {/*>*/}
+                        {/*<option>Java</option>*/}
+                        {/*<option>C</option>*/}
+                        {/*<option>C++</option>*/}
+                        {/*<option>JavaScript</option>*/}
+                        {/*<option>C #</option>*/}
+                        {/*<option>MERN Stack</option>*/}
+                        {/*<option>MEAN Stack</option>*/}
+                        {/*<option>LAMP Stack</option>*/}
+                        {/*<option>Website Design</option>*/}
+                        {/*<option>Logo Design</option>*/}
+                        {/*<option>Mobile App Development(Android)</option>*/}
+                        {/*<option>Mobile App Development(ios)</option>*/}
+                        {/*</Field>*/}
+
+
+                        <Field
+                            name="skillsReq"
+                            component={renderMultiselect}
+                            data={['Java', 'C', 'C++', 'JavaScript', 'C#', 'MERN Stack', 'MEAN Stack', 'LAMP Stack',
+                                'Website Design', 'Logo Design', 'Mobile App Development(Android)', 'Mobile App Development(ios)']}
+                        />
 
 
                         <span className="font-size-14">Suggested skills: Website Design , Logo Design , Mobile
@@ -262,17 +289,16 @@ class PostProject extends Component {
 
                         <br/>
 
-                        <div className="text-align-left mt-0">
-                            <MuiThemeProvider>
-                                <Info/>
-                            </MuiThemeProvider>
-                        </div>
+                        {/*<div className="text-align-left mt-0">*/}
+                        {/*<MuiThemeProvider>*/}
+                        {/*<Info/>*/}
+                        {/*</MuiThemeProvider>*/}
+                        {/*</div>*/}
 
-                        <div className="text-align-left font-size-14 mt-2 p-1 ml-3">
-                            Control + Click to select multiple skills
-                        </div>
+                        {/*<div className="text-align-left font-size-14 mt-2 p-1 ml-3">*/}
+                        {/*Control + Click to select multiple skills*/}
+                        {/*</div>*/}
 
-                        <br/>
                         <p className="mb-5"></p>
 
 
@@ -302,7 +328,6 @@ class PostProject extends Component {
                             <option value="150 - 250">Standard ($150 - 250 USD)</option>
                             <option value="250 - 500">Skilled ($250 - 500 USD)</option>
                             <option value="500 - ">Expert ($500 + USD)</option>
-
                         </Field>
 
                         <button className="post-project-button mt-5" type="submit">Post My Project</button>
@@ -322,6 +347,8 @@ function errorBlur(values) {
 //helper for validation
 //values are details that user enter in form
 function validate(values) {
+
+    console.log("111")
 
     //object that returns errors, if errors is empty the form will be submitted, else it wont be submitted
     //if errors has any properties, redux from assumes that form is invalid
@@ -351,6 +378,10 @@ function validate(values) {
     if (!values.estBudget) {
         values.estBudget = '20 - 80'
     }
+
+    if (!values.skillsReq) {
+        errors.skillsReq = "Atleast One Skill is Required";
+    }
     return errors;
 }
 
@@ -365,6 +396,7 @@ export function scrollToFirstError(errors) {
         const fieldName = errorFields[i];
         // Checking if the marker exists in DOM
         console.log(fieldName)
+        console.log(document.querySelectorAll(`[name="${fieldName}"]`).length)
         if (document.querySelectorAll(`[name="${fieldName}"]`).length) {
             console.log("ONe")
             scroller.scrollTo(fieldName, {offset: -200, smooth: true});
