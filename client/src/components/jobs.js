@@ -43,7 +43,7 @@ class Jobs extends Component {
                 <MuiThemeProvider>
                     <TopNavBar />
                 </MuiThemeProvider>
-                <JobsBelowNavBar type="improve"/>
+                <JobsBelowNavBar type="allProjects"/>
                 <JobsBody projects={this.props.projects} history={this.props.history}/>
                 {/*<div>*/}
                     {/*<img className="imagefooter" src="./Capture5.png" alt="aaa"/>*/}

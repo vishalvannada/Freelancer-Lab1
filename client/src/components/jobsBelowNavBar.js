@@ -11,34 +11,34 @@ class JobsBelowNavBar extends Component {
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
-                                    <a
+                                    <Link
                                         className={this.props.type === "mySkills" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Projects with My Skills</a>
+                                        to="/jobs/myskills">Projects with My Skills</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a
-                                        className={this.props.type === "improve" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Browse Projects</a>
+                                    <Link
+                                        className={this.props.type === "allProjects" ? 'nav-link border-down' : 'nav-link'}
+                                        to="/jobs">Browse Projects</Link>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "dashboard" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Browse Contests</a>
+                                        href="">Browse Contests</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "inbox" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Browser Local Jobs</a>
+                                        href="">Browser Local Jobs</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "feedback" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Browse Categories</a>
+                                        href="">Browse Categories</a>
                                 </li>
                                 <li className="nav-item">
                                     <a
                                         className={this.props.type === "onemore" ? 'nav-link border-down' : 'nav-link'}
-                                        href="#">Bookmarks</a>
+                                        href="">Bookmarks</a>
                                 </li>
                             </ul>
                         </div>

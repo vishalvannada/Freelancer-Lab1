@@ -21,6 +21,7 @@ const renderMultiselect = ({input, data, valueField, textField, meta}) => {
                          data={data}
                          valueField={valueField}
                          textField={textField}
+                         default
             />
             <div className="error-message">
                 {meta.touched ? meta.error : ''}
@@ -36,7 +37,7 @@ class JobsBody extends Component {
         this.state = {
             searching: false,
             projectName: '',
-            skillsReq: ''
+            skillsReq: []
         }
     }
 
@@ -49,12 +50,14 @@ class JobsBody extends Component {
             searching: true,
         })
 
-        console.log(data.projectName)
+        console.log(data.skillsReq, data.projectName)
+
+        var json_arr = JSON.stringify(data.skillsReq);
         var body = new FormData();
         body.append('projectName', data.projectName);
-        body.append('skillsReq', data.skillsReq);
+        body.append('skillsReq', json_arr);
         body.append('page', 1);
-        // console.log(body.get('projectName'))
+        console.log(body.get('skillsReq'))
         this.props.searchProjects(body)
         // console.log(arrayFiles)
         //
@@ -155,8 +158,9 @@ class JobsBody extends Component {
             } else {
                 let p = i;
                 let body = new FormData();
+                let json_arr = JSON.stringify(this.state.skillsReq);
                 body.append('projectName', this.state.projectName);
-                body.append('skillsReq', this.state.skillsReq);
+                body.append('skillsReq', json_arr);
                 body.append('page', p);
                 list.push(<li key={i} className="page-item">
                     <button type="button" className="page-link"
@@ -167,7 +171,7 @@ class JobsBody extends Component {
                 </li>)
             }
             if (i === Number(this.props.projects.current) + 4 && i < this.props.projects.pages) {
-                list.push(<li key={i+i} className="page-item disabled">
+                list.push(<li key={i + i} className="page-item disabled">
                     <button type="button" className="page-link">...</button>
                 </li>)
             }
@@ -175,14 +179,15 @@ class JobsBody extends Component {
 
 
         i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1);
+        let json_arr1 = JSON.stringify(this.state.skillsReq);
         let body1 = new FormData();
         body1.append('projectName', this.state.projectName);
-        body1.append('skillsReq', this.state.skillsReq);
+        body1.append('skillsReq', json_arr1);
         body1.append('page', 1);
 
         let body2 = new FormData();
         body2.append('projectName', this.state.projectName);
-        body2.append('skillsReq', this.state.skillsReq);
+        body2.append('skillsReq', json_arr1);
         body2.append('page', this.props.projects.pages);
 
 
@@ -299,7 +304,7 @@ class JobsBody extends Component {
 
     render() {
 
-        console.log(this.props.projects, this.state)
+        console.log(this.props, this.state)
         const {handleSubmit, pristine, reset, submitting} = this.props;
         return (
             <div className="jobs">
@@ -338,8 +343,20 @@ class JobsBody extends Component {
                             <br/>
                             <hr/>
                             <div>
-                                <button type="submit" className="btn mr-5">Submit Search</button>
-                                <button type="button" onClick={reset} className="btn ml-5">Reset Values</button>
+                                <button type="submit" disabled={pristine || submitting} className="btn mr-5">Submit
+                                    Search
+                                </button>
+                                {/*<button type="button" onClick={reset} className="btn ml-5">Reset Values</button>*/}
+                                <button type="button" disabled={pristine || submitting} onClick={() => {
+                                    this.props.reset();
+                                    this.setState({
+                                        searching: false,
+                                        projectName: '',
+                                        skillsReq: []
+                                    })
+                                    this.props.loadAllProjects(1)
+                                }} className="btn ml-5">Reset Values
+                                </button>
                             </div>
                         </form>
                     </div>

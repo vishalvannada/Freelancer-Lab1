@@ -9,60 +9,125 @@ function handle_request(msg, callback) {
             console.log('Connected to mongo at: ' + url);
 
             var coll = mongo.collection('projects');
-
             var regex = ".*" + msg.projectName + ".*"
-            console.log(msg, regex)
-            coll.aggregate([{
-                $match: {
-                    $and: [
-                        {projectName: new RegExp(regex, 'i')},
-                        {username: {$ne: msg.username}},
-                    ]
-                }
-            }, {
-                $lookup: {
-                    from: "bids",
-                    localField: "_id",
-                    foreignField: "projectid",
-                    as: "bids"
-                }
-            }, {
-                $project: {
-                    _id: 1,
-                    projectName: 1,
-                    projDesc: 1,
-                    skillsReq: 1,
-                    estBudget: 1,
-                    username: 1,
-                    status: 1,
-                    bidcount: {$size: "$bids"},
-                }
-            }]).skip((msg.perPage * parseInt(msg.page)) - msg.perPage)
-                .limit(msg.perPage).toArray(function (err, projects) {
+            console.log(msg, regex);
 
-                // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
-                //     .limit(msg.perPage).toArray(function (err, projects) {
+            if (msg.skillsReq.length > 0) {
+                coll.aggregate([{
+                    $match: {
+                        $and: [
+                            {projectName: new RegExp(regex, 'i')},
+                            {username: {$ne: msg.username}},
+                            {skillsReq: {$elemMatch: {$in: msg.skillsReq}}}
+                        ]
+                    }
+                }, {
+                    $lookup: {
+                        from: "bids",
+                        localField: "_id",
+                        foreignField: "projectid",
+                        as: "bids"
+                    }
+                }, {
+                    $project: {
+                        _id: 1,
+                        projectName: 1,
+                        projDesc: 1,
+                        skillsReq: 1,
+                        estBudget: 1,
+                        username: 1,
+                        status: 1,
+                        bidcount: {$size: "$bids"},
+                    }
+                }]).skip((msg.perPage * parseInt(msg.page)) - msg.perPage)
+                    .limit(msg.perPage).toArray(function (err, projects) {
 
-                console.log(projects, msg.username);
+                    // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
+                    //     .limit(msg.perPage).toArray(function (err, projects) {
 
-                projects.forEach(project => {
-                    console.log(project)
-                })
+                    console.log(projects, msg.username);
 
-                coll.find({$and: [{projectName: new RegExp(regex, 'i')}, {username: {$ne: msg.username}}]}).count(function (err, count) {
-                    console.log("here", count)
+                    projects.forEach(project => {
+                        console.log(project)
+                    })
 
-                    res.code = "200";
-                    res.value = "Success";
-                    res.projects = projects;
-                    res.count = count;
+                    coll.find({
+                        $and: [{projectName: new RegExp(regex, 'i')},
+                            {username: {$ne: msg.username}},
+                            {skillsReq: {$elemMatch: {$in: msg.skillsReq}}}]
+                    }).count(function (err, count) {
+                        console.log("here", count)
 
-                    console.log(res)
+                        res.code = "200";
+                        res.value = "Success";
+                        res.projects = projects;
+                        res.count = count;
 
-                    callback(null, res);
-                })
+                        console.log(res)
 
-            });
+                        callback(null, res);
+                    })
+
+                });
+            }
+            else {
+                coll.aggregate([{
+                    $match: {
+                        $and: [
+                            {projectName: new RegExp(regex, 'i')},
+                            {username: {$ne: msg.username}},
+                        ]
+                    }
+                }, {
+                    $lookup: {
+                        from: "bids",
+                        localField: "_id",
+                        foreignField: "projectid",
+                        as: "bids"
+                    }
+                }, {
+                    $project: {
+                        _id: 1,
+                        projectName: 1,
+                        projDesc: 1,
+                        skillsReq: 1,
+                        estBudget: 1,
+                        username: 1,
+                        status: 1,
+                        bidcount: {$size: "$bids"},
+                    }
+                }]).skip((msg.perPage * parseInt(msg.page)) - msg.perPage)
+                    .limit(msg.perPage).toArray(function (err, projects) {
+
+                    // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
+                    //     .limit(msg.perPage).toArray(function (err, projects) {
+
+                    console.log(projects, msg.username);
+
+                    projects.forEach(project => {
+                        console.log(project)
+                    })
+
+                    coll.find({
+                        $and: [{projectName: new RegExp(regex, 'i')},
+                            {username: {$ne: msg.username}},
+                        ]
+                    }).count(function (err, count) {
+                        console.log("here", count)
+
+                        res.code = "200";
+                        res.value = "Success";
+                        res.projects = projects;
+                        res.count = count;
+
+                        console.log(res)
+
+                        callback(null, res);
+                    })
+
+                });
+            }
+
         });
     }
     catch (e) {

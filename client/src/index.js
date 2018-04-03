@@ -18,6 +18,7 @@ import MyProjects from './components/myProjects';
 import NotFound from './components/notFound';
 import Home from './components/home';
 import ViewProfile from './components/viewProfile';
+import JobsMatchingMySkills from './components/jobsMatchingSkills'
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -62,6 +63,7 @@ ReactDOM.render(
                     <Route path="/post-project" component={PostProject}/>
                     <Route path="/myprojects" component={MyProjects}/>
                     <Route path="/jobs/single/:id" component={JobSingle}/>
+                    <Route path="/jobs/myskills" component={JobsMatchingMySkills}/>
                     <Route path="/jobs" component={Jobs}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/users/:username" component={ViewProfile}/>

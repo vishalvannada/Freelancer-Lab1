@@ -246,14 +246,15 @@ router.get('/search', function (req, res, next) {
 
         let perPage = 1;
         let page = req.param('page')
-        console.log(page)
-
+        // console.log(page)
+        console.log(req.param('skillsReq'))
+        // console.log()
         kafka.make_request('searchProjects_topic', {
             "perPage": perPage,
             "page": page,
             "username": req.session.username,
             "projectName" : req.param('projectName'),
-            "skillsReq" : req.param('skillsReq')
+            "skillsReq" : JSON.parse(req.param('skillsReq'))
         }, function (err, results) {
             console.log('in result', results);
 
