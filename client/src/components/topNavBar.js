@@ -40,7 +40,7 @@ class TopNavBar extends Component {
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <p><strong className="font-size-13 p-3">FIND WORK</strong></p>
-                                        <Link className="dropdown-item" to='/jobs/1'>Browse Projects</Link>
+                                        <Link className="dropdown-item" to='/jobs'>Browse Projects</Link>
                                         <a className="dropdown-item" href="#">Another action</a>
                                         <div className="dropdown-divider"></div>
                                         <a className="dropdown-item" href="#">Something else here</a>

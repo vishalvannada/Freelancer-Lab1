@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Field, reduxForm} from 'redux-form';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import 'react-widgets/dist/css/react-widgets.css';
-import {searchProjects} from '../actions'
+import {loadAllProjects, searchProjects} from '../actions';
 
 const renderMultiselect = ({input, data, valueField, textField, meta}) => {
 
@@ -31,14 +31,29 @@ const renderMultiselect = ({input, data, valueField, textField, meta}) => {
 
 class JobsBody extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            searching: false,
+            projectName: '',
+            skillsReq: ''
+        }
+    }
+
     onSubmit(data) {
         // var body = new FormData();
 
+        this.setState({
+            projectName: data.projectName,
+            skillsReq: data.skillsReq,
+            searching: true,
+        })
+
+        console.log(data.projectName)
         var body = new FormData();
-        console.log(this.props.page)
         body.append('projectName', data.projectName);
         body.append('skillsReq', data.skillsReq);
-        body.append('page', this.props.page);
+        body.append('page', 1);
         // console.log(body.get('projectName'))
         this.props.searchProjects(body)
         // console.log(arrayFiles)
@@ -123,63 +138,168 @@ class JobsBody extends Component {
         })
     }
 
-
-    one() {
+    two() {
 
         let list = [];
 
+        console.log(this.props.projects)
         let i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1)
+        console.log(i)
 
         for (; i <= (Number(this.props.projects.current) + 4) && i < this.props.projects.pages; i++) {
-            if (i === this.props.projects.current) {
-                list.push(<li className="page-item active"><a type="button"> {i} </a></li>)
+            if (i === Number(this.props.projects.current)) {
+                console.log("current")
+                list.push(<li key={i} className="page-item disabled">
+                    <button type="button" className="page-link"> {i} </button>
+                </li>)
             } else {
-                list.push(<li key={i} className="page-item"><Link type="button" className="page-link"
-                                                                  to={`/jobs/${i}`}> {i} </Link></li>)
+                let p = i;
+                let body = new FormData();
+                body.append('projectName', this.state.projectName);
+                body.append('skillsReq', this.state.skillsReq);
+                body.append('page', p);
+                list.push(<li key={i} className="page-item">
+                    <button type="button" className="page-link"
+                            onClick={() => {
+                                this.props.searchProjects(body)
+                            }}
+                    > {i} </button>
+                </li>)
             }
             if (i === Number(this.props.projects.current) + 4 && i < this.props.projects.pages) {
-                list.push(<li className="page-item disabled"><a type="button" className="page-link">...</a></li>)
+                list.push(<li key={i+i} className="page-item disabled">
+                    <button type="button" className="page-link">...</button>
+                </li>)
             }
         }
 
-        console.log(list)
 
-        i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1)
+        i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1);
+        let body1 = new FormData();
+        body1.append('projectName', this.state.projectName);
+        body1.append('skillsReq', this.state.skillsReq);
+        body1.append('page', 1);
+
+        let body2 = new FormData();
+        body2.append('projectName', this.state.projectName);
+        body2.append('skillsReq', this.state.skillsReq);
+        body2.append('page', this.props.projects.pages);
+
+
         return (
-            this.props.projects.pages > 0 ?
+            Number(this.props.projects.pages) > 0 ?
 
                 <div className="text-align-right">
                     <ul className="pagination mt-3 extra-pagination">
 
-                        {this.props.projects.current === 1 ?
-                            <li className="page-item disabled"><a type="button">First</a></li> :
-                            <li className="page-item"><Link type="button" className="page-link"
-                                                            to="/jobs/1">First</Link>
+                        {Number(this.props.projects.current) === 1 ?
+                            <li className="page-item disabled">
+                                <button className="page-link" type="button">First</button>
+                            </li> :
+                            <li className="page-item">
+                                <button type="button" className="page-link"
+                                        onClick={() => this.props.searchProjects(body1)}>First
+                                </button>
                             </li>}
 
                         {i != 1 ?
-                            <li className="page-item disabled"><a type="button" className="page-link ">...</a>
+                            <li className="page-item disabled">
+                                <button type="button" className="page-link ">...</button>
                             </li> : ''}
                         {list}
 
-                        {this.props.projects.current === this.props.projects.pages ?
-                            <li className="disabled page-item"><a type="button" className="page-link">Last</a></li> :
-                            <li className="page-item"><button type="button" className="page-link" onClick={() => this.props.onSubmit()}
-                                                            to={`/jobs/${this.props.projects.pages}`}>Last</button></li>}
+                        {Number(this.props.projects.current) === Number(this.props.projects.pages) ?
+                            <li className="disabled page-item">
+                                <button type="button" className="page-link">Last</button>
+                            </li> :
+                            <li className="page-item">
+                                <button type="button" className="page-link"
+                                        onClick={() => this.props.searchProjects(body2)}
+                                        to={`/jobs/${this.props.projects.pages}`}>Last
+                                </button>
+                            </li>}
                     </ul>
                 </div>
                 : ''
         );
     }
 
+    one() {
 
-    componentWillMount() {
-        console.log("here")
+        let list = [];
+
+        console.log(this.props.projects)
+        let i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1)
+        console.log(i)
+
+        for (; i <= (Number(this.props.projects.current) + 4) && i < this.props.projects.pages; i++) {
+            if (i === Number(this.props.projects.current)) {
+                console.log("current")
+                list.push(<li key={i} className="page-item disabled">
+                    <button type="button" className="page-link"> {i} </button>
+                </li>)
+            } else {
+                let p = i;
+                list.push(<li key={i} className="page-item">
+                    <button type="button" className="page-link"
+                            onClick={() => {
+                                console.log("here222", p);
+                                this.props.loadAllProjects(p)
+                            }}
+                    > {i} </button>
+                </li>)
+            }
+            if (i === Number(this.props.projects.current) + 4 && i < this.props.projects.pages) {
+                list.push(<li key={i + i} className="page-item disabled">
+                    <button type="button" className="page-link">...</button>
+                </li>)
+            }
+        }
+
+
+        i = (Number(this.props.projects.current) > 5 ? Number(this.props.projects.current) - 4 : 1)
+        console.log(i)
+        return (
+            Number(this.props.projects.pages) > 0 ?
+
+                <div className="text-align-right">
+                    <ul className="pagination mt-3 extra-pagination">
+
+                        {Number(this.props.projects.current) === 1 ?
+                            <li className="page-item disabled">
+                                <button className="page-link" type="button">First</button>
+                            </li> :
+                            <li className="page-item">
+                                <button type="button" className="page-link"
+                                        onClick={() => this.props.loadAllProjects(1)}>First
+                                </button>
+                            </li>}
+
+                        {i != 1 ?
+                            <li className="page-item disabled">
+                                <button type="button" className="page-link ">...</button>
+                            </li> : ''}
+                        {list}
+
+                        {Number(this.props.projects.current) === Number(this.props.projects.pages) ?
+                            <li className="disabled page-item">
+                                <button type="button" className="page-link">Last</button>
+                            </li> :
+                            <li className="page-item">
+                                <button type="button" className="page-link"
+                                        onClick={() => this.props.loadAllProjects(this.props.projects.pages)}
+                                        to={`/jobs/${this.props.projects.pages}`}>Last
+                                </button>
+                            </li>}
+                    </ul>
+                </div>
+                : ''
+        );
     }
 
     render() {
-        console.log(this.props.projects)
 
+        console.log(this.props.projects, this.state)
         const {handleSubmit, pristine, reset, submitting} = this.props;
         return (
             <div className="jobs">
@@ -225,7 +345,7 @@ class JobsBody extends Component {
                     </div>
 
                     <hr className="mt-2"/>
-                    {this.one()}
+                    {this.state.searching ? this.two() : this.one()}
                     <li className="list-group-item background-dark  mt-5">
                         <span className="row font-size-14 p-2">
                             <div className="col-md-8">PROJECT</div>
@@ -246,5 +366,5 @@ class JobsBody extends Component {
 export default reduxForm({
     form: 'SearchProjectsForm',
 })(
-    connect(null, {searchProjects})(JobsBody)
+    connect(null, {searchProjects, loadAllProjects})(JobsBody)
 );

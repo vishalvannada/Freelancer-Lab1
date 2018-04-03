@@ -733,10 +733,20 @@ input[type="file"] {
     color: black;
 }
 
+.extra-pagination button {
+    background-color: #cccccc;
+    color: black;
+    border: 1px solid gray;
+}
+
 .extra-search{
     height: 60px;
 }
 
 .container-search-project{
     width : 950px;
+}
+
+.background-blue{
+    background-color: #3b5998;
 }

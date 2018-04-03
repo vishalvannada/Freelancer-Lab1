@@ -9,18 +9,18 @@ import {loadAllProjects} from '../actions/index'
 
 class Jobs extends Component {
 
-    componentWillReceiveProps (nextProps) {
-        console.log(nextProps)
-        console.log(this.props.match.params.page)
-        if(nextProps.match.params.page !== this.props.match.params.page) {
-            // Clean component and reload?
-            window.location.reload()
-        }
-    }
+    // componentWillReceiveProps (nextProps) {
+    //     console.log(nextProps)
+    //     console.log(this.props.match.params.page)
+    //     if(nextProps.match.params.page !== this.props.match.params.page) {
+    //         // Clean component and reload?
+    //         window.location.reload()
+    //     }
+    // }
 
     componentDidMount() {
         // console.log("here")
-        const {page} = this.props.match.params;
+        var page = 1;
         this.props.loadAllProjects(page);
     }
 
@@ -44,7 +44,7 @@ class Jobs extends Component {
                     <TopNavBar />
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="improve"/>
-                <JobsBody projects={this.props.projects} history={this.props.history} page={this.props.match.params.page}/>
+                <JobsBody projects={this.props.projects} history={this.props.history}/>
                 {/*<div>*/}
                     {/*<img className="imagefooter" src="./Capture5.png" alt="aaa"/>*/}
                 {/*</div>*/}

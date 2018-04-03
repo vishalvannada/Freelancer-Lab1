@@ -400,9 +400,9 @@ export function postProjectcheck() {
 
 
 export function loadAllProjects(page) {
+    console.log("here", page)
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}/project/loadprojects?page=${page}`, {withCredentials: true}).then(response => {
-            console.log(response.data[0])
             dispatch(loadProjects(response));
         }).catch(error => {
             dispatch(noFromProjects());

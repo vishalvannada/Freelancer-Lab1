@@ -12,7 +12,14 @@ function handle_request(msg, callback) {
 
             var regex = ".*" + msg.projectName + ".*"
             console.log(msg, regex)
-            coll.aggregate([{$match: {projectName: new RegExp(regex, 'i')}}, {
+            coll.aggregate([{
+                $match: {
+                    $and: [
+                        {projectName: new RegExp(regex, 'i')},
+                        {username: {$ne: msg.username}},
+                    ]
+                }
+            }, {
                 $lookup: {
                     from: "bids",
                     localField: "_id",
@@ -26,12 +33,12 @@ function handle_request(msg, callback) {
                     projDesc: 1,
                     skillsReq: 1,
                     estBudget: 1,
-                    username : 1,
-                    status : 1,
+                    username: 1,
+                    status: 1,
                     bidcount: {$size: "$bids"},
                 }
             }]).skip((msg.perPage * parseInt(msg.page)) - msg.perPage)
-                .limit(msg.perPage).toArray(function (err, projects){
+                .limit(msg.perPage).toArray(function (err, projects) {
 
                 // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
                 //     .limit(msg.perPage).toArray(function (err, projects) {
@@ -42,7 +49,7 @@ function handle_request(msg, callback) {
                     console.log(project)
                 })
 
-                coll.find({projectName: new RegExp(regex, 'i')}).count(function (err, count) {
+                coll.find({$and: [{projectName: new RegExp(regex, 'i')}, {username: {$ne: msg.username}}]}).count(function (err, count) {
                     console.log("here", count)
 
                     res.code = "200";
