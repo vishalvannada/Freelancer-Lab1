@@ -48,9 +48,11 @@ class Login extends Component {
         console.log("loin")
 
         if(this.props.loginDetails.isLoggingIn === true){
-            <div>
-                Loading ..
-            </div>
+            return(
+                <div>
+                    Loading ..
+                </div>
+            )
         }
 
         if(this.props.loginDetails.isLoggedIn === true){

@@ -22,11 +22,6 @@ import JobsMatchingMySkills from './components/jobsMatchingSkills'
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
-// const store = createStore(
-//     reducers,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
-
 export const store = createStoreWithMiddleware(reducers);
 
 

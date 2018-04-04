@@ -32,6 +32,7 @@ export default function (state = initialState, action) {
                 isLoggedIn: false,
             }
         default:
+            // console.log("my_projects",state)
             return state;
     }
 }

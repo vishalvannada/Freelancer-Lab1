@@ -39,6 +39,7 @@ export default function (state = projects, action) {
             }
         default:
             // console.log("her"+action.type)
+            // console.log("projects",state)
             return state;
     }
 }

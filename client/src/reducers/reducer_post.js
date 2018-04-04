@@ -16,6 +16,7 @@ export default function (state = Logout, action) {
         case AUTH_POST_DONE:
             return action.payload;
         default:
+            // console.log("post-project",state)
             return state;
     }
 }

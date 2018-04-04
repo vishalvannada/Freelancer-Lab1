@@ -7,9 +7,11 @@ import PostProjectReducer from './reducer_post';
 import ProjectsReducer from './reducer_projects';
 import SingleProjectReducer from './reducer_single_project';
 import MyProjectReducer from './reducer_my_projects'
-import ViewProfile from './reducer_view_profile'
+import ViewProfile from './reducer_view_profile';
+import {LOGOUT} from "../actions";
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
+    /* your app’s top-level reducers */
     login : LoginReducer,
     dashboard : DashboardReducer,
     profile : ProfileReducer,
@@ -19,6 +21,15 @@ const rootReducer = combineReducers({
     myProjects : MyProjectReducer,
     viewProfile : ViewProfile,
     form : formReducer
-});
+})
+
+const rootReducer = (state, action) => {
+    if (action.type === LOGOUT) {
+        // console.log(state)
+        state = undefined
+        // console.log(state)
+    }
+    return appReducer(state, action)
+}
 
 export default rootReducer;

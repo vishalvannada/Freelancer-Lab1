@@ -59,7 +59,7 @@ class MyProjectsBody extends Component {
                 <li className="list-group-item" key={project._id}>
                     <div className="row font-size-14 p-2">
                         <div className="col-md-4">
-                            <Link to={`/jobs/${project._id}`}>
+                            <Link to={`/jobs/single/${project._id}`}>
                                 <h5 className="text-primary">{project.projectName}</h5>
                             </Link>
                             <span>{project.projDesc}</span>

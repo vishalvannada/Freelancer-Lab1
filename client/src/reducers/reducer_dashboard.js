@@ -36,6 +36,7 @@ export default function (state = dashboard, action) {
             }
         default:
             // console.log("def" + action.type + action.payload)
+            // console.log("dashboard",state)
             return state;
     }
 }

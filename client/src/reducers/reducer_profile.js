@@ -123,6 +123,7 @@ export default function (state = profile, action) {
 
         default:
             // console.log("prof:def" + action.type)
+            // console.log("profile",state)
             return state;
     }
 }

@@ -176,6 +176,23 @@ class JobSingle extends Component {
                     <h4 className="mt-5">{thisProject.projectName}</h4>
 
 
+                    <div className="title-single-project">
+                        <div className="row">
+                            <div className="col-md-1.5 inside-details ml-5 mr-4 my-2 pr-4 font-size-14">
+                                <span className="ml-2">Bids</span>
+                                <h4 className="text-primary text-center">141</h4>
+                            </div>
+                            <div className="col-md-1.5 inside-details mr-4 my-2 pr-4 font-size-14">
+                                <span>Avg Bid</span>
+                                <h4 className="text-primary text-center">141</h4>
+                            </div>
+                            <div className="col-md-2.5 inside-details mr-4 my-2 pr-4 font-size-14">
+                                <span className="ml-2">Project Budget</span>
+                                <h4 className="text-primary text-center">141</h4>
+                            </div>
+                        </div>
+                    </div>
+
                     <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className={classForm}>
                         <div className="title-single-project mt-3">
                             <div className="row">
