@@ -39,7 +39,7 @@ class Dashboard extends Component {
         return (
             <div key="vishalv">
                 <MuiThemeProvider>
-                    <TopNavBar name={this.props.dashboard.username}/>
+                    <TopNavBar name={this.props.dashboard.username} history={this.props.history}/>
                 </MuiThemeProvider>
                 <BelowTopNavBar type="dashboard"/>
                 <BodyDashboard name={this.props.dashboard.username}/>

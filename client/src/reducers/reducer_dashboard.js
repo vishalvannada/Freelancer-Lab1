@@ -19,7 +19,6 @@ export default function (state = dashboard, action) {
                 username: ''
             }
         case AUTH:
-            console.log(action.response.data.username);
             return {
                 loginStatus: action.payload,
                 username: action.response.data.username
@@ -29,11 +28,11 @@ export default function (state = dashboard, action) {
                 loginStatus: action.payload,
                 username: ''
             }
-        case LOGOUT:
-            return {
-                loginStatus: action.payload,
-                username: ''
-            }
+        // case LOGOUT:
+        //     return {
+        //         loginStatus: action.payload,
+        //         username: ''
+        //     }
         default:
             // console.log("def" + action.type + action.payload)
             // console.log("dashboard",state)

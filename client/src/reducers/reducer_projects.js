@@ -29,14 +29,14 @@ export default function (state = projects, action) {
                 pages : ''
             };
         }
-        case LOGOUT:
-            return {
-                isLoggingIn: false,
-                isLoggedIn : false,
-                projects : {},
-                current : '',
-                pages : ''
-            }
+        // case LOGOUT:
+        //     return {
+        //         isLoggingIn: false,
+        //         isLoggedIn : false,
+        //         projects : {},
+        //         current : '',
+        //         pages : ''
+        //     }
         default:
             // console.log("her"+action.type)
             // console.log("projects",state)

@@ -35,7 +35,7 @@ class Profile extends Component {
             return (
                 <div>
                     <MuiThemeProvider>
-                        <TopNavBar name={this.props.profile.userDetails.username}/>
+                        <TopNavBar history={this.props.history} name={this.props.profile.userDetails.username}/>
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
                     <MuiThemeProvider>
@@ -49,7 +49,7 @@ class Profile extends Component {
             return (
                 <div>
                     <MuiThemeProvider>
-                        <TopNavBar name={this.props.profile.userDetails.username}/>
+                        <TopNavBar history={this.props.history} name={this.props.profile.userDetails.username}/>
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
                     <BodyProfile profile={this.props.profile}/>

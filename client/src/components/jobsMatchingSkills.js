@@ -33,7 +33,7 @@ class JobsMatchingMySkills extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    <TopNavBar />
+                    <TopNavBar history={this.props.history}/>
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="mySkills"/>
                 {/*<JobsBody projects={this.props.projects} history={this.props.history}/>*/}

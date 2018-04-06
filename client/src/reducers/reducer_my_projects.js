@@ -24,13 +24,13 @@ export default function (state = initialState, action) {
                 isLoggingIn: false,
                 isLoggedIn: false,
             }
-        case LOGOUT:
-            return {
-                bidProjects: {},
-                published: {},
-                isLoggingIn: false,
-                isLoggedIn: false,
-            }
+        // case LOGOUT:
+        //     return {
+        //         bidProjects: {},
+        //         published: {},
+        //         isLoggingIn: false,
+        //         isLoggedIn: false,
+        //     }
         default:
             // console.log("my_projects",state)
             return state;

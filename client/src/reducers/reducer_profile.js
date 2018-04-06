@@ -64,23 +64,23 @@ export default function (state = profile, action) {
                 },
                 editing: false
             }
-        case LOGOUT:
-            return {
-                loginStatus: {
-                    isLoggingIn: false,
-                    isLoggedIn: false,
-                    errorMsg: ''
-                },
-                userDetails: {
-                    username: '',
-                    email: '',
-                    phoneNumber: '',
-                    aboutMe: '',
-                    skills: '',
-                    image: ''
-                },
-                editing: false,
-            }
+        // case LOGOUT:
+        //     return {
+        //         loginStatus: {
+        //             isLoggingIn: false,
+        //             isLoggedIn: false,
+        //             errorMsg: ''
+        //         },
+        //         userDetails: {
+        //             username: '',
+        //             email: '',
+        //             phoneNumber: '',
+        //             aboutMe: '',
+        //             skills: '',
+        //             image: ''
+        //         },
+        //         editing: false,
+        //     }
         case NO_AUTH:
             console.log("here")
             return {

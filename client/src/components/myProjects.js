@@ -34,7 +34,7 @@ class MyProjects extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    <TopNavBar/>
+                    <TopNavBar history={this.props.history}/>
                 </MuiThemeProvider>
                 <MyProjectsBelowNavBar type="myProjects"/>
                 <MuiThemeProvider>

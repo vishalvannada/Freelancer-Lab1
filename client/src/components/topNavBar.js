@@ -98,7 +98,7 @@ class TopNavBar extends Component {
                                 <li className="ml-3"><Antenna/></li>
                                 <li className="ml-3"><Menu/></li>
                                 <li className="text-center ml-3"><PopoverExampleAnimation
-                                    name={this.props.name}/></li>
+                                    history={this.props.history} name={this.props.name}/></li>
 
                                 {/*<svg-icon><src href="sprite.svg#si-glyph-bubble-message-dot-2" /></svg-icon>*/}
 

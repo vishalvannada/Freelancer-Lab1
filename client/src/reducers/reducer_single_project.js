@@ -31,15 +31,15 @@ export default function (state = singleProject, action) {
                 isLoggedIn : false,
                 username : ''
             }
-        case LOGOUT:
-            return{
-                project : {},
-                bids : {},
-                isBidding : false,
-                isLoggingIn : false,
-                isLoggedIn : false,
-                username : ''
-            }
+        // case LOGOUT:
+        //     return{
+        //         project : {},
+        //         bids : {},
+        //         isBidding : false,
+        //         isLoggingIn : false,
+        //         isLoggedIn : false,
+        //         username : ''
+        //     }
         default:
             // console.log("her"+action.type)
             // console.log("single-project",state)

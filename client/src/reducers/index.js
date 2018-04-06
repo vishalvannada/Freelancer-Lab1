@@ -24,10 +24,11 @@ const appReducer = combineReducers({
 })
 
 const rootReducer = (state, action) => {
-    if (action.type === LOGOUT) {
-        // console.log(state)
-        state = undefined
-        // console.log(state)
+    if (action.type === 'mama') {
+        console.log(action)
+        console.log("order is imp");
+        state = undefined;
+        console.log(state);
     }
     return appReducer(state, action)
 }

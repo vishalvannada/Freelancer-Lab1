@@ -24,7 +24,6 @@ const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
 export const store = createStoreWithMiddleware(reducers);
 
-
 function loggedIn() {
     console.log('looo')
     return (dispatch) => {

@@ -43,6 +43,11 @@ class PopoverExampleAnimation extends React.Component {
 
     render() {
 
+        const callback = () => {
+            console.log("Callback Executed")
+            this.props.history.push('/login')
+        };
+
         let label = "H";
 
         console.log(this.props.name)
@@ -82,7 +87,7 @@ class PopoverExampleAnimation extends React.Component {
                         <MenuItem primaryText="Membership" leftIcon={<Membership/>}/>
                         <MenuItem primaryText="Settings" leftIcon={<Settings/>}/>
                         <MenuItem primaryText="Refer a Client" leftIcon={<Refer/>}/>
-                        <MenuItem onClick={this.props.logout} primaryText="Logout" leftIcon={<Logout/>}/>
+                        <MenuItem onClick={() => this.props.logout(callback)} primaryText="Logout" leftIcon={<Logout/>}/>
                     </Menu>
                 </Popover>
             </div>

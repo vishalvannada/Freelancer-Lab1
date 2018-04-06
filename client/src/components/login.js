@@ -4,9 +4,8 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {loginSubmit, check} from "../actions";
 import LinearProgress from 'material-ui/LinearProgress';
-// import CircularProgress from 'material-ui/CircularProgress';
+import CircularProgress from 'material-ui/CircularProgress';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import axios from "axios/index";
 
 class Login extends Component {
 
@@ -28,7 +27,7 @@ class Login extends Component {
     }
 
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.check();
     }
 
@@ -45,17 +44,20 @@ class Login extends Component {
 
     render() {
 
-        console.log("loin")
 
-        if(this.props.loginDetails.isLoggingIn === true){
-            return(
+        if (this.props.loginDetails.isLoggingIn === true) {
+            return (
                 <div>
-                    Loading ..
+                    <MuiThemeProvider>
+                        <CircularProgress/>
+                    </MuiThemeProvider>
                 </div>
             )
         }
 
-        if(this.props.loginDetails.isLoggedIn === true){
+        console.log(this.props.loginDetails)
+
+        if (this.props.loginDetails.isLoggedIn === true) {
             this.props.history.push("/dashboard");
         }
 

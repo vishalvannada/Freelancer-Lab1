@@ -36,7 +36,7 @@ function loggingIn() {
         type: LOGGING_IN,
         payload: {
             isLoggingIn: true,
-            isLoggedIn: false,
+            isLoggedIn: true,
             errorMsg: ''
         }
     }
@@ -72,7 +72,7 @@ function signingIn() {
         type: SIGNING_IN,
         payload: {
             isLoggingIn: true,
-            isLoggedIn: false,
+            isLoggedIn: true,
             errorMsg: ''
         }
     }
@@ -102,15 +102,18 @@ function signInError(message) {
     }
 }
 
-function logoutDone() {
+function logoutDone(callback) {
     console.log("hee");
     return {
-        type: LOGOUT,
-        payload: {
-            isLoggingIn: false,
-            isLoggedIn: false,
-            errorMsg: '',
-        }
+        // type: LOGOUT,
+        // payload: {
+        //     isLoggingIn: false,
+        //     isLoggedIn: false,
+        //     errorMsg: '',
+        // }
+
+        type: 'mama',
+        payload : callback()
     }
 }
 
@@ -280,10 +283,10 @@ function displayBid() {
 }
 
 
-export function logout() {
+export function logout(callback) {
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}/login/logout`, {withCredentials: true}).then(response => {
-            dispatch(logoutDone());
+            dispatch(logoutDone(callback));
         })
     }
 }
@@ -475,12 +478,12 @@ export function searchProjects(values) {
 
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}/project/search`, {
-            params : {
-                projectName : values.get('projectName'),
-                skillsReq : values.get('skillsReq'),
-                page : values.get('page')
-            },
-            withCredentials: true
+                params: {
+                    projectName: values.get('projectName'),
+                    skillsReq: values.get('skillsReq'),
+                    page: values.get('page')
+                },
+                withCredentials: true
             }
         ).then(response => {
             console.log(response)
