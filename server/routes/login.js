@@ -22,6 +22,7 @@ router.post('/', function (req, res) {
 
             if (bcrypt.compareSync(req.param('password'), user.password)) {
                 req.session.username = user.username;
+                req.session.email = user.email
                 res.status('200').send(user);
             }
             else {

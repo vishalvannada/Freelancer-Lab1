@@ -72,7 +72,7 @@ function signingIn() {
         type: SIGNING_IN,
         payload: {
             isLoggingIn: true,
-            isLoggedIn: true,
+            isLoggedIn: false,
             errorMsg: ''
         }
     }
@@ -113,7 +113,7 @@ function logoutDone(callback) {
         // }
 
         type: 'mama',
-        payload : callback()
+        payload: callback()
     }
 }
 
@@ -294,7 +294,7 @@ export function logout(callback) {
 
 export function signupSubmit(values) {
     return (dispatch) => {
-        dispatch(signingIn());
+        // dispatch(signingIn());
         const request = axios.post(`${ROOT_URL}/signup`, values, {withCredentials: true}).then(response => {
             dispatch(signInSuccess());
         }).catch(error => {
@@ -421,6 +421,27 @@ export function loadSingleProject(id) {
             dispatch(SingleProject(response));
         }).catch(error => {
             dispatch(noFromProjects());
+        });
+    }
+}
+
+export function hireFreelancer(payload) {
+
+    return (dispatch) => {
+        const request = axios.post(`${ROOT_URL}/project/hire`, {
+            email : payload
+        }, {
+            withCredentials: true,
+        }, {
+            headers: {
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then(response => {
+            console.log(response.data)
+            // dispatch(SingleProject(response));
+        }).catch(error => {
+            // dispatch(noFromProjects());
         });
     }
 }

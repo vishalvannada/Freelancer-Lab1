@@ -11,9 +11,10 @@ function handle_request(msg, callback) {
             var projectid = new mongo1.ObjectID(msg.projectid);
             coll.insert({
                 username: msg.username,
+                email : msg.email,
                 projectid: projectid,
-                amount: msg.amount,
-                period : msg.period,
+                amount: parseInt(msg.amount),
+                period : parseInt(msg.period),
             }, function (err, check) {
                 if (check) {
                     console.log(check)

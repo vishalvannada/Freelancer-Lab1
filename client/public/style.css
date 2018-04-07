@@ -631,7 +631,7 @@ input[type="file"] {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('http://www.gsfdcy.com/data/img/92/2218772-universe-wallpaper.jpg') no-repeat center/cover;
+    background: url('http://www.wallpaperbetter.com/wallpaper/1018/349/288/outer-space-milky-way-1080P-wallpaper.jpg') no-repeat center/cover;
     content: "";
     margin-top: 64px;
     max-height: 728px;
@@ -656,6 +656,33 @@ input[type="file"] {
 
 .max-width-50 {
     max-width: 50%;
+}
+
+
+.max-width-20 {
+    /*width: 31%;*/
+    max-width: 23%;
+    min-width: 23%;
+    /*margin: auto;*/
+    float: left;
+}
+
+
+.max-width-40 {
+    /*width: 31%;*/
+    max-width: 40%;
+    min-width: 40%;
+    /*margin: auto;*/
+    float: left;
+}
+
+
+.max-width-30 {
+    /*width: 31%;*/
+    max-width: 31%;
+    min-width: 25%;
+    /*margin: auto;*/
+    float: left;
 }
 
 .opacity-less {
@@ -749,4 +776,16 @@ input[type="file"] {
 
 .background-blue{
     background-color: #3b5998;
+}
+
+.container-single-project {
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+.redux-payment-form{
+    width: 600px;
+    margin: auto;
+    padding: 50px;
 }

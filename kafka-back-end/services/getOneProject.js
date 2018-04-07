@@ -36,6 +36,7 @@ function handle_request(msg, callback) {
                             amount: 1,
                             period: 1,
                             username: 1,
+                            email : 1,
                             image: "$image.image",
                         }
                     }
@@ -48,8 +49,28 @@ function handle_request(msg, callback) {
                     res.project = project;
                     res.bids = bids;
 
+                    coll2.aggregate([
+                        {$match: {"projectid": project._id}},
+                        {
+                            $group:
+                                {
+                                    _id: {"projectid": project._id},
+                                    avgBid: { $avg: "$amount" }
+                                }
+                        }
+                    ]).toArray(function (err, avgBid) {
 
-                    callback(null, res);
+                        console.log("avgBid", avgBid);
+
+                        res.code = "200";
+                        res.value = "Success";
+                        res.project = project;
+                        res.bids = bids;
+                        res.avgBid = avgBid;
+
+                        callback(null, res);
+                    });
+
                 });
             });
         });

@@ -138,6 +138,7 @@ router.post('/savebid', function (req, res, next) {
         kafka.make_request('saveBid_topic',
             {
                 username: req.session.username,
+                email: req.session.email,
                 projectid: projectid,
                 amount: amount,
                 period : days,

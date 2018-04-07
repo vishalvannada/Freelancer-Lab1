@@ -41,6 +41,10 @@ class SignUp extends Component {
 
         console.log(this.props.loginDetails);
 
+        if(this.props.loginDetails.isLoggingIn === true){
+            // this.props.history.push("/dashboard");
+        }
+
         if(this.props.loginDetails.isLoggedIn === true){
             this.props.history.push("/dashboard");
         }

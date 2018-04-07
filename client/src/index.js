@@ -19,6 +19,7 @@ import NotFound from './components/notFound';
 import Home from './components/home';
 import ViewProfile from './components/viewProfile';
 import JobsMatchingMySkills from './components/jobsMatchingSkills'
+import Transaction from "./components/transaction";
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -61,6 +62,7 @@ ReactDOM.render(
                     <Route path="/jobs" component={Jobs}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/users/:username" component={ViewProfile}/>
+                    <Route path="/pay" component={Transaction}/>
                     <Route path="*" component={NotFound}/>
                 </Switch>
             </div>

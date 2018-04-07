@@ -3,11 +3,12 @@ import {LOAD_SINGLE_PROJECT, NO_FROM_PROJECTS, LOGOUT} from '../actions/index'
 
 const singleProject = {
     project : {},
-    bids : {},
+    bids : [],
     isBidding : false,
     isLoggingIn : true,
     isLoggedIn : false,
-    username : ''
+    username : '',
+    avgBid : ''
 }
 
 export default function (state = singleProject, action) {
@@ -16,20 +17,23 @@ export default function (state = singleProject, action) {
             console.log(action.response.data.project[0])
             return {
                 project : action.response.data.project,
-                bids : _.mapKeys(action.response.data.bids, '_id'),
+                // bids : _.mapKeys(action.response.data.bids, '_id'),
+                bids : action.response.data.bids,
                 isBidding: false,
                 isLoggingIn: false,
                 isLoggedIn : true,
                 username : action.response.data.username,
+                avgBid: action.response.data.avgBid
             };
         case NO_FROM_PROJECTS:
             return{
                 project : {},
-                bids : {},
+                bids : [],
                 isBidding : false,
                 isLoggingIn : false,
                 isLoggedIn : false,
-                username : ''
+                username : '',
+                avgBid: ''
             }
         // case LOGOUT:
         //     return{

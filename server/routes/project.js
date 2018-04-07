@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var kafka = require('./kafka/client')
 var multer = require('multer');
+const nodemailer = require('nodemailer');
+
+// let transporter = nodemailer.createTransport(transport[, defaults])
 
 var storage2 = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,6 +20,8 @@ var type2 = upload2.array('uploads');
 router.post('/postproject', type2, function (req, res, next) {
 
     if (req.session.username) {
+
+        console.log(req.body)
 
         const projectName = req.body.projectName;
         const projDesc = req.body.projDesc;
@@ -156,10 +161,18 @@ router.get('/', function (req, res, next) {
         }, function (err, results) {
             console.log('in result', results);
 
+            // console.log(results.avgBid[0].avgBid)
+
+            var avgBid = 0;
+            if (results.avgBid.length > 0) {
+                avgBid = results.avgBid[0].avgBid
+            }
+
             res.status(201).json({
                 project: results.project,
                 bids: results.bids,
                 username: req.session.username,
+                avgBid: avgBid
             })
 
 
@@ -253,8 +266,8 @@ router.get('/search', function (req, res, next) {
             "perPage": perPage,
             "page": page,
             "username": req.session.username,
-            "projectName" : req.param('projectName'),
-            "skillsReq" : JSON.parse(req.param('skillsReq'))
+            "projectName": req.param('projectName'),
+            "skillsReq": JSON.parse(req.param('skillsReq'))
         }, function (err, results) {
             console.log('in result', results);
 
@@ -269,6 +282,63 @@ router.get('/search', function (req, res, next) {
     }
     else {
         res.status(401).end()
+    }
+});
+
+
+router.post('/hire', function (req, res, next) {
+
+
+    if (req.session.username) {
+        // console.log(req.param('email'))
+        let email = req.param('email')
+        // Generate test SMTP service account from ethereal.email
+        // Only needed if you don't have a real mail account for testing
+        nodemailer.createTestAccount((err, account) => {
+            // create reusable transporter object using the default SMTP transport
+            // const transporter = nodemailer.createTransport({
+            //     host: 'smtp.ethereal.email',
+            //     port: 587,
+            //     auth: {
+            //         user: 'lmmo6wub5dxi3ezg@ethereal.email',
+            //         pass: 'pnErUVjqp8QQh2dPfR'
+            //     }
+            // });
+            // setup email data with unicode symbols
+
+
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'vishalvannada9@gmail.com',
+                    pass: 'sreedevi'
+                }
+            });
+
+            let mailOptions = {
+                from: '"Freelancer 👻" <admin@freelancer.com>', // sender address
+                to: email, // list of receivers
+                subject: 'You have been hired for project ✔', // Subject line
+                text: 'Hello world?', // plain text body
+                html: '<b>Hello world?</b>' // html body
+            };
+
+            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log('Message sent: %s', info.messageId);
+                // Preview only available when sending through an Ethereal account
+                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+                // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+                // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+            });
+        });
+    }
+    else {
+        // res.status(401).end()
     }
 
 });

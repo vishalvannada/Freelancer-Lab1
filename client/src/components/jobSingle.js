@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 import TopNavBar from "./topNavBar";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
 import CircularProgress from 'material-ui/CircularProgress';
+import Ascending from 'material-ui/svg-icons/navigation/arrow-downward';
+import Descending from 'material-ui/svg-icons/navigation/arrow-upward';
 import {connect} from "react-redux";
-import {loadSingleProject, submitBid} from '../actions/index'
+import {loadSingleProject, submitBid, hireFreelancer} from '../actions/index'
 import {Field, reduxForm} from 'redux-form';
-import _ from 'lodash'
-
-
-var bidDone = false;
+import _ from 'lodash';
+import {Link} from 'react-router-dom';
 
 class JobSingle extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            toggle: false
+            toggle: false,
+            ascending: false,
+            descending: false,
         }
     }
 
@@ -82,23 +85,31 @@ class JobSingle extends Component {
             return (
                 <li className="list-group-item" key={bid._id}>
                     <div className="row">
-                        <div className="col-md-5">
+                        <div className="col-md-2">
                             <img
                                 className="image-bid"
                                 src={bid.image == '' || bid.image == undefined ? 'https://www.buira.org/assets/images/shared/default-profile.png' : 'http://localhost:3000/images/' + bid.image}>
                             </img>
                             <br/>
-                            <p>{bid.username}</p>
+                            {/*<p>{bid.username}</p>*/}
                         </div>
 
                         <div className="col-md-3">
-                            <button type="button" className={buttonclass}>
+                            <Link to={`/users/${bid.username}`}>
+                                <p>{bid.username}</p>
+                            </Link>
+                        </div>
+
+                        <div className="col-md-4">
+                            <button type="button" className={buttonclass} onClick={() => {
+                                this.props.hireFreelancer(bid.email)
+                            }}>
                                 Hire
                             </button>
                         </div>
 
-                        <div className="col-md-4">
-                            <span className="strong-weight">{bid.amount}</span>
+                        <div className="col-md-3">
+                            <span className="strong-weight">$USD {bid.amount}</span>
                             <br/>
                             <span className="font-size-13">in {bid.period} days</span>
                         </div>
@@ -115,6 +126,27 @@ class JobSingle extends Component {
         this.props.loadSingleProject(id);
     }
 
+    sortAscending() {
+        // console.log(this.props.singleProject.bids)
+        this.props.singleProject.bids.sort(function (a, b) {
+            return a.amount - b.amount;
+        })
+        // console.log(this.props.singleProject.bids)
+        this.setState({
+            ascending: true
+        })
+    }
+
+    sortDescending() {
+        this.props.singleProject.bids.sort(function (a, b) {
+            return b.amount - a.amount;
+        })
+        // console.log(this.props.singleProject.bids)
+        this.setState({
+            descending: true
+        })
+    }
+
     onSubmit(values) {
         values.projectid = this.props.singleProject.project._id;
         this.props.submitBid(values);
@@ -123,7 +155,9 @@ class JobSingle extends Component {
 
     render() {
 
-        console.log(this.props.singleProject.username)
+        var bidDone = false;
+
+        console.log(this.state)
         if (this.props.singleProject.isLoggingIn === true) {
             return <div>
                 <MuiThemeProvider>
@@ -147,6 +181,10 @@ class JobSingle extends Component {
                 console.log("hh")
             }
         });
+
+        const style = {
+            margin: 4,
+        };
 
         console.log(bidDone)
 
@@ -172,23 +210,23 @@ class JobSingle extends Component {
                     <TopNavBar history={this.props.history}/>
                 </MuiThemeProvider>
 
-                <div className="container-post-project">
+                <div className="container-single-project">
                     <h4 className="mt-5">{thisProject.projectName}</h4>
 
 
                     <div className="title-single-project">
                         <div className="row">
+                            {/*<div className="col-md-1.5 inside-details ml-5 mr-4 my-2 pr-4 font-size-14">*/}
+                            {/*<span className="ml-2">Bids</span>*/}
+                            {/*<h4 className="text-primary text-center">141</h4>*/}
+                            {/*</div>*/}
                             <div className="col-md-1.5 inside-details ml-5 mr-4 my-2 pr-4 font-size-14">
-                                <span className="ml-2">Bids</span>
-                                <h4 className="text-primary text-center">141</h4>
-                            </div>
-                            <div className="col-md-1.5 inside-details mr-4 my-2 pr-4 font-size-14">
                                 <span>Avg Bid</span>
-                                <h4 className="text-primary text-center">141</h4>
+                                <h4 className="text-primary text-center">{Math.round(this.props.singleProject.avgBid, 1)}</h4>
                             </div>
                             <div className="col-md-2.5 inside-details mr-4 my-2 pr-4 font-size-14">
                                 <span className="ml-2">Project Budget</span>
-                                <h4 className="text-primary text-center">141</h4>
+                                <h4 className="text-primary text-center"> $ {thisProject.estBudget}</h4>
                             </div>
                         </div>
                     </div>
@@ -283,13 +321,25 @@ class JobSingle extends Component {
                         </div>
                     </div>
 
+                    <br/>
+
+                    <div>
+                        <MuiThemeProvider>
+                            <RaisedButton label="Sort" secondary={true} style={style}/>
+                            <RaisedButton label="Ascending" primary={true} style={style} icon={<Ascending/>}
+                                          onClick={() => this.sortAscending()}/>
+                            <RaisedButton label="Descending" primary={true} style={style} icon={<Descending/>}
+                                          onClick={() => this.sortDescending()}/>
+                        </MuiThemeProvider>
+                    </div>
+
                     <ul className="list-group">
 
-                        <span className="mt-2"></span>
+                        {/*<span className="mt-2"></span>*/}
                         <li className="list-group-item background-dark  mt-3">
                         <span className="row font-size-14">
-                            <div className="col-md-8">FREELANCERS BIDDING</div>
-                            <div className="col-md-4">BID USD</div>
+                            <div className="col-md-9">FREELANCERS BIDDING</div>
+                            <div className="col-md-3">BID USD</div>
                             {/*<div>{this.props.projects}</div>*/}
                         </span>
                         </li>
@@ -326,5 +376,5 @@ export default reduxForm({
     validate,
     form: 'BidProject'
 })(
-    connect(mapStateToProps, {loadSingleProject, submitBid})(JobSingle)
+    connect(mapStateToProps, {loadSingleProject, submitBid, hireFreelancer})(JobSingle)
 );

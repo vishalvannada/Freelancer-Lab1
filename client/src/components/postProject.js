@@ -118,13 +118,8 @@ class PostProject extends Component {
         body.append('skillsReq', data.skillsReq);
         console.log(data.estBudget)
         body.append('estBudget', data.estBudget);
-
-        // body.append('bodyy',data)
-        // body.append('proj',data)
-
         console.log(body.get('uploads'))
         this.props.postProject(body);
-
     }
 
 
