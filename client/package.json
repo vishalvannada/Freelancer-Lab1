@@ -20,6 +20,7 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.1",
     "react-scroll": "^1.7.7",
+    "react-svg-piechart": "^2.0.3",
     "react-widgets": "^4.2.6",
     "redux": "^3.7.2",
     "redux-file-upload": "0.0.19",

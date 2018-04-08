@@ -178,6 +178,41 @@ router.get('/getuserprofile', function (req, res) {
     }
 })
 
+
+router.post('/makepayment', function (req, res, next) {
+
+    if (req.session.username) {
+
+        console.log(req.param('owner'))
+        console.log(req.param('bidder'))
+        console.log(req.param('bidAmount'))
+        console.log(req.param('cardNumber'))
+        console.log(req.param('nameOnCard'))
+        console.log(req.param('securityCode'))
+
+        kafka.make_request('makePayment_topic',
+            {
+                owner: req.param('owner'),
+                bidder: req.param('bidder'),
+                bidAmount: req.param('bidAmount'),
+                cardNumber: req.param('cardNumber'),
+                nameOnCard: req.param('nameOnCard'),
+                securityCode : req.param('securityCode'),
+                projectid : req.param('projectid')
+            }, function (err, results) {
+                console.log('in result');
+
+                console.log(results)
+                res.status(201).end()
+            });
+    }
+    else {
+        res.status(401).end();
+    }
+})
+
+
+
 module.exports = router;
 
 

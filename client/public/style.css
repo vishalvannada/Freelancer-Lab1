@@ -302,6 +302,12 @@ body {
     margin-top: 24px;
 }
 
+.transaction{
+    float: left;
+    max-width: 40%;
+    margin: auto;
+}
+
 svg {
     width: 24px;
     height: 24px;
@@ -787,5 +793,5 @@ input[type="file"] {
 .redux-payment-form{
     width: 600px;
     margin: auto;
-    padding: 50px;
+    padding: 30px;
 }

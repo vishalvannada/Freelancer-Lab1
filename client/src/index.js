@@ -19,7 +19,8 @@ import NotFound from './components/notFound';
 import Home from './components/home';
 import ViewProfile from './components/viewProfile';
 import JobsMatchingMySkills from './components/jobsMatchingSkills'
-import Transaction from "./components/transaction";
+import Transaction from "./components/creditCard";
+import TransactionManagement from './components/transactionManager';
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
@@ -57,6 +58,7 @@ ReactDOM.render(
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/post-project" component={PostProject}/>
                     <Route path="/myprojects" component={MyProjects}/>
+                    <Route path="/transactions" component={TransactionManagement}/>
                     <Route path="/jobs/single/:id" component={JobSingle}/>
                     <Route path="/jobs/myskills" component={JobsMatchingMySkills}/>
                     <Route path="/jobs" component={Jobs}/>

@@ -429,8 +429,8 @@ export function hireFreelancer(payload1, payload2) {
 
     return (dispatch) => {
         const request = axios.post(`${ROOT_URL}/project/hire`, {
-            email : payload1,
-            project : payload2
+            email: payload1,
+            project: payload2
         }, {
             withCredentials: true,
         }, {
@@ -515,6 +515,38 @@ export function searchProjects(values) {
             // dispatch(SingleProject(response));
             dispatch(loadProjects(response));
         }).catch(error => {
+            // dispatch(noFromProjects());
+        });
+    }
+}
+
+
+export function makePayment(values) {
+    // console.log(values.projectid)
+
+    // body.append('cardNumber', data.payment.cardNumber)
+    // body.append('nameOnCard', data.payment.nameOnCard)
+    // body.append('securityCode', data.payment.securityCode)
+    // body.append('owner', this.props.location.state.owner)
+    // body.append('bidder', this.props.location.state.bidder)
+    // body.append('bidAmount',this.props.location.state.bidAmount)
+    console.log(values.get('owner'))
+    return (dispatch) => {
+        const request = axios.post(`${ROOT_URL}/makepayment`, {
+            cardNumber: values.get('cardNumber'),
+            nameOnCard : values.get('nameOnCard'),
+            securityCode : values.get('securityCode'),
+            owner : values.get('owner'),
+            bidder : values.get('bidder'),
+            bidAmount : values.get('bidAmount'),
+            projectid : values.get('projectid')
+            }, {withCredentials: true},
+        ).then(response => {
+            console.log(response)
+            // dispatch(SingleProject(response));
+            // dispatch(loadSingleProject(values.projectid))
+        }).catch(error => {
+            console.log("here")
             // dispatch(noFromProjects());
         });
     }

@@ -160,7 +160,7 @@ class JobSingle extends Component {
     }
 
 
-    renderEmployeeSection(owner, bidder, bidAmount) {
+    renderEmployeeSection(owner, bidder, bidAmount, projectid) {
 
         return (
             <div>
@@ -189,7 +189,7 @@ class JobSingle extends Component {
                 <button type="button" className='btn btn-success' onClick={() => this.props.history.push({
                     pathname : "/pay",
                     state : {
-                        owner, bidder, bidAmount
+                        owner, bidder, bidAmount, projectid
                     }
                 })}>
                     Make Payment
@@ -258,7 +258,7 @@ class JobSingle extends Component {
                 let owner = this.props.singleProject.project.username;
                 let bidder = this.props.singleProject.project.freelancer;
                 return (
-                    <div>{this.renderEmployeeSection(owner, bidder, bidAmount)}</div>
+                    <div>{this.renderEmployeeSection(owner, bidder, bidAmount, this.props.singleProject.project._id)}</div>
                 )
             }
 

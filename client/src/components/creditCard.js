@@ -10,7 +10,7 @@ import Error from './notFound'
 
 import creditCardType, {types as CardType} from 'credit-card-type';
 import images from '../creditCardImages';
-import {loadSingleProject, submitBid} from "../actions";
+import {makePayment} from "../actions";
 
 const supportedCards = [
     {
@@ -195,14 +195,39 @@ const renderTextField = ({input, label, type, meta: {touched, error, warning}, f
 
 class Transaction extends Component {
 
+    onSubmit(data) {
+        // console.log(data)
+        // console.log(data.payment.cardNumber)
+        // console.log(data.payment.nameOnCard)
+        // console.log(data.payment.securityCode)
+        //
+        // console.log(this.props.location.state.owner)
+        // console.log(this.props.location.state.bidder)
+        // console.log(this.props.location.state.bidAmount)
+
+        var body = new FormData();
+
+        body.append('cardNumber', data.payment.cardNumber)
+        body.append('nameOnCard', data.payment.nameOnCard)
+        body.append('securityCode', data.payment.securityCode)
+        body.append('owner', this.props.location.state.owner)
+        body.append('bidder', this.props.location.state.bidder)
+        body.append('bidAmount', this.props.location.state.bidAmount)
+        body.append('projectid', this.props.location.state.projectid)
+
+        this.props.makePayment(body)
+
+        this.props.history.push('/dashboard')
+    }
+
     render() {
         const {handleSubmit} = this.props;
 
         if (this.props.location.state) {
             console.log(this.props.location.state)
         }
-        else{
-            return(
+        else {
+            return (
                 <div>
                     <Error/>
                 </div>
@@ -210,40 +235,55 @@ class Transaction extends Component {
         }
 
         return (
-            <form onSubmit={handleSubmit} className="form-horizontal redux-payment-form">
-                <fieldset>
-                    <h4 className="mt-5">Payment Information</h4>
-                    <br/>
-                    <FormSection name="payment">
-                        <Field name="cardNumber" type="text" label="Card Number" acceptedCards={supportedCards}
-                               component={renderCreditCardField}/>
+            <div>
 
-                        <Field name="nameOnCard" type="text" label="Name on card" component={renderTextField}/>
+                <div className="row container-post-project">
+                    <div className="col-lg-6 m-auto">
+                        <h2 className="mt-5">Payment Information</h2>
+                    </div>
+                    <div className="col-lg-6 m-auto">
+                        <img className=" mt-5 text-align-right logo-left brand"
+                             src="https://www.f-cdn.com/assets/webapp/assets/freelancer-logo.svg"
+                             alt="Freelancer Logo"
+                             data-display="block"
 
-                        <br/>
-
-                        <div className="max-width-40">
-                            <Field name="expiryMonth" type="text" label="Expiry Month" options={monthNames}
-                                   valueInterceptor={(index) => index + 1} component={renderDateFieldFull}/>
-                        </div>
-
-                        <div className="max-width-20">
-                            <Field name="expiryYear" type="text" label="Year" options={expiryYears}
-                                   valueInterceptor={(index) => index} component={renderDateFieldFull}/>
-                        </div>
-                        <div className="max-width-20">
-                            <Field name="securityCode" type="text"
-                                   label={'CVV'}
-                                   component={renderTextField}/>
-                        </div>
-                    </FormSection>
-                </fieldset>
-
-                <br/>
-                <div className="text-center mr-5">
-                    <button className="btn btn-success " type="submit">Submit Payment</button>
+                        />
+                    </div>
                 </div>
-            </form>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="form-horizontal redux-payment-form">
+                    <fieldset>
+                        <br/>
+                        <FormSection name="payment">
+                            <Field name="cardNumber" type="text" label="Card Number" acceptedCards={supportedCards}
+                                   component={renderCreditCardField}/>
+
+                            <Field name="nameOnCard" type="text" label="Name on card" component={renderTextField}/>
+
+                            <br/>
+
+                            <div className="max-width-40">
+                                <Field name="expiryMonth" type="text" label="Expiry Month" options={monthNames}
+                                       valueInterceptor={(index) => index + 1} component={renderDateFieldFull}/>
+                            </div>
+
+                            <div className="max-width-20">
+                                <Field name="expiryYear" type="text" label="Year" options={expiryYears}
+                                       valueInterceptor={(index) => index} component={renderDateFieldFull}/>
+                            </div>
+                            <div className="max-width-20">
+                                <Field name="securityCode" type="text"
+                                       label={'CVV'}
+                                       component={renderTextField}/>
+                            </div>
+                        </FormSection>
+                    </fieldset>
+
+                    <br/>
+                    <div className="text-center mr-5">
+                        <button className="btn btn-success " type="submit">Submit Payment</button>
+                    </div>
+                </form>
+            </div>
         );
     }
 }
@@ -253,6 +293,6 @@ export default reduxForm({
     validate,
     form: 'payment-form',
 })(
-    connect(null, {})(Transaction)
+    connect(null, {makePayment})(Transaction)
 );
 

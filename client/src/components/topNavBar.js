@@ -17,7 +17,6 @@ class TopNavBar extends Component {
                                  src="https://www.f-cdn.com/assets/webapp/assets/freelancer-logo.svg"
                                  alt="Freelancer Logo"
                                  data-display="block"
-
                             />
                         </Link>
 
