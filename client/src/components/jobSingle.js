@@ -10,6 +10,7 @@ import {loadSingleProject, submitBid, hireFreelancer} from '../actions/index'
 import {Field, reduxForm} from 'redux-form';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
+import FreelancerSingleJob from './freelancerSingleJob'
 
 class JobSingle extends Component {
 
@@ -102,7 +103,10 @@ class JobSingle extends Component {
 
                         <div className="col-md-4">
                             <button type="button" className={buttonclass} onClick={() => {
-                                this.props.hireFreelancer(bid.email)
+                                // this.setState({
+                                //     toggle: false
+                                // })
+                                this.props.hireFreelancer(bid, this.props.singleProject.project)
                             }}>
                                 Hire
                             </button>
@@ -149,7 +153,127 @@ class JobSingle extends Component {
 
     onSubmit(values) {
         values.projectid = this.props.singleProject.project._id;
+        this.setState({
+            toggle: false
+        })
         this.props.submitBid(values);
+    }
+
+
+    renderEmployeeSection(owner, bidder, bidAmount) {
+
+        return (
+            <div>
+                <ul className="list-group">
+
+                    <li className="list-group-item background-dark  mt-3">
+                        <span className="row">
+                            <div
+                                className="col-md-9">SUBMISSIONS BY FREELANCER {this.props.singleProject.project.freelancer}</div>
+                            {/*<div>{this.props.projects}</div>*/}
+                        </span>
+                    </li>
+
+                    <li className="list-group-item font-size-13">
+                        Submission 1
+                    </li>
+
+                    <li className="list-group-item font-size-13">
+                        Submission 2
+                    </li>
+
+                </ul>
+
+                {/*<br/>*/}
+                <br/>
+                <button type="button" className='btn btn-success' onClick={() => this.props.history.push({
+                    pathname : "/pay",
+                    state : {
+                        owner, bidder, bidAmount
+                    }
+                })}>
+                    Make Payment
+                </button>
+
+            </div>
+        );
+    }
+
+
+    renderFreelancerSection() {
+        return (
+            <div>
+                <FreelancerSingleJob/>
+            </div>
+        )
+    }
+
+    renderNormalSection() {
+
+        const style = {
+            margin: 4,
+        };
+
+        return (
+            <div>
+                <div>
+                    <MuiThemeProvider>
+                        <RaisedButton label="Sort" secondary={true} style={style}/>
+                        <RaisedButton label="Ascending" primary={true} style={style} icon={<Ascending/>}
+                                      onClick={() => this.sortAscending()}/>
+                        <RaisedButton label="Descending" primary={true} style={style} icon={<Descending/>}
+                                      onClick={() => this.sortDescending()}/>
+                    </MuiThemeProvider>
+                </div>
+
+                <ul className="list-group">
+
+                    {/*<span className="mt-2"></span>*/}
+                    <li className="list-group-item background-dark  mt-3">
+                        <span className="row font-size-14">
+                            <div className="col-md-9">FREELANCERS BIDDING</div>
+                            <div className="col-md-3">BID USD</div>
+                            {/*<div>{this.props.projects}</div>*/}
+                        </span>
+                    </li>
+
+                    {this.renderBids()}
+
+                </ul>
+            </div>
+        )
+    }
+
+    renderCondition(bidDone, bidAmount) {
+        if (this.props.singleProject.project.status) {
+            if (this.props.singleProject.project.status == 'OPEN') {
+                return (
+                    <div>{this.renderNormalSection()}</div>
+                )
+
+            }
+
+            if (this.props.singleProject.project.status == 'IN PROGRESS' && this.props.singleProject.username == this.props.singleProject.project.username) {
+
+                let owner = this.props.singleProject.project.username;
+                let bidder = this.props.singleProject.project.freelancer;
+                return (
+                    <div>{this.renderEmployeeSection(owner, bidder, bidAmount)}</div>
+                )
+            }
+
+            if (this.props.singleProject.project.status == 'IN PROGRESS' && bidDone) {
+                return (
+                    <div>{this.renderFreelancerSection()}</div>
+                )
+            }
+
+            if (this.props.singleProject.project.status == 'CLOSED') {
+                return (
+                    <div></div>
+                )
+            }
+        }
     }
 
 
@@ -174,17 +298,23 @@ class JobSingle extends Component {
 
         const {handleSubmit} = this.props;
 
+        var bidAmount ;
+
         _.map(this.props.singleProject.bids, bid => {
-            console.log(bid)
+            // console.log(bid)
             if (bid.username == this.props.singleProject.username) {
                 bidDone = true;
-                console.log("hh")
+                // console.log(bid)
             }
+            if(this.props.singleProject.project.freelancer){
+                if(bid.username == this.props.singleProject.project.freelancer){
+                    console.log(bid.amount);
+                    bidAmount = bid.amount;
+                }
+            }
+
         });
 
-        const style = {
-            margin: 4,
-        };
 
         console.log(bidDone)
 
@@ -200,6 +330,10 @@ class JobSingle extends Component {
             buttonToggle = this.state.toggle === true || (this.props.singleProject.username === this.props.singleProject.project.username) || bidDone ? "bid-now-single display-none" : "bid-now-single";
         }
 
+        if (this.props.singleProject.project.status != 'OPEN') {
+            classForm = "display-none";
+            buttonToggle = "display-none";
+        }
 
         const {id} = this.props.match.params;
         const thisProject = this.props.singleProject.project;
@@ -227,6 +361,16 @@ class JobSingle extends Component {
                             <div className="col-md-2.5 inside-details mr-4 my-2 pr-4 font-size-14">
                                 <span className="ml-2">Project Budget</span>
                                 <h4 className="text-primary text-center"> $ {thisProject.estBudget}</h4>
+                            </div>
+
+                            <div className="col-md-3 text-align-right">
+                                <br/>
+                                <h5>STATUS : {this.props.singleProject.project.status}</h5>
+                            </div>
+
+                            <div className="col-md-3 text-align-right">
+                                <br/>
+                                <h6>OWNER : {this.props.singleProject.project.username}</h6>
                             </div>
                         </div>
                     </div>
@@ -323,30 +467,13 @@ class JobSingle extends Component {
 
                     <br/>
 
-                    <div>
-                        <MuiThemeProvider>
-                            <RaisedButton label="Sort" secondary={true} style={style}/>
-                            <RaisedButton label="Ascending" primary={true} style={style} icon={<Ascending/>}
-                                          onClick={() => this.sortAscending()}/>
-                            <RaisedButton label="Descending" primary={true} style={style} icon={<Descending/>}
-                                          onClick={() => this.sortDescending()}/>
-                        </MuiThemeProvider>
-                    </div>
+                    {/*{this.renderEmployeeSection()}*/}
+                    {/*{this.renderFreelancerSection()}*/}
+                    {/*{this.renderNormalSection()}*/}
 
-                    <ul className="list-group">
+                    {this.renderCondition(bidDone, bidAmount)}
 
-                        {/*<span className="mt-2"></span>*/}
-                        <li className="list-group-item background-dark  mt-3">
-                        <span className="row font-size-14">
-                            <div className="col-md-9">FREELANCERS BIDDING</div>
-                            <div className="col-md-3">BID USD</div>
-                            {/*<div>{this.props.projects}</div>*/}
-                        </span>
-                        </li>
 
-                        {this.renderBids()}
-
-                    </ul>
                 </div>
             </div>
         )

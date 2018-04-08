@@ -12,21 +12,45 @@ function handle_request(msg, callback) {
             var i = 0;
 
 
-            coll.find({username: msg.username}).toArray( function (err, projects) {
+            coll.find({username: msg.username}).toArray(function (err, projects) {
 
                 res.code = "200";
                 res.value = "Success";
                 res.result = projects;
 
-                console.log(projects, msg.username);
-
+                // console.log(projects, msg.username);
+                //
                 projects.forEach(project => {
                     console.log(project)
                 })
 
-                res.publishedProjects = projects;
+                var coll2 = mongo.collection('bids');
 
-                callback(null, res);
+                coll2.aggregate([{$match: {username: msg.username}}, {
+                    $lookup: {
+                        from: "projects",
+                        localField: "projectid",
+                        foreignField: "_id",
+                        as: "bidProjects"
+                    }
+                }, {
+                    $project: {
+                        amount : 1,
+                        project: "$bidProjects",
+                    }
+                }]).toArray(function (err, projects2) {
+
+                    projects2.forEach(project => {
+                        console.log(project)
+                    })
+
+                    res.publishedProjects = projects;
+                    res.bidProjects = projects2;
+
+                    callback(null, res);
+                });
+
+
             });
         });
     }

@@ -10,6 +10,7 @@ var getAllProjects = require('./services/getAllProjects');
 var getOneProject = require('./services/getOneProject');
 var saveBid = require('./services/saveBid');
 var searchProjects = require('./services/searchProjects');
+var hireFreelancer = require('./services/hireFreelancer');
 
 var topic_name1 = 'login_topic';
 var consumer1 = connection.getConsumer(topic_name1);
@@ -46,6 +47,12 @@ var consumer11 = connection.getConsumer(topic_name11);
 
 var topic_name12 = 'searchProjects_topic';
 var consumer12 = connection.getConsumer(topic_name12);
+
+var topic_name13 = 'hireFreelancer_topic';
+var consumer13 = connection.getConsumer(topic_name13);
+
+var topic_name14 = 'makePayment_topic';
+var consumer14 = connection.getConsumer(topic_name14);
 
 var producer = connection.getProducer();
 
@@ -334,6 +341,31 @@ consumer12.on('message', function (message) {
     var data = JSON.parse(message.value);
     console.log(data)
     searchProjects.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer13.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    hireFreelancer.handle_request(data.data, function(err,res){
         console.log('after handle',res, err);
         var payloads = [
             { topic: data.replyTo,

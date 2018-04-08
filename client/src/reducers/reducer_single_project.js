@@ -8,7 +8,8 @@ const singleProject = {
     isLoggingIn : true,
     isLoggedIn : false,
     username : '',
-    avgBid : ''
+    avgBid : '',
+
 }
 
 export default function (state = singleProject, action) {

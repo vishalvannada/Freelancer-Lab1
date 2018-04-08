@@ -6,6 +6,7 @@ import {Field, reduxForm, FormSection} from 'redux-form';
 
 import _ from 'lodash'
 import {connect} from 'react-redux';
+import Error from './notFound'
 
 import creditCardType, {types as CardType} from 'credit-card-type';
 import images from '../creditCardImages';
@@ -184,7 +185,8 @@ const renderTextField = ({input, label, type, meta: {touched, error, warning}, f
                 <input {...input} placeholder={label} type={type}
                        className={` ${touched && error ? 'has-error border-red form-control' : 'form-control'}`}
                        id={label}/>
-                {touched && ((error && <span className="help-block error-message font-size-14">{error}</span>) || (warning &&
+                {touched && ((error &&
+                    <span className="help-block error-message font-size-14">{error}</span>) || (warning &&
                     <span>{warning}</span>))}
             </div>
         </div>
@@ -195,6 +197,17 @@ class Transaction extends Component {
 
     render() {
         const {handleSubmit} = this.props;
+
+        if (this.props.location.state) {
+            console.log(this.props.location.state)
+        }
+        else{
+            return(
+                <div>
+                    <Error/>
+                </div>
+            )
+        }
 
         return (
             <form onSubmit={handleSubmit} className="form-horizontal redux-payment-form">
@@ -225,6 +238,11 @@ class Transaction extends Component {
                         </div>
                     </FormSection>
                 </fieldset>
+
+                <br/>
+                <div className="text-center mr-5">
+                    <button className="btn btn-success " type="submit">Submit Payment</button>
+                </div>
             </form>
         );
     }

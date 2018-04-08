@@ -141,37 +141,16 @@ router.post('/savebid', function (req, res, next) {
                 email: req.session.email,
                 projectid: projectid,
                 amount: amount,
-                period : days,
+                period: days,
             }, function (err, results) {
                 console.log('in result');
 
                 console.log(results)
-                // if (results.code == 200) {
-                //     console.log(results);
-                //     res.status(201).send(results.result)
-                // }
-                // else {
-                //     res.status(401).json({
-                //         message: results.message
-                //     })
-                // }
-
+                res.status(201).end()
             });
-
-
-        // const insertBid = "insert into bids (username, projectid, period, amount) values ('" + req.session.username + "', '" +
-        //     projectid + "','" + days + "','" + amount + "')";
-        //
-        // console.log("q0 " + insertBid);
-        //
-        // mysql.fetchData(function (err, results) {
-        //     if (err) {
-        //         throw err;
-        //     }
-        //     else {
-        //         console.log(results)
-        //     }
-        // }, insertBid)
+    }
+    else {
+        res.status(401).end();
     }
 })
 

@@ -26,24 +26,28 @@ class MyProjectsBody extends Component {
 
 
     renderBidProjects() {
+
+
         return _.map(this.props.myProjects.bidProjects, project => {
+            let proj = project.project[0];
+            console.log(proj)
             return (
-                <div key={project.projectid}>
-                    <li className="list-group-item" key={project.projectid}>
+                <div key={project.project[0]}>
+                    <li className="list-group-item" key={proj._id}>
                         <div className="row font-size-14 p-2">
                             <div className="col-md-4">
-                                <Link to={`/jobs/${project.projectid}`}>
-                                    <h4 className="text-primary">{project.projectname}</h4>
+                                <Link to={`/jobs/single/${proj._id}`}>
+                                    <h4 className="text-primary">{proj.projectName}</h4>
                                 </Link>
-                                <p className="font-size-13">ProjectID : {project.projectid}</p>
+                                <p className="font-size-13">ProjectID : {proj._id}</p>
                             </div>
 
                             <div className="col-md-2"><strong className="text-primary">
-                                <Link to={`/users/${project.owner}`}>{project.owner}</Link>
+                                <Link to={`/users/${proj.username}`}>{proj.username}</Link>
                                 </strong></div>
-                            <div className="col-md-2"><strong>{project.avg}</strong></div>
+                            <div className="col-md-2"><strong>AVG</strong></div>
                             <div className="col-md-2"><strong>{project.amount}</strong></div>
-                            <div className="col-md-2 text-success"><strong>OPEN</strong></div>
+                            <div className="col-md-2 text-success"><strong>{proj.status}</strong></div>
 
                         </div>
                     </li>
@@ -67,10 +71,10 @@ class MyProjectsBody extends Component {
 
                             <span className="font-size-13">ProjectID : {project._id}</span>
                         </div>
-                        <div className="col-md-2"><strong></strong></div>
+                        <div className="col-md-2"><strong>{project.freelancer}</strong></div>
                         <div className="col-md-2"><strong></strong></div>
                         <div className="col-md-2"><strong>{project.avg}</strong></div>
-                        <div className="col-md-2 text-success"><strong>OPEN</strong></div>
+                        <div className="col-md-2 text-success"><strong>{project.status}</strong></div>
                     </div>
                 </li>
             )

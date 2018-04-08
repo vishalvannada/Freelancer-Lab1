@@ -425,11 +425,12 @@ export function loadSingleProject(id) {
     }
 }
 
-export function hireFreelancer(payload) {
+export function hireFreelancer(payload1, payload2) {
 
     return (dispatch) => {
         const request = axios.post(`${ROOT_URL}/project/hire`, {
-            email : payload
+            email : payload1,
+            project : payload2
         }, {
             withCredentials: true,
         }, {
@@ -458,12 +459,15 @@ export function displayBidSection() {
 
 
 export function submitBid(values) {
+    console.log(values.projectid)
     return (dispatch) => {
         const request = axios.post(`${ROOT_URL}/savebid`, values, {withCredentials: true},
         ).then(response => {
             console.log(response)
             // dispatch(SingleProject(response));
+            dispatch(loadSingleProject(values.projectid))
         }).catch(error => {
+            console.log("here")
             dispatch(noFromProjects());
         });
     }

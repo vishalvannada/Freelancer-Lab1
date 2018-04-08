@@ -2,7 +2,7 @@ import _ from 'lodash';
 import {GET_MY_PROJECTS, NO_FROM_PROJECTS, LOGOUT} from '../actions/index'
 
 const initialState = {
-    bidProjects: {},
+    bidProjects: [],
     published: {},
     isLoggingIn: true,
     isLoggedIn: false,
@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case GET_MY_PROJECTS :
             return {
-                bidProjects: _.mapKeys(action.response.data.bidProjects, 'bidid'),
+                bidProjects: action.response.data.bidProjects,
                 published: _.mapKeys(action.response.data.publishedProjects, '_id'),
                 isLoggingIn: false,
                 isLoggedIn: true,
