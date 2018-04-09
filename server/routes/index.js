@@ -197,8 +197,8 @@ router.post('/makepayment', function (req, res, next) {
                 bidAmount: req.param('bidAmount'),
                 cardNumber: req.param('cardNumber'),
                 nameOnCard: req.param('nameOnCard'),
-                securityCode : req.param('securityCode'),
-                projectid : req.param('projectid')
+                securityCode: req.param('securityCode'),
+                projectid: req.param('projectid')
             }, function (err, results) {
                 console.log('in result');
 
@@ -211,7 +211,48 @@ router.post('/makepayment', function (req, res, next) {
     }
 })
 
+router.get('/gettrans', function (req, res) {
 
+    if (req.session.username) {
+        const username = req.session.username;
+        kafka.make_request('getTransactions_topic', {"username": username,}, function (err, results) {
+
+            console.log(results);
+            // req.session.username = req.param('username');
+            res.status(201).json({
+                transIn: results.transIn,
+                transOut: results.transOut,
+                wallet: results.wallet
+            })
+
+
+        });
+    }
+    else {
+        res.status(401).end();
+    }
+})
+
+router.post('/addwithdraw', function (req, res, next) {
+
+    console.log( req.param('amount'))
+    if (req.session.username) {
+
+        kafka.make_request('addWithdraw_topic',
+            {
+                username: req.session.username,
+                amount: req.param('amount')
+            }, function (err, results) {
+                console.log('in result');
+
+                console.log(results)
+                res.status(201).end()
+            });
+    }
+    else {
+        res.status(401).end();
+    }
+})
 
 module.exports = router;
 

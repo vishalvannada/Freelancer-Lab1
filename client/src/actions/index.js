@@ -26,8 +26,8 @@ export const LOAD_SINGLE_PROJECT = 'load_single';
 export const DISPLAY_BID = 'display_bid';
 export const GET_MY_PROJECTS = 'get_my_projects';
 export const NO_FROM_PROJECTS = 'no_from_projects';
-export const SEND_PROFILE = 'send_profile'
-
+export const SEND_PROFILE = 'send_profile';
+export const TRANS_SEND = 'trans_send';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -533,13 +533,13 @@ export function makePayment(values) {
     console.log(values.get('owner'))
     return (dispatch) => {
         const request = axios.post(`${ROOT_URL}/makepayment`, {
-            cardNumber: values.get('cardNumber'),
-            nameOnCard : values.get('nameOnCard'),
-            securityCode : values.get('securityCode'),
-            owner : values.get('owner'),
-            bidder : values.get('bidder'),
-            bidAmount : values.get('bidAmount'),
-            projectid : values.get('projectid')
+                cardNumber: values.get('cardNumber'),
+                nameOnCard: values.get('nameOnCard'),
+                securityCode: values.get('securityCode'),
+                owner: values.get('owner'),
+                bidder: values.get('bidder'),
+                bidAmount: values.get('bidAmount'),
+                projectid: values.get('projectid')
             }, {withCredentials: true},
         ).then(response => {
             console.log(response)
@@ -547,6 +547,47 @@ export function makePayment(values) {
             // dispatch(loadSingleProject(values.projectid))
         }).catch(error => {
             console.log("here")
+            // dispatch(noFromProjects());
+        });
+    }
+}
+
+function sendTransactions(response) {
+    return {
+        type: TRANS_SEND,
+        payload: response
+    }
+}
+
+export function getTransactions() {
+    return (dispatch) => {
+        const request = axios.get(`${ROOT_URL}/gettrans`, {
+                withCredentials: true
+            }
+        ).then(response => {
+            console.log(response.data)
+            dispatch(sendTransactions(response));
+        }).catch(error => {
+            // dispatch(noFromProjects());
+        });
+    }
+}
+
+
+export function addWithdrawMoney(amount) {
+    console.log(amount)
+    return (dispatch) => {
+        const request = axios.post(`${ROOT_URL}/addwithdraw`,
+            {
+                amount : amount
+            },
+            {
+                withCredentials: true
+            }
+        ).then(response => {
+            console.log(response.data)
+            dispatch(getTransactions());
+        }).catch(error => {
             // dispatch(noFromProjects());
         });
     }

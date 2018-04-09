@@ -13,3 +13,4 @@ saveBid_topic
 searchProjects_topic
 hireFreelancer_topic
 makePayment_topic
+getTransactions_topic

@@ -8,6 +8,7 @@ import ProjectsReducer from './reducer_projects';
 import SingleProjectReducer from './reducer_single_project';
 import MyProjectReducer from './reducer_my_projects'
 import ViewProfile from './reducer_view_profile';
+import Transactions from './reducer_transactions'
 import {LOGOUT} from "../actions";
 
 const appReducer = combineReducers({
@@ -20,6 +21,7 @@ const appReducer = combineReducers({
     singleProject : SingleProjectReducer,
     myProjects : MyProjectReducer,
     viewProfile : ViewProfile,
+    transactions : Transactions,
     form : formReducer
 })
 

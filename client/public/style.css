@@ -314,6 +314,13 @@ svg {
     margin-top: 8px;
 }
 
+
+.container svg{
+    width: 250px;
+    height: 250px;
+    margin-top: 0px !important;
+}
+
 .icons {
     width: 24px;
     height: 24px;

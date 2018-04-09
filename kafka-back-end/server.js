@@ -12,6 +12,8 @@ var saveBid = require('./services/saveBid');
 var searchProjects = require('./services/searchProjects');
 var hireFreelancer = require('./services/hireFreelancer');
 var makePayment = require('./services/makePayment');
+var getTransactions = require('./services/getTransactions');
+var addWithdrawMoney = require('./services/addWithdrawMoney')
 
 var topic_name1 = 'login_topic';
 var consumer1 = connection.getConsumer(topic_name1);
@@ -54,6 +56,13 @@ var consumer13 = connection.getConsumer(topic_name13);
 
 var topic_name14 = 'makePayment_topic';
 var consumer14 = connection.getConsumer(topic_name14);
+
+var topic_name15 = 'getTransactions_topic';
+var consumer15 = connection.getConsumer(topic_name15);
+
+var topic_name16 = 'addWithdraw_topic';
+var consumer16 = connection.getConsumer(topic_name16);
+
 
 var producer = connection.getProducer();
 
@@ -392,6 +401,56 @@ consumer14.on('message', function (message) {
     var data = JSON.parse(message.value);
     console.log(data)
     makePayment.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer15.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    getTransactions.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+
+consumer16.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    addWithdrawMoney.handle_request(data.data, function(err,res){
         console.log('after handle',res, err);
         var payloads = [
             { topic: data.replyTo,
