@@ -28,6 +28,7 @@ export const GET_MY_PROJECTS = 'get_my_projects';
 export const NO_FROM_PROJECTS = 'no_from_projects';
 export const SEND_PROFILE = 'send_profile';
 export const TRANS_SEND = 'trans_send';
+export const TRANS_DONT_SEND = 'trans_dont_send';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -559,6 +560,11 @@ function sendTransactions(response) {
     }
 }
 
+function noFromAddMoney() {
+    return {
+        type: TRANS_DONT_SEND,
+    }
+}
 export function getTransactions() {
     return (dispatch) => {
         const request = axios.get(`${ROOT_URL}/gettrans`, {
@@ -569,6 +575,7 @@ export function getTransactions() {
             dispatch(sendTransactions(response));
         }).catch(error => {
             // dispatch(noFromProjects());
+            dispatch(noFromAddMoney())
         });
     }
 }

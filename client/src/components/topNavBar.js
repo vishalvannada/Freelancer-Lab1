@@ -17,6 +17,7 @@ class TopNavBar extends Component {
                                  src="https://www.f-cdn.com/assets/webapp/assets/freelancer-logo.svg"
                                  alt="Freelancer Logo"
                                  data-display="block"
+
                             />
                         </Link>
 
@@ -79,16 +80,10 @@ class TopNavBar extends Component {
                                 </li>
 
                                 <li className="nav-item active dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Help
-                                    </a>
-                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    <Link to="/transactions" className="nav-link dropdown-toggle">
+                                        $USD
+                                    </Link>
+
                                 </li>
 
 

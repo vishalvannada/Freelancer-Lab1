@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {TRANS_SEND} from "../actions/index";
+import {TRANS_SEND, TRANS_DONT_SEND} from "../actions/index";
 
 const projects = {
     isLoggingIn : true,
@@ -22,6 +22,14 @@ export default function (state = projects, action) {
                 transOut : action.payload.data.transOut,
                 wallet : action.payload.data.wallet,
             };
+        case TRANS_DONT_SEND:
+            return{
+                isLoggingIn : false,
+                isLoggedIn : false,
+                transIn : [],
+                transOut : [],
+                wallet : ''
+            }
         default:
             return state;
     }

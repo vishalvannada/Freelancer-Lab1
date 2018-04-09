@@ -125,13 +125,17 @@ class TransactionManager extends Component {
             console.log("2")
 
             // resetForm;
-            reset('AddWithdraw') 
+            reset('AddWithdraw')
+            this.props.reset()
+            console.log(values)
             this.props.addWithdrawMoney(parseInt(values.add))
 
         }
 
         if(values.withdraw){
             console.log("1")
+            this.props.reset()
+            console.log(values)
             this.props.addWithdrawMoney(-parseInt(values.withdraw))
         }
 
@@ -152,6 +156,18 @@ class TransactionManager extends Component {
     }
 
     render() {
+
+        if(this.props.transactions.isLoggingIn == true){
+            return(
+                <div>
+
+                </div>
+            )
+        }
+
+        if(this.props.transactions.isLoggedIn == false){
+            this.props.history.push("/login")
+        }
 
         console.log(this.props.transactions)
 
@@ -174,7 +190,7 @@ class TransactionManager extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    <TopNavBar/>
+                    <TopNavBar history={this.props.history}/>
                 </MuiThemeProvider>
 
                 <div className="container text-center mt-5">

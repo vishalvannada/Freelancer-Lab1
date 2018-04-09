@@ -226,7 +226,7 @@ hr {
 }
 
 .search-top {
-    width: 283.42px;
+    width: 280.42px;
     margin-left: 12px;
     margin-right: 12px;;
 }
@@ -318,7 +318,7 @@ svg {
 .container svg{
     width: 250px;
     height: 250px;
-    margin-top: 0px !important;
+    /*margin-top: 0px !important;*/
 }
 
 .icons {
