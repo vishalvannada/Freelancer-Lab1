@@ -4,6 +4,7 @@ var mysql = require('./mysql');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
 require('./passport')(passport);
+var kafka = require('./kafka/client')
 
 router.post('/', function (req, res) {
 
@@ -40,16 +41,37 @@ router.post('/', function (req, res) {
 router.get('/logincheck', function (req, res) {
     if (req.session.username) {
         // console.log(req.session.username + req.session.email)
-        res.status(201).send({
-            username: req.session.username,
-            email: req.session.email
+
+        kafka.make_request('getCurrentUser_topic', {"username": req.session.username}, function (err, results) {
+            console.log("here", results);
+            // req.session.username = req.param('username');
+            // res.status(201).json({
+            //     user: results.result,
+            // })
+
+            if (results.result.image) {
+                console.log("Image")
+                res.status(201).send({
+                    username: req.session.username,
+                    email: req.session.email,
+                    image : results.result.image
+                });
+            }
+            else {
+                res.status(201).send({
+                    username: req.session.username,
+                    email: req.session.email
+                });
+            }
+
         });
+
+
     }
     else {
         res.status(401).send("NO");
     }
 });
-
 
 
 router.get('/logout', function (req, res) {

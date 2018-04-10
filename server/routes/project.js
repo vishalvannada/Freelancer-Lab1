@@ -251,7 +251,7 @@ router.get('/', function (req, res, next) {
 router.get('/search', function (req, res, next) {
     if (req.session.username) {
 
-        let perPage = 1;
+        let perPage = 2;
         let page = req.param('page')
         // console.log(page)
         console.log(req.param('skillsReq'))

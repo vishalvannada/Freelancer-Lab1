@@ -514,6 +514,8 @@ export function searchProjects(values) {
         ).then(response => {
             console.log(response)
             // dispatch(SingleProject(response));
+            // console.log(typeof(values.get('skillsReq')))
+            response.data.skills = values.get('skillsReq')
             dispatch(loadProjects(response));
         }).catch(error => {
             // dispatch(noFromProjects());
@@ -530,7 +532,18 @@ export function searchMySkillsProjects() {
             }
         ).then(response => {
             console.log(response.data.user.skills)
-            // dispatch(SingleProject(response));
+
+            if(!response.data.user.skills){
+                response.data.user.skills = [];
+            }
+
+            let body = new FormData();
+            let json_arr = JSON.stringify(response.data.user.skills);
+            // body.append('projectName', this.state.projectName);
+            body.append('skillsReq', json_arr);
+            body.append('page', 1);
+
+            dispatch(searchProjects(body));
             // dispatch(loadProjects(response));
         }).catch(error => {
             // dispatch(noFromProjects());

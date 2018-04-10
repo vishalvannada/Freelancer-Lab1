@@ -307,7 +307,7 @@ class JobsBody extends Component {
 
     render() {
 
-        console.log(this.props, this.state)
+        // console.log(this.props, this.state)
         const {handleSubmit, pristine, reset, submitting} = this.props;
         return (
             <div className="jobs">

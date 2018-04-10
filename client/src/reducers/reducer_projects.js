@@ -11,14 +11,17 @@ const projects = {
 }
 
 export default function (state = projects, action) {
+
     switch (action.type) {
         case LOAD_PROJECTS:
+            console.log(typeof(action.response.data.skills))
             return {
                 isLoggingIn : false,
                 isLoggedIn: true,
                 projects : _.mapKeys(action.response.data.projects, '_id'),
                 current : action.response.data.current,
-                pages : action.response.data.pages
+                pages : action.response.data.pages,
+                skills : action.response.data.skills,
             };
         case NO_FROM_PROJECTS :{
             return {

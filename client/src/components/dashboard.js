@@ -42,7 +42,7 @@ class Dashboard extends Component {
                     <TopNavBar name={this.props.dashboard.username} history={this.props.history}/>
                 </MuiThemeProvider>
                 <BelowTopNavBar type="dashboard"/>
-                <BodyDashboard name={this.props.dashboard.username}/>
+                <BodyDashboard name={this.props.dashboard.username} image={this.props.dashboard.image}/>
             </div>
         )
 

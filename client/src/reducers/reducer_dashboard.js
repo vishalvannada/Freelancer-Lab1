@@ -21,7 +21,8 @@ export default function (state = dashboard, action) {
         case AUTH:
             return {
                 loginStatus: action.payload,
-                username: action.response.data.username
+                username: action.response.data.username,
+                image : action.response.data.image
             }
         case NO_AUTH:
             return {

@@ -50,7 +50,7 @@ class PopoverExampleAnimation extends React.Component {
 
         let label = "H";
 
-        console.log(this.props.name)
+
         if (this.props.name) {
             label = this.props.name.substring(0, 1)
         }
@@ -76,9 +76,11 @@ class PopoverExampleAnimation extends React.Component {
                 >
                     <Menu>
                         <div className="side-bar-image">
-                            <img src="https://www.buira.org/assets/images/shared/default-profile.png"
+                            <img src="https://www.misaelaleman.com/wp-content/uploads/2017/05/buscar-trabajo-freelance-el-salvador.jpg"
                                  alt="..." className="side-bar-inside-image"/>
                         </div>
+
+                        <h6 className="ml-4">Hi, Freelance and Earn Money !</h6>
                         <Divider/>
 
                         <a href="/profile">

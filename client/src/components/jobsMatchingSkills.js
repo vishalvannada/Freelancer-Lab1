@@ -2,33 +2,46 @@ import React, {Component} from 'react';
 import TopNavBar from "./topNavBar";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from 'material-ui/CircularProgress';
+import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import JobsBelowNavBar from './jobsBelowNavBar';
-import JobsBody from './jobsBody'
+import BodyJobsMatchingMySkills from './bodyMatchingMySkills'
+import JobsBody from './jobsBody';
+import Multiselect from 'react-widgets/lib/Multiselect';
 import {searchMySkillsProjects} from '../actions/index'
+import {getMyProjects, loadAllProjects, searchProjects} from "../actions";
+import {Field, reduxForm} from 'redux-form';
+import _ from 'lodash';
+import Computer from 'material-ui/svg-icons/hardware/computer';
+
+
+
 
 class JobsMatchingMySkills extends Component {
 
-
-    componentDidMount() {
-        // console.log("here")
-        // var page = 1;
+    componentWillMount() {
         this.props.searchMySkillsProjects();
     }
 
+
+
     render() {
 
-        // if (this.props.projects.isLoggingIn === true) {
-        //     return <div>
-        //         <MuiThemeProvider>
-        //             <CircularProgress/>
-        //         </MuiThemeProvider>
-        //     </div>
-        // }
+        console.log(this.props.projects)
+        if (this.props.projects.isLoggingIn === true) {
+            return <div>
+                <MuiThemeProvider>
+                    <CircularProgress/>
+                </MuiThemeProvider>
+            </div>
+        }
         //
         // if (this.props.projects.isLoggedIn === false) {
         //     this.props.history.push("/login")
         // }
+
+        const {handleSubmit, pristine, reset, submitting} = this.props;
+        console.log(this.props.projects.skills)
 
         return (
             <div>
@@ -36,10 +49,8 @@ class JobsMatchingMySkills extends Component {
                     <TopNavBar history={this.props.history}/>
                 </MuiThemeProvider>
                 <JobsBelowNavBar type="mySkills"/>
-                {/*<JobsBody projects={this.props.projects} history={this.props.history}/>*/}
-                {/*<div>*/}
-                {/*<img className="imagefooter" src="./Capture5.png" alt="aaa"/>*/}
-                {/*</div>*/}
+                <BodyJobsMatchingMySkills projects={this.props.projects} history={this.props.history}/>
+
             </div>
         )
 
@@ -53,4 +64,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(null, {searchMySkillsProjects})(JobsMatchingMySkills);
+export default connect(mapStateToProps, {searchMySkillsProjects})(JobsMatchingMySkills);

@@ -6,13 +6,13 @@ function handle_request(msg, callback) {
     var res = {};
     try {
         mongo.connect(url, function () {
-            console.log('Connected to mongo at: ' + url);
+            console.log('Connected to mono at: ' + url);
 
             var coll = mongo.collection('projects');
             var regex = ".*" + msg.projectName + ".*"
-            console.log(msg, regex);
+            console.log("hererererr");
 
-            if(!msg.projectName){
+            if (!msg.projectName || msg.projectName == '') {
                 coll.aggregate([{
                     $match: {
                         $and: [
@@ -44,25 +44,24 @@ function handle_request(msg, callback) {
                     // coll.find({username: {$ne: msg.username}}).skip((msg.perPage * msg.page) - msg.perPage)
                     //     .limit(msg.perPage).toArray(function (err, projects) {
 
-                    console.log(projects, msg.username);
+                    console.log(projects);
 
                     projects.forEach(project => {
-                        console.log(project)
+                        console.log("Pro", project)
                     })
 
                     coll.find({
-                        $and: [{projectName: new RegExp(regex, 'i')},
-                            {username: {$ne: msg.username}},
+                        $and: [{username: {$ne: msg.username}},
                             {skillsReq: {$elemMatch: {$in: msg.skillsReq}}}]
                     }).count(function (err, count) {
-                        console.log("here", count)
+                        console.log("he", count)
 
                         res.code = "200";
                         res.value = "Success";
                         res.projects = projects;
                         res.count = count;
 
-                        console.log(res)
+                        // console.log(res)
 
                         callback(null, res);
                     })
@@ -71,6 +70,7 @@ function handle_request(msg, callback) {
             }
 
             if (msg.skillsReq.length > 0) {
+                console.log(msg)
                 coll.aggregate([{
                     $match: {
                         $and: [

@@ -39,7 +39,7 @@ class BodyDashboard extends Component {
                                 <div className="row">
                                     <div className="col-4">
                                         <img
-                                            src="https://www.buira.org/assets/images/shared/default-profile.png"
+                                            src={this.props.image ? 'http://localhost:3000/images/'+this.props.image : "https://www.buira.org/assets/images/shared/default-profile.png"}
                                             alt="..." className="rounded  d-block dashboard-profilepic"
                                         />
                                     </div>

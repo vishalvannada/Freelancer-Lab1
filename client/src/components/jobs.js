@@ -48,6 +48,9 @@ class Jobs extends Component {
                 {/*<div>*/}
                     {/*<img className="imagefooter" src="./Capture5.png" alt="aaa"/>*/}
                 {/*</div>*/}
+
+
+
             </div>
         )
 
