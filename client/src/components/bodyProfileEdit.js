@@ -7,9 +7,31 @@ import {profileCheck, uploadImage, profileSave} from "../actions";
 import FormData from 'form-data'
 import * as API from '../api/API';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
+import Multiselect from 'react-widgets/lib/Multiselect';
+import 'react-widgets/dist/css/react-widgets.css';
 
 import TextField from 'material-ui/TextField';
 
+
+const renderMultiselect = ({input, data, valueField, textField, meta}) => {
+
+    const className = `${meta.touched && meta.error ? 'border-red' : ''}`
+    return (
+        <div>
+            <Multiselect {...input}
+                         className={className}
+                         onBlur={() => input.onBlur()}
+                         value={input.value || []} // requires value to be an array
+                         data={data}
+                         valueField={valueField}
+                         textField={textField}
+            />
+            <div className="error-message">
+                {meta.touched ? meta.error : ''}
+            </div>
+        </div>
+    )
+}
 
 class BodyProfileEdit extends Component {
 
@@ -171,9 +193,16 @@ class BodyProfileEdit extends Component {
                                             name="aboutMe" component={this.renderText}/>
 
 
+                                        {/*<Field*/}
+                                            {/*label="Skills"*/}
+                                            {/*name="skills" component={this.renderText}/>*/}
+
                                         <Field
-                                            label="Skills"
-                                            name="skills" component={this.renderText}/>
+                                            name="skills"
+                                            component={renderMultiselect}
+                                            data={['Java', 'C', 'C++', 'JavaScript', 'C#', 'MERN Stack', 'MEAN Stack', 'LAMP Stack',
+                                                'Website Design', 'Logo Design', 'Mobile App Development(Android)', 'Mobile App Development(ios)']}
+                                        />
 
 
                                         <button className="save-profile"

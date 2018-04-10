@@ -52,6 +52,9 @@ class JobsBody extends Component {
 
         console.log(data.skillsReq, data.projectName)
 
+        if(!data.skillsReq){
+            data.skillsReq = []
+        }
         var json_arr = JSON.stringify(data.skillsReq);
         var body = new FormData();
         body.append('projectName', data.projectName);

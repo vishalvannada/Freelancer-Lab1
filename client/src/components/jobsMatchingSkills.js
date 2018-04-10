@@ -5,7 +5,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import {connect} from "react-redux";
 import JobsBelowNavBar from './jobsBelowNavBar';
 import JobsBody from './jobsBody'
-import {loadAllProjects} from '../actions/index'
+import {searchMySkillsProjects} from '../actions/index'
 
 class JobsMatchingMySkills extends Component {
 
@@ -13,7 +13,7 @@ class JobsMatchingMySkills extends Component {
     componentDidMount() {
         // console.log("here")
         // var page = 1;
-        // this.props.loadAllProjects(page);
+        this.props.searchMySkillsProjects();
     }
 
     render() {
@@ -53,4 +53,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(null, {})(JobsMatchingMySkills);
+export default connect(null, {searchMySkillsProjects})(JobsMatchingMySkills);

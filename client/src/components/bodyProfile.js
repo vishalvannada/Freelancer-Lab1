@@ -14,7 +14,7 @@ class BodyProfile extends Component {
         console.log(this.props.profile.userDetails.image)
 
         let src = 'https://www.buira.org/assets/images/shared/default-profile.png';
-        if(this.props.profile.userDetails.image) {
+        if (this.props.profile.userDetails.image) {
             src = 'http://localhost:3000/images/' + this.props.profile.userDetails.image;
         }
 
@@ -43,7 +43,9 @@ class BodyProfile extends Component {
                                         <p className="mb-3">{this.props.profile.userDetails.email}</p>
                                         <p className="mb-3">{this.props.profile.userDetails.phoneNumber}</p>
                                         <p className="mb-3">{this.props.profile.userDetails.aboutMe}</p>
-                                        <p className="mb-3">{this.props.profile.userDetails.skills}</p>
+                                        <p className="mb-3">{this.props.profile.userDetails.skills ? this.props.profile.userDetails.skills.join(", ") : ""}</p>
+
+                                        {/*{project.skillsReq.join(", ")}*/}
                                     </div>
                                 </div>
                             </div>

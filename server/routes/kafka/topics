@@ -14,3 +14,4 @@ searchProjects_topic
 hireFreelancer_topic
 makePayment_topic
 getTransactions_topic
+getCurrentUser_topic

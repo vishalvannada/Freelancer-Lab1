@@ -53,7 +53,6 @@ class Profile extends Component {
                     </MuiThemeProvider>
                     <ProfileBelowNavBar type="improve"/>
                     <BodyProfile profile={this.props.profile}/>
-                    }
                 </div>
             )
         }

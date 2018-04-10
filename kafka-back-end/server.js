@@ -63,6 +63,10 @@ var consumer15 = connection.getConsumer(topic_name15);
 var topic_name16 = 'addWithdraw_topic';
 var consumer16 = connection.getConsumer(topic_name16);
 
+var topic_name17 = 'getCurrentUser_topic';
+var consumer17 = connection.getConsumer(topic_name17);
+
+
 
 var producer = connection.getProducer();
 
@@ -451,6 +455,30 @@ consumer16.on('message', function (message) {
     var data = JSON.parse(message.value);
     console.log(data)
     addWithdrawMoney.handle_request(data.data, function(err,res){
+        console.log('after handle',res, err);
+        var payloads = [
+            { topic: data.replyTo,
+                messages:JSON.stringify({
+                    correlationId:data.correlationId,
+                    data : res
+                }),
+                partition : 0
+            }
+        ];
+        producer.send(payloads, function(err, data){
+            console.log('producer',data);
+        });
+        return;
+    });
+});
+
+consumer17.on('message', function (message) {
+    console.log('message received');
+    console.log(message)
+    console.log(JSON.parse(message.value));
+    var data = JSON.parse(message.value);
+    console.log(data)
+    profile.handle_request(data.data, function(err,res){
         console.log('after handle',res, err);
         var payloads = [
             { topic: data.replyTo,

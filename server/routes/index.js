@@ -254,6 +254,27 @@ router.post('/addwithdraw', function (req, res, next) {
     }
 })
 
+
+router.get('/getcurrent', function (req, res) {
+
+    if (req.session.username) {
+        const username = req.session.username;
+        kafka.make_request('getCurrentUser_topic', {"username": username}, function (err, results) {
+
+            console.log("here", results);
+            // req.session.username = req.param('username');
+            res.status(201).json({
+                user: results.result,
+            })
+
+
+        });
+    }
+    else {
+        res.status(401).end();
+    }
+})
+
 module.exports = router;
 
 

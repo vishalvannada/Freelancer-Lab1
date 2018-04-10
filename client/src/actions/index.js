@@ -521,6 +521,23 @@ export function searchProjects(values) {
     }
 }
 
+export function searchMySkillsProjects() {
+    // console.log(values, values.get('page'), values.get('projectName'))
+
+    return (dispatch) => {
+        const request = axios.get(`${ROOT_URL}/getcurrent`, {
+                withCredentials: true
+            }
+        ).then(response => {
+            console.log(response.data.user.skills)
+            // dispatch(SingleProject(response));
+            // dispatch(loadProjects(response));
+        }).catch(error => {
+            // dispatch(noFromProjects());
+        });
+    }
+}
+
 
 export function makePayment(values) {
     // console.log(values.projectid)
