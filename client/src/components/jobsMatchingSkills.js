@@ -20,6 +20,7 @@ import Computer from 'material-ui/svg-icons/hardware/computer';
 class JobsMatchingMySkills extends Component {
 
     componentWillMount() {
+        console.log("here")
         this.props.searchMySkillsProjects();
     }
 
@@ -36,9 +37,9 @@ class JobsMatchingMySkills extends Component {
             </div>
         }
         //
-        // if (this.props.projects.isLoggedIn === false) {
-        //     this.props.history.push("/login")
-        // }
+        if (this.props.projects.isLoggedIn === false) {
+            this.props.history.push("/login")
+        }
 
         const {handleSubmit, pristine, reset, submitting} = this.props;
         console.log(this.props.projects.skills)

@@ -6,7 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Ascending from 'material-ui/svg-icons/navigation/arrow-downward';
 import Descending from 'material-ui/svg-icons/navigation/arrow-upward';
 import {connect} from "react-redux";
-import {loadSingleProject, submitBid, hireFreelancer} from '../actions/index'
+import {loadSingleProject, submitBid, hireFreelancer,unloadSingleProject} from '../actions/index'
 import {Field, reduxForm} from 'redux-form';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
@@ -124,10 +124,15 @@ class JobSingle extends Component {
         })
     }
 
-    componentDidMount() {
+    componentWillMount() {
         console.log("Single Job")
         const {id} = this.props.match.params;
         this.props.loadSingleProject(id);
+    }
+
+    componentWillUnmount() {
+        // this.props.singleProject = undefined
+        this.props.unloadSingleProject()
     }
 
     sortAscending() {
@@ -281,7 +286,7 @@ class JobSingle extends Component {
 
         var bidDone = false;
 
-        console.log(this.state)
+        console.log(this.state, this.props.singleProject)
         if (this.props.singleProject.isLoggingIn === true) {
             return <div>
                 <MuiThemeProvider>
@@ -289,6 +294,7 @@ class JobSingle extends Component {
                 </MuiThemeProvider>
             </div>
         }
+
 
         if (this.props.singleProject.isLoggedIn === false) {
             this.props.history.push('/login')
@@ -503,5 +509,5 @@ export default reduxForm({
     validate,
     form: 'BidProject'
 })(
-    connect(mapStateToProps, {loadSingleProject, submitBid, hireFreelancer})(JobSingle)
+    connect(mapStateToProps, {loadSingleProject, submitBid, hireFreelancer, unloadSingleProject})(JobSingle)
 );

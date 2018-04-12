@@ -29,6 +29,7 @@ export const NO_FROM_PROJECTS = 'no_from_projects';
 export const SEND_PROFILE = 'send_profile';
 export const TRANS_SEND = 'trans_send';
 export const TRANS_DONT_SEND = 'trans_dont_send';
+export const UNLOAD = 'unload';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -440,8 +441,11 @@ export function hireFreelancer(payload1, payload2) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(response => {
-            console.log(response.data)
+            console.log(response.data.projectid)
             // dispatch(SingleProject(response));
+            dispatch(loadSingleProject(response.data.projectid))
+
+
         }).catch(error => {
             // dispatch(noFromProjects());
         });
@@ -546,7 +550,7 @@ export function searchMySkillsProjects() {
             dispatch(searchProjects(body));
             // dispatch(loadProjects(response));
         }).catch(error => {
-            // dispatch(noFromProjects());
+            dispatch(noFromProjects());
         });
     }
 }
@@ -627,5 +631,12 @@ export function addWithdrawMoney(amount) {
         }).catch(error => {
             // dispatch(noFromProjects());
         });
+    }
+}
+
+
+export function unloadSingleProject() {
+    return{
+        type : UNLOAD,
     }
 }

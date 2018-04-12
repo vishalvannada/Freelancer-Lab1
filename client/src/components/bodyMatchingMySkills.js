@@ -53,9 +53,15 @@ class BodyJobsMatchingMySkills extends Component {
 
         console.log(this.props.projects)
 
-        const data = {
-            "projectName" : '',
-            "skillsReq" : JSON.parse(this.props.projects.skills)
+        let data = {
+            "projectName": '',
+        }
+
+        if (this.props.projects.skills) {
+            data = {
+                "projectName": '',
+                "skillsReq": JSON.parse(this.props.projects.skills)
+            }
         }
 
         this.props.initialize(data);
@@ -173,11 +179,11 @@ class BodyJobsMatchingMySkills extends Component {
 
         console.log(data.skillsReq, data.projectName)
 
-        if(!data.skillsReq){
+        if (!data.skillsReq) {
             data.skillsReq = []
         }
 
-        if(!data.projectName){
+        if (!data.projectName) {
             data.projectName = ''
         }
         var json_arr = JSON.stringify(data.skillsReq);
@@ -265,7 +271,8 @@ class BodyJobsMatchingMySkills extends Component {
                         <div className="mt-2">
 
                             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                                <div className="text-align-left mt-1"><span className="strong-weight">Search</span></div>
+                                <div className="text-align-left mt-1"><span className="strong-weight">Search</span>
+                                </div>
                                 <div className="container-search-project text-align-right ml-4">
                                     <Field
                                         label="Search for projects by name"
@@ -335,5 +342,5 @@ class BodyJobsMatchingMySkills extends Component {
 export default reduxForm({
     form: 'SearchMySkills',
 })(
-    connect(null, {searchMySkillsProjects,searchProjects})(BodyJobsMatchingMySkills)
+    connect(null, {searchMySkillsProjects, searchProjects})(BodyJobsMatchingMySkills)
 );

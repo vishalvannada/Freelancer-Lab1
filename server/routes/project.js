@@ -90,7 +90,7 @@ router.get('/loadprojects', function (req, res, next) {
 
     if (req.session.username) {
 
-        let perPage = 1;
+        let perPage = 3;
         let page = req.param('page')
         console.log(page)
 
@@ -251,7 +251,7 @@ router.get('/', function (req, res, next) {
 router.get('/search', function (req, res, next) {
     if (req.session.username) {
 
-        let perPage = 2;
+        let perPage = 3;
         let page = req.param('page')
         // console.log(page)
         console.log(req.param('skillsReq'))
@@ -303,6 +303,35 @@ router.post('/hire', function (req, res, next) {
             //     pages: Math.ceil(results.count / perPage)
             // })
 
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'vishalvannada9@gmail.com',
+                    pass: 'sreedevi'
+                }
+            });
+            //
+            let mailOptions = {
+                from: '"Freelancer 👻" <admin@freelancer.com>', // sender address
+                to: email, // list of receivers
+                subject: 'You have been hired for project ✔', // Subject line
+                text: 'Hi, your bid has been selected, and you have been accepted, go login to freelancer and start working on your project', // plain text body
+                html: '<b>Hi, your bid has been selected, and you have been accepted, go login to freelancer and start working on your project</b>' // html body
+            };
+            //
+            // // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log('Message sent: %s', info.messageId);
+                // Preview only available when sending through an Ethereal account
+                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+                // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+            });
+
+            res.status(201).json({projectid: projectid});
         });
 
         // Generate test SMTP service account from ethereal.email
@@ -320,40 +349,9 @@ router.post('/hire', function (req, res, next) {
         // setup email data with unicode symbols
 
 
-        // var transporter = nodemailer.createTransport({
-        //     service: 'gmail',
-        //     auth: {
-        //         user: 'vishalvannada9@gmail.com',
-        //         pass: 'sreedevi'
-        //     }
-        // });
-        //
-        // let mailOptions = {
-        //     from: '"Freelancer 👻" <admin@freelancer.com>', // sender address
-        //     to: email, // list of receivers
-        //     subject: 'You have been hired for project ✔', // Subject line
-        //     text: 'Hello world?', // plain text body
-        //     html: '<b>Hello world?</b>' // html body
-        // };
-        //
-        // // send mail with defined transport object
-        // transporter.sendMail(mailOptions, (error, info) => {
-        //     if (error) {
-        //         return console.log(error);
-        //     }
-        //     console.log('Message sent: %s', info.messageId);
-        //     // Preview only available when sending through an Ethereal account
-        //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        //
-        //     res.status(201).end();
-        //     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-        //     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-        // });
-
-
     }
     else {
-        res.status(401).end()
+        res.status(401).json({id: projectid})
     }
 
 })

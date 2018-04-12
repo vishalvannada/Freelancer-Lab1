@@ -1,5 +1,5 @@
 var mongo = require('./mongo');
-var url = 'mongodb://localhost:27017/local';
+var url = 'mongodb://cmpe273:sreedevi@ds139929.mlab.com:39929/freelancer_lab2';
 var ObjectID = require('mongodb').ObjectID;
 
 function handle_request(msg, callback) {
@@ -23,14 +23,14 @@ function handle_request(msg, callback) {
                         res.code = "200";
                         res.message = '';
                         res.result = check.value;
-                        // callback(null, res);
+                        callback(null, res);
 
                     } else {
                         console.log(err)
                         res.code = "401";
                         res.message = '';
                         res.result = {}
-                        // callback(null, res);
+                        callback(null, res);
                     }
                 });
         });

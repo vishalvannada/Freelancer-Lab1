@@ -24,6 +24,12 @@ class Jobs extends Component {
         this.props.loadAllProjects(page);
     }
 
+    componentWillUnmount(){
+        console.log(this.props.projects.isLoggingIn)
+        this.props.projects.isLoggingIn = true;
+        console.log(this.props.projects.isLoggingIn)
+    }
+
     render() {
 
         if (this.props.projects.isLoggingIn === true) {
@@ -33,6 +39,8 @@ class Jobs extends Component {
                 </MuiThemeProvider>
             </div>
         }
+
+        this.props.projects.isLoggingIn = true
 
         if (this.props.projects.isLoggedIn === false) {
             this.props.history.push("/login")

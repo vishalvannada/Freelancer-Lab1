@@ -23,8 +23,17 @@ router.post('/', function (req, res) {
 
             if (bcrypt.compareSync(req.param('password'), user.password)) {
                 req.session.username = user.username;
-                req.session.email = user.email
+                req.session.email = user.email;
+
+                // req.logIn(user, function (err) {
+                //     if (err) {
+                //         console.log(err)
+                //     }
+                // });
+
                 res.status('200').send(user);
+
+
             }
             else {
                 res.status(401).json({
@@ -39,6 +48,10 @@ router.post('/', function (req, res) {
 
 
 router.get('/logincheck', function (req, res) {
+
+    console.log("request", req.user)
+    console.log("request1", req.passport)
+    console.log("request2", req.session)
     if (req.session.username) {
         // console.log(req.session.username + req.session.email)
 
@@ -54,7 +67,7 @@ router.get('/logincheck', function (req, res) {
                 res.status(201).send({
                     username: req.session.username,
                     email: req.session.email,
-                    image : results.result.image
+                    image: results.result.image
                 });
             }
             else {

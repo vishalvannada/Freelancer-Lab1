@@ -16,6 +16,24 @@ module.exports = function(passport) {
             {
                 console.log("Here in passport")
                 if(results.code == 200){
+
+                    console.log("why not")
+                    // passport.serializeUser(function(user, done) {
+                    //     console.log('serializing user: ');
+                    //     console.log(user);
+                    //     done(null, user._id);
+                    // });
+                    //
+                    // passport.deserializeUser(function(id, done) {
+                    //     console.log(id)
+                    //     console.log("heerer")
+                    //     user.findById(id, function (err, user) {
+                    //         console.log('no im not serial');
+                    //         done(err, user);
+                    //     });
+                    // });
+
+
                     console.log("Here nn")
                     done(null,results.result);
                 }

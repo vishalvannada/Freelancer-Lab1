@@ -1,5 +1,5 @@
 var mongo = require('./mongo');
-var url = 'mongodb://localhost:27017/local';
+var url = 'mongodb://cmpe273:sreedevi@ds139929.mlab.com:39929/freelancer_lab2';
 var mongo1 = require('mongodb');
 
 function handle_request(msg, callback) {
@@ -20,12 +20,12 @@ function handle_request(msg, callback) {
                     if (check) {
                         var coll2 = mongo.collection('users')
                         coll2.findOneAndUpdate({username: msg.owner}, {
-                                $inc: {wallet: parseInt(msg.bidAmount)}
+                                $inc: {wallet: -parseInt(msg.bidAmount)}
                             },
                             function (err, check) {
                                 if (check) {
                                     coll2.findOneAndUpdate({username: msg.bidder}, {
-                                            $inc: {wallet: -parseInt(msg.bidAmount)}
+                                            $inc: {wallet: parseInt(msg.bidAmount)}
                                         },
                                         function (err, check) {
                                             if (check) {

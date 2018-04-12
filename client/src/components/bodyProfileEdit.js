@@ -126,7 +126,7 @@ class BodyProfileEdit extends Component {
         const {handleSubmit} = this.props;
 
         let src = 'https://www.buira.org/assets/images/shared/default-profile.png';
-        if(this.props.profile.userDetails.image) {
+        if (this.props.profile.userDetails.image) {
             src = 'http://localhost:3000/images/' + this.props.profile.userDetails.image;
         }
 
@@ -148,7 +148,7 @@ class BodyProfileEdit extends Component {
                                         />
                                     </div>
                                     <div>
-                                        <label for = "file-upload" className="custom-file-upload">
+                                        <label for="file-upload" className="custom-file-upload">
                                             <Edit className="icon-edit"/>
                                             <span className="file-button">Edit Profile Picture</span>
                                         </label>
@@ -194,8 +194,8 @@ class BodyProfileEdit extends Component {
 
 
                                         {/*<Field*/}
-                                            {/*label="Skills"*/}
-                                            {/*name="skills" component={this.renderText}/>*/}
+                                        {/*label="Skills"*/}
+                                        {/*name="skills" component={this.renderText}/>*/}
 
                                         <Field
                                             name="skills"
@@ -308,12 +308,20 @@ function validate(values) {
     if (!values.email) {
         errors.email = "Email can't be empty";
     }
-    if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = "Please enter a valid email address";
     }
-    if(isNaN(values.phoneNumber)){
-        errors.phoneNumber = "Please Enter a valid phone number"
+
+    if (values.phoneNumber) {
+        if (isNaN(values.phoneNumber)) {
+            errors.phoneNumber = "Please Enter a valid phone number"
+        }
+
+        if (values.phoneNumber.length != 10) {
+            errors.phoneNumber = "Phone Number must be 10 digits"
+        }
     }
+
     return errors;
 }
 

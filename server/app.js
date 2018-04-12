@@ -14,7 +14,10 @@ var users = require('./routes/users');
 var login = require('./routes/login');
 var signup = require('./routes/signUp');
 var project = require('./routes/project');
-var mongoSessionURL = "mongodb://localhost:27017/sessions";
+
+
+
+var mongoSessionURL = "mongodb://cmpe273:sreedevi@ds139929.mlab.com:39929/freelancer_lab2";
 var expressSessions = require("express-session");
 var mongoStore = require("connect-mongo")(expressSessions);
 
@@ -61,6 +64,8 @@ app.use(expressSessions({
     })
 }));
 app.use(passport.initialize());
+app.use(passport.session());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

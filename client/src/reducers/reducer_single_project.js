@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import {LOAD_SINGLE_PROJECT, NO_FROM_PROJECTS, LOGOUT} from '../actions/index'
+// import { LOCATION_CHANGE } from 'react-router-redux'
+import {LOAD_SINGLE_PROJECT, NO_FROM_PROJECTS, LOGOUT, UNLOAD} from '../actions/index'
 
 const singleProject = {
     project : {},
@@ -36,6 +37,18 @@ export default function (state = singleProject, action) {
                 username : '',
                 avgBid: ''
             }
+        case UNLOAD:
+            // console.log("herelocationchange", state)
+            return{
+                project : {},
+                bids : [],
+                isBidding : false,
+                isLoggingIn : true,
+                isLoggedIn : false,
+                username : '',
+                avgBid: ''
+            }
+
         // case LOGOUT:
         //     return{
         //         project : {},
