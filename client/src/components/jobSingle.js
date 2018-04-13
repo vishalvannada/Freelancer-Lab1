@@ -10,7 +10,7 @@ import {loadSingleProject, submitBid, hireFreelancer,unloadSingleProject} from '
 import {Field, reduxForm} from 'redux-form';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
-import FreelancerSingleJob from './freelancerSingleJob'
+import FreelancerSingleJob from './freelancerSingleJob';
 
 class JobSingle extends Component {
 

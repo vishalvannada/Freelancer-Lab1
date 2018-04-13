@@ -31,7 +31,7 @@ export const TRANS_SEND = 'trans_send';
 export const TRANS_DONT_SEND = 'trans_dont_send';
 export const UNLOAD = 'unload';
 
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'http://ec2-54-183-235-146.us-west-1.compute.amazonaws.com:3001';
 
 function loggingIn() {
     return {
@@ -310,7 +310,7 @@ export function signupSubmit(values) {
 export function check() {
     return (dispatch) => {
         dispatch(signingIn());
-        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+        const request = axios.get(`${ROOT_URL}/login/logincheck`, {withCredentials: true}).then(response => {
             dispatch(authenticate(response));
         }).catch(error => {
             dispatch(noAuthenticate());

@@ -26,25 +26,25 @@ const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
 export const store = createStoreWithMiddleware(reducers);
 
-function loggedIn() {
-    console.log('looo')
-    return (dispatch) => {
-        const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
-            return true
-        }).catch(error => {
-            return false
-        });
-    }
-}
+// function loggedIn() {
+//     console.log('looo')
+//     return (dispatch) => {
+//         const request = axios.get('http://localhost:3000/login/logincheck', {withCredentials: true}).then(response => {
+//             return true
+//         }).catch(error => {
+//             return false
+//         });
+//     }
+// }
 
-function requireAuth(nextState, replace) {
-    console.log("hereddddddd")
-    if (!loggedIn()) {
-        replace({
-            pathname: '/login'
-        })
-    }
-}
+// function requireAuth(nextState, replace) {
+//     console.log("hereddddddd")
+//     if (!loggedIn()) {
+//         replace({
+//             pathname: '/login'
+//         })
+//     }
+// }
 
 
 ReactDOM.render(
